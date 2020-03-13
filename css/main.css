@@ -1,7 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url('normalize.css');
+
+/* LOGO TITLE ONLY */
+@font-face {
+    font-family: 'Sifonn Pro';
+    src: url('fonts/sifonn-pro.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --black: #000000;
+    --darkgrey: #191919;
+    --grey: #484848;
+    --lightgrey: #dddddd;
+}
+
 
 body {
-    background-color: black;
+    background-color: var(--lightgrey);
     height: 98vh;
     display: flex;
     flex-direction: row;
@@ -10,6 +26,8 @@ body {
 }
 
 h1 {
-    color: white;
-    font-family: "Roboto Mono", monospace;
+    color: var(--darkgrey);
+    font-family: "Sifonn Pro", monospace;
+    text-transform: uppercase;
+    font-size: 1.2rem;
 }
