@@ -8,7 +8,6 @@ export class Developers extends Component {
             <React.Fragment>
                 <Navigation
                     navigate={this.props.navigate} />
-
             </React.Fragment>
         )
     }
