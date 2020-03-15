@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { Navigation } from './Snacks/Navigation'
+import { Header } from './Snacks/Header'
 import { FullWidthTile, HalfWidthTile } from './Snacks/Tiles'
 
-export class Homepage extends Component {
+export class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <Navigation
-                    navigate={this.props.navigate} />
-
                 <div className="home-hero">
                     <h3>Captain Planet—he's our hero. Gonna take pollution down to zero.</h3>
                 </div>
