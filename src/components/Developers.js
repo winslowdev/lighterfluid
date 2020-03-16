@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Navigation } from './Snacks/Navigation'
-import { FullWidthTile, HalfWidthTile } from './Snacks/Tiles'
+import { HeaderInformation } from './Snacks'
 
 export class Developers extends Component {
     render() {
         return (
             <React.Fragment>
-                <Navigation
-                    navigate={this.props.navigate} />
+                <HeaderInformation
+                    pageTitle={this.props.pageTitles.developers}
+                    pageDescription="We are a network of freelance developers located throughout the United States—from sea to shining C#." />
             </React.Fragment>
         )
     }
