@@ -89,21 +89,28 @@ export default class App extends Component {
                 <Route
                     path="/projects" exact
                     render={(props) => <Projects {...props}
-                    dimensions={this.state.dimensions}
-                    navigate={this.navigate}
-                    pageTitles={this.state.pageTitles} />} />
+                        dimensions={this.state.dimensions}
+                        navigate={this.navigate}
+                        pageTitles={this.state.pageTitles} />} />
 
                 <Route
                     path="/developers" exact
                     render={(props) => <Developers {...props}
-                    navigate={this.navigate}
-                    pageTitles={this.state.pageTitles} />} />
+                        navigate={this.navigate}
+                        pageTitles={this.state.pageTitles} />} />
 
                 <Route
                     path="/skills" exact
                     render={(props) => <Skills {...props}
-                    navigate={this.navigate}
-                    pageTitles={this.state.pageTitles} />} />
+                        navigate={this.navigate}
+                        pageTitles={this.state.pageTitles} />} />
+
+                <footer>
+                    <div id="footer" className="container">
+                        <p className="footer">designed and coded in sf and atl. <span className="sign-in"
+                            onClick={() => { { this.navigate('internal', '/signin') } }}>sign in.</span></p>
+                    </div>
+                </footer>
             </Router>
         )
     }

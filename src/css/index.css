@@ -128,7 +128,7 @@ header {
     }
 }
 
-#header, #superhero {
+#header, #superhero, #footer, footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -324,4 +324,20 @@ p {
 
 .gradient-3 {
     background-image: linear-gradient(to bottom right, #555555bb, #000000);
+}
+
+footer {
+    height: 30px;
+    width: 100%;
+}
+
+footer p {
+    color: #7e7e7e;
+    font-size: 0.3rem;
+    text-align: center;
+    width: 100%;
+}
+
+.sign-in {
+    text-decoration: underline;
 }
