@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { CoverageMap } from 'istanbul-lib-coverage';
 
 // PAGE TITLE, PAGE DESCRIPTION
 export class HeaderInformation extends Component {
