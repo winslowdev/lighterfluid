@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FullWidthTile, HalfWidthTile } from './Snacks'
+import { RectangleTile, SquareTile } from './Snacks'
 
 export class Home extends Component {
     render() {
@@ -7,7 +7,7 @@ export class Home extends Component {
             <React.Fragment>
                 <aside className="home">
                     <div id="superhero" className="container">
-                        <h3>Captain Planet—he's our hero. Gonna take pollution down to zero.</h3>
+                        <h2>Captain Planet—he's our hero. Gonna take pollution down to zero.</h2>
                     </div>
                 </aside>
 
@@ -15,21 +15,29 @@ export class Home extends Component {
 
                 <p>Id lorem ut at tellus felis mattis aliquam. A et rum blandit sed tristique ut. Ipsum pulvinar eu pretium sit suspendisse sed proin nibh cras. Tellus massa elementum, tortor faucibus sed sed. Porta nisi viverra sit a auctor libero. In nunc quis purus in.</p>
 
-                <FullWidthTile
-                    title="Collaborative projects"
-                    address="/collaborations"
-                    imageClass="black" />
+                <RectangleTile
+                    address="/projects"
+                    gradientStyle="gradient-1"
+                    image={require('../images/stock/workspace.jpg')}
+                    navigate={this.props.navigate}
+                    dimensions={this.props.dimensions}
+                    title={this.props.pageTitles.projects} />
 
                 <div className="double-tiles">
-                    <HalfWidthTile
-                        title="Developers"
+                    <SquareTile
                         address="/developers"
+                        gradientStyle="gradient-2"
+                        image={require('../images/stock/fake-cyclist.jpg')}
                         navigate={this.props.navigate}
-                        imageClass="blue" />
-                    <HalfWidthTile
-                        title="Stacks"
+                        dimensions={this.props.dimensions}
+                        title={this.props.pageTitles.developers} />
+                    <SquareTile
                         address="/skills"
-                        imageClass="green" />
+                        gradientStyle="gradient-3"
+                        image={require('../images/stock/code-sample.jpg')}
+                        navigate={this.props.navigate}
+                        dimensions={this.props.dimensions}
+                        title={this.props.pageTitles.skills} />
                 </div>
             </React.Fragment>
         )

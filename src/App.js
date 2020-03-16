@@ -2,15 +2,37 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Home } from './components/Home.js'
 import { Developers } from './components/Developers.js'
+import { Skills } from './components/Skills.js'
+import { Projects } from './components/Projects.js'
 
 export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            isShowNavigation: false
+            isShowNavigation: false,
+            dimensions: {
+                rectangleHeight: '',
+                squareHeight: ''
+            },
+            pageTitles: {
+                developers: 'Developers & designers',
+                projects: 'Collaborative projects',
+                skills: 'Stacks, languages & frameworks'
+            },
         }
+        this.findDimensions = this.findDimensions.bind(this)
         this.navigate = this.navigate.bind(this)
         this.toggleNavbar = this.toggleNavbar.bind(this)
+    }
+
+    findDimensions() {
+        this.setState({
+            dimensions: {
+                ...this.state.dimensions,
+                rectangleHeight: window.innerWidth * 0.4,
+                squareHeight: window.innerWidth * 0.5
+            }
+        })
     }
 
     navigate(type, address) {
@@ -27,6 +49,11 @@ export default class App extends Component {
         })
     }
 
+    componentDidMount() {
+        this.findDimensions()
+        window.addEventListener("resize", this.findDimensions)
+    }
+
     render() {
         return (
             <Router>
@@ -37,7 +64,7 @@ export default class App extends Component {
                     <h5 onClick={() => { { this.navigate("internal", "/skills") } }}>Stacks, languages & frameworks</h5>
                 </div>
                     : null}
-                    
+
                 <header>
                     <div id="header" className="container">
                         <h6 onClick={() => { { this.navigate("internal", "/") } }}>Lighterfluid</h6>
@@ -51,19 +78,25 @@ export default class App extends Component {
                 </header>
 
 
-                
-
-
-
                 <Route
                     path="/" exact
                     render={(props) => <Home {...props}
                         navigate={this.navigate}
+                        dimensions={this.state.dimensions}
+                        pageTitles={this.state.pageTitles}
                     />} />
+
+                <Route
+                    path="/projects" exact
+                    render={(props) => <Projects {...props} navigate={this.navigate} dimensions={this.state.dimensions} />} />
 
                 <Route
                     path="/developers" exact
                     render={(props) => <Developers {...props} navigate={this.navigate} />} />
+
+                <Route
+                    path="/skills" exact
+                    render={(props) => <Skills {...props} navigate={this.navigate} />} />
             </Router>
         )
     }
