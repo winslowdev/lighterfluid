@@ -6,7 +6,7 @@ export class Skills extends Component {
         return (
             <React.Fragment>
                 <HeaderInformation
-                    pageTitle="Stacks, languages & framework"
+                    pageTitle={this.props.pageTitles.skills}
                     pageDescription="We all speak English. Some of us know Korean or German. But we also have working knowledge of React, AngularJS, SQL, and the list goes on." />
 
                     <div className="skills-grid">

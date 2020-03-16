@@ -8,7 +8,7 @@ export class HeaderInformation extends Component {
             <aside className="page-info">
                 <div className="container" id="developers">
                     <h1>{this.props.pageTitle}</h1>
-                    <p>{this.props.pageDescription}</p>
+                    <p className="page-description">{this.props.pageDescription}</p>
                 </div>
             </aside>
         )
@@ -18,7 +18,7 @@ export class HeaderInformation extends Component {
 export class RectangleTile extends Component {
     render() {
         return (
-            <div className={`rect-tile ${this.props.imageClass}`}
+            <div className="rect-tile"
                 style={{
                     backgroundImage: `url(${this.props.image})`,
                     backgroundRepeat: 'no-repeat',
@@ -38,7 +38,7 @@ export class SquareTile extends Component {
     render() {
         return (
             <div
-                className={`square-tile ${this.props.imageClass}`}
+                className="square-tile"
                 style={{
                     backgroundImage: `url(${this.props.image})`,
                     backgroundRepeat: 'no-repeat',

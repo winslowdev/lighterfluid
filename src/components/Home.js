@@ -11,9 +11,7 @@ export class Home extends Component {
                     </div>
                 </aside>
 
-
-
-                <p>Id lorem ut at tellus felis mattis aliquam. A et rum blandit sed tristique ut. Ipsum pulvinar eu pretium sit suspendisse sed proin nibh cras. Tellus massa elementum, tortor faucibus sed sed. Porta nisi viverra sit a auctor libero. In nunc quis purus in.</p>
+                <p className="brand-statement">Id lorem ut at tellus felis mattis aliquam. A et rum blandit sed tristique ut. Ipsum pulvinar eu pretium sit massa sed suspendisse sed proin nibh cras. Tellus elementum sed sed. Porta nisi viverra sit a auctor libero. In nunc quis?</p>
 
                 <RectangleTile
                     address="/projects"

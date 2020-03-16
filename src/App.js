@@ -16,7 +16,7 @@ export default class App extends Component {
             },
             pageTitles: {
                 developers: 'Developers & designers',
-                projects: 'Collaborative projects',
+                projects: 'Collaborations',
                 skills: 'Stacks, languages & frameworks'
             },
         }
@@ -59,9 +59,9 @@ export default class App extends Component {
             <Router>
                 {this.state.isShowNavigation === true ? <div className="navigation-menu">
                     <h5 onClick={() => { { this.navigate("internal", "/") } }}>Home</h5>
-                    <h5 onClick={() => { { this.navigate("internal", "/projects") } }}>Collaborative projects</h5>
-                    <h5 onClick={() => { { this.navigate("internal", "/developers") } }}>Developers</h5>
-                    <h5 onClick={() => { { this.navigate("internal", "/skills") } }}>Stacks, languages & frameworks</h5>
+                    <h5 onClick={() => { { this.navigate("internal", "/projects") } }}>{this.state.pageTitles.projects}</h5>
+                    <h5 onClick={() => { { this.navigate("internal", "/developers") } }}>{this.state.pageTitles.developers}</h5>
+                    <h5 onClick={() => { { this.navigate("internal", "/skills") } }}>{this.state.pageTitles.skills}</h5>
                 </div>
                     : null}
 
@@ -88,15 +88,22 @@ export default class App extends Component {
 
                 <Route
                     path="/projects" exact
-                    render={(props) => <Projects {...props} navigate={this.navigate} dimensions={this.state.dimensions} />} />
+                    render={(props) => <Projects {...props}
+                    dimensions={this.state.dimensions}
+                    navigate={this.navigate}
+                    pageTitles={this.state.pageTitles} />} />
 
                 <Route
                     path="/developers" exact
-                    render={(props) => <Developers {...props} navigate={this.navigate} />} />
+                    render={(props) => <Developers {...props}
+                    navigate={this.navigate}
+                    pageTitles={this.state.pageTitles} />} />
 
                 <Route
                     path="/skills" exact
-                    render={(props) => <Skills {...props} navigate={this.navigate} />} />
+                    render={(props) => <Skills {...props}
+                    navigate={this.navigate}
+                    pageTitles={this.state.pageTitles} />} />
             </Router>
         )
     }

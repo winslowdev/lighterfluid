@@ -149,15 +149,7 @@ aside {
     padding: 5px 0;
 }
 
-aside p {
-    font-size: 0.8rem;
-    padding: 0;
-    text-align: left;
-    line-height: 140%;
-    color: var(--grey);
-    margin: 10px 0;
-    width: 100%;
-}
+
 
 .skills-grid {
     display: flex;
@@ -219,7 +211,7 @@ aside p {
 /* ====================== TEXT & FONT */
 /* ====================== TEXT & FONT */
 
-h1, h2, h3, h6 {
+h1, h2, h3, h6, p {
     margin: 0;
 }
 
@@ -237,6 +229,7 @@ h1 {
 h2 {
     color: var(--lightgrey);
     background: -webkit-linear-gradient(#dddddd, rgba(221, 221, 221, 0.37));
+    background-clip: text;
     font-size: 1.75rem;
     font-weight: 700;
     letter-spacing: -0.03rem;
@@ -256,7 +249,7 @@ h3 {
 }
 
 .rect-tile h3 {
-    width: 40%;
+    width: 70%;
 }
 
 
@@ -293,21 +286,23 @@ h5 {
 
 
 p {
-    font-size: 0.6rem;
-    padding: 20px 15px;
-    text-align: center;
+    font-size: 0.7rem;
+    text-align: left;
     line-height: 140%;
     color: var(--grey);
-    margin: 0;
+
+}
+
+.page-description {
+    margin: 15px 0;
+}
+
+.brand-statement {
+    margin: 25px 5%;
+    text-align: center;
 }
 
 
-/*  */
-.square-image-cover {
-    position: relative;
-    width: 100%;
-    z-index: 1111;
-}
 
 .tile-cover {
     position: relative;
