@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Home } from './components/Home.js'
 import { Developers } from './components/Developers.js'
-import { Header } from './components/Snacks/Header'
 
 export default class App extends Component {
     constructor(props) {
@@ -31,10 +30,18 @@ export default class App extends Component {
     render() {
         return (
             <Router>
+                {this.state.isShowNavigation === true ? <div className="navigation-menu">
+                    <h5 onClick={() => { { this.navigate("internal", "/") } }}>Home</h5>
+                    <h5 onClick={() => { { this.navigate("internal", "/projects") } }}>Collaborative projects</h5>
+                    <h5 onClick={() => { { this.navigate("internal", "/developers") } }}>Developers</h5>
+                    <h5 onClick={() => { { this.navigate("internal", "/skills") } }}>Stacks, languages & frameworks</h5>
+                </div>
+                    : null}
+                    
                 <header>
-                    <div className="navbar">
+                    <div id="header" className="container">
                         <h6 onClick={() => { { this.navigate("internal", "/") } }}>Lighterfluid</h6>
-                        <div className="navbar-menu"
+                        <div className="navigation"
                             onClick={() => { { this.toggleNavbar() } }}>
                             <div className="menu-top"></div>
                             <div className="menu-middle"></div>
@@ -43,13 +50,8 @@ export default class App extends Component {
                     </div>
                 </header>
 
-                {this.state.isShowNavigation === true ? <div className="nav-menu">
-                    <h5 onClick={() => { { this.navigate("internal", "/") } }}>Home</h5>
-                    <h5 onClick={() => { { this.navigate("internal", "/projects") } }}>Collaborative projects</h5>
-                    <h5 onClick={() => { { this.navigate("internal", "/developers") } }}>Developers</h5>
-                    <h5 onClick={() => { { this.navigate("internal", "/skills") } }}>Stacks, languages & frameworks</h5>
-                </div>
-                : null }
+
+                
 
 
 

@@ -15,8 +15,12 @@
     --lightgrey: #dddddd;
 }
 
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
 body {
-    background-color: var(--lightgrey);
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Basier Square Regular', sans-serif;
 }
@@ -38,11 +42,13 @@ h4 {
 
 h5 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--lightgrey);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 130%;
-    letter-spacing: -0.03rem;
+    /* letter-spacing: 1rem; */
+    width: 100%;
+    text-align: right;
 }
 
 
@@ -63,43 +69,13 @@ p {
     margin: 0;
 }
 
-.navbar {
-    padding: 10px;
-    /* width: 95vw; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    /* margin: 5px; */
-}
 
-.navbar-menu {
+.navigation {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
     height: 10px;
-}
-
-header {
-    height: 35px;
-}
-
-
-
-header {
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* header * {
-    border: 0.5px solid red;
-} */
-
-.navbar {
-    width: 90%;
-    margin: 5px auto;
 }
 
 
@@ -162,12 +138,63 @@ header {
     height: 25vh;
 }
 
-.nav-menu {
+.navigation-menu {
     height: 100%;
-    width: 70%;
+    width: 65%;
     position: fixed;
     z-index: 100;
     right: 0px;
     background-color: #191919;
     padding: 30px;
+}
+
+/* ============================ HEADER */
+/* ============================ HEADER */
+
+header {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lightgrey);
+}
+
+#header, #superhero {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* #superhero {
+    padding: 25px 0;
+} */
+
+.home {
+    background-color: var(--black);
+}
+
+h1 {
+    color: var(--darkgrey);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03rem;
+    line-height: 90%;
+    margin: 0;
+}
+
+aside {
+    padding: 5px 0;
+}
+
+aside p {
+    font-size: 0.8rem;
+    padding: 0;
+    text-align: left;
+    line-height: 140%;
+    color: var(--grey);
+    margin: 10px 0;
+    width: 100%;
 }
