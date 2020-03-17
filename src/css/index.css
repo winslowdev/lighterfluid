@@ -125,8 +125,8 @@ footer {
 .bg-blur {
     align-self: flex-end;
     background-color: rgba(0, 0, 0, 0.671);
-    backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     height: 100%;
     width: 55%;
 }
@@ -177,8 +177,8 @@ footer {
 
 .coverpiece {
     align-items: flex-end;
-    backdrop-filter: grayscale(100%);
     -webkit-backdrop-filter: grayscale(100%);
+    backdrop-filter: grayscale(100%);
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -188,8 +188,8 @@ footer {
 }
 
 .coverpiece:hover {
-    backdrop-filter: grayscale(0%);
     -webkit-backdrop-filter: grayscale(0%);
+    backdrop-filter: grayscale(0%);
 }
 
 .grad1 {
