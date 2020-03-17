@@ -1,3 +1,6 @@
+/* =========================== IMPORTS */
+/* =========================== IMPORTS */
+
 @import url('normalize.css');
 
 /* LOGO TITLE ONLY */
@@ -10,10 +13,20 @@
 
 :root {
     --black: #000000;
-    --darkgrey: #191919;
-    --grey: #484848;
+    --darkgrey: #111111;
+    --grey: #828282;
     --lightgrey: #dddddd;
-    --jewmint: #2d9c8f;
+    --orange: #f37f31;
+}
+
+
+/* =========================== BODY PARTS */
+/* =========================== BODY PARTS */
+
+body {
+    background-color: var(--black);
+    font-family: -apple-system, BlinkMacSystemFont, 'Basier Square Regular', sans-serif;
+    margin: 0;
 }
 
 .container {
@@ -21,16 +34,33 @@
     margin: 0 auto;
 }
 
-body {
-    margin: 0;
-    background-color: var(--lightgrey);
-    font-family: -apple-system, BlinkMacSystemFont, 'Basier Square Regular', sans-serif;
+#header, #home-hero, #footer, footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    align-items: center;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+}
+
+aside {
+    padding: 5px 0;
 }
 
 
+/* =========================== SIDEBAR MENU */
+/* =========================== SIDEBAR MENU */
 
-
-.navigation {
+.nav-icon {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -38,116 +68,118 @@ body {
     height: 10px;
 }
 
-
-.menu-top, .menu-middle, .menu-bottom {
+.nav-icon-top, .nav-icon-mid, .nav-icon-btm {
+    background-color: var(--lightgrey);
     height: 2px;
-    background-color: var(--darkgrey);
+    
 }
 
-.menu-top {
+.nav-icon-top {
     width: 20px;
 }
 
-.menu-middle {
+.nav-icon-mid {
     width: 14px;
 }
 
-.menu-bottom {
+.nav-icon-btm {
     width: 17px;
 }
 
-.home-hero {
-    background-color: black;
-    padding: 30px 20px;
+.nav-drawer {
+    background-color: var(--black);
+    height: 100%;
+    padding: 30px;
+    width: 45%;
 }
 
-
-.black {
-    background-color: black;
-}
-
-.green {
-    background-color: springgreen;
-}
-
-.blue {
-    background-color: blue;
-}
-
-
-/* ================== TILES */
-/* ================== TILES */
-
-.double-tiles {
+.nav-on {
+    align-items: flex-start;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
-    width: 100vw;
-}
-
-.rect-tile {
-    width: 100%;
-    height: 20vh;
-    background-color: black;
-    color: var(--lightgrey);
-    filter: grayscale(100%);
-}
-
-.square-tile {
-    width: 50%;
-    filter: grayscale(100%);
-}
-
-.navigation-menu {
     height: 100%;
-    width: 65%;
     position: fixed;
     z-index: 100;
-    right: 0px;
-    background-color: #191919;
-    padding: 30px;
-}
-
-/* ============================ HEADER */
-/* ============================ HEADER */
-
-header {
     width: 100%;
-    height: 40px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--lightgrey);
 }
 
-@media screen and (min-width: 375px) {
-    header {
-        height: 45px;
-    }
+.bg-blur {
+    align-self: flex-end;
+    background-color: rgba(0, 0, 0, 0.671);
+    backdrop-filter: blur(4px);
+    height: 93%;
+    width: 55%;
 }
 
-#header, #superhero, #footer, footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+/* =========================== HEROES */
+/* =========================== HEROES */
+
+.home {
+    background-color: var(--darkgrey);
 }
 
-#superhero {
+#home-hero {
     padding: 25px 0;
 }
 
-.home {
-    background-color: var(--black);
+.page-hero {
+    padding: 10px 0;
+}
+
+/* =========================== TILES */
+/* =========================== TILES */
+
+.forced-rectangle {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.rectangled {
+    filter: grayscale(100%);
+    height: 20vh;
+    width: 100%;
+}
+
+.squared {
+    filter: grayscale(100%);
+    width: 50%;
+}
+
+.rectangled:hover, .squared:hover {
+    filter: grayscale(0%);
 }
 
 
+/* =========================== PROJECTS */
+/* =========================== PROJECTS */
 
-aside {
-    padding: 5px 0;
+.project-cards {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
 }
+
+
+/* =========================== TEXT */
+/* =========================== TEXT */
+
+h5 {
+    color: var(--grey);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.03rem;
+    line-height: 110%;
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+
 
 
 
@@ -188,24 +220,8 @@ aside {
 
 
 
-/*  */
-
-.page-info {
-    padding: 10px 0;
-}
 
 
-.project-cards {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-}
-
-.project-card {
-    width: 100%;
-}
 
 
 /* ====================== TEXT & FONT */
@@ -217,8 +233,8 @@ h1, h2, h3, h6, p {
 
 /* page title */
 h1 {
-    color: var(--darkgrey);
-    font-size: 2.25rem;
+    color: var(--lightgrey);
+    font-size: 2.5rem;
     font-weight: 800;
     letter-spacing: -0.03rem;
     line-height: 90%;
@@ -227,15 +243,12 @@ h1 {
 
 /* bold hero title */
 h2 {
-    color: var(--lightgrey);
-    background: -webkit-linear-gradient(#dddddd, rgba(221, 221, 221, 0.37));
+    color: var(--grey);
     background-clip: text;
     font-size: 1.75rem;
     font-weight: 700;
     letter-spacing: -0.03rem;
     line-height: 120%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 /* tile title */
@@ -248,14 +261,15 @@ h3 {
     margin-left: 5%;
 }
 
-.rect-tile h3 {
+.rectangle h3 {
     width: 70%;
 }
 
 
+
 /* APP TITLE ONLY */
 h6 {
-    color: var(--darkgrey);
+    color: var(--lightgrey);
     font-family: "Sifonn Pro", sans-serif;
     font-size: 0.8rem;
     line-height: 115%;
@@ -265,22 +279,9 @@ h6 {
 
 
 
-h4 {
-    font-weight: 600;
-    color: var(--lightgrey);
-    margin: 0;
-}
 
-h5 {
-    margin: 0;
-    font-size: 1rem;
-    color: var(--lightgrey);
-    font-weight: 600;
-    line-height: 130%;
-    /* letter-spacing: 1rem; */
-    width: 100%;
-    text-align: right;
-}
+
+
 
 
 
@@ -341,3 +342,91 @@ footer p {
 .sign-in {
     text-decoration: underline;
 }
+
+
+
+
+
+/*  */
+#login-form {
+    width: 90%;
+    margin: 0 auto;
+}
+
+label {
+    background-color: var(--darkgrey);
+    color: var(--lightgrey);
+    margin-right: 0;
+    /* height: 45px; */
+}
+
+#login-form input {
+    border: none;
+    border-radius: 0 3px 3px 0;
+    font-size: 0.7rem;
+    height: 30px;
+    padding: 0 10px;
+    width: 75%;
+}
+
+
+h4 {
+    font-weight: 600;
+    color: var(--lightgrey);
+    margin: 0;
+    background-color: var(--darkgrey);
+    width: 20%;
+    height: 25%;
+}
+
+.combined {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.label {
+    background-color: var(--darkgrey);
+    height: 30px;
+    width: 25%;
+    color: var(--lightgrey);
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 3px 0 0 3px;
+}
+
+.submit {
+    border: none;
+    background-color: var(--jewmint);
+    border-radius: 3px;
+    width: 60%;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    color: var(--lightgrey);
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.punctuation {
+    color: red;
+}
+
+
+
+
+
+
+/* ==================== IMPORTS */

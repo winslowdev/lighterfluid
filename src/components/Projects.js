@@ -10,7 +10,6 @@ export class Projects extends Component {
                     pageDescription="We work independently, but periodically, we come together to collaborate on a project—whether it’s for fun or for a client." />
 
                 <main className="project-cards">
-                    <div className="project-card">
                         <RectangleTile
                             address="/projects/john-q-citizen-portfolio-redesign"
                             gradientStyle="gradient-1"
@@ -18,7 +17,6 @@ export class Projects extends Component {
                             navigate={this.props.navigate}
                             dimensions={this.props.dimensions}
                             title="John Q. Citizen portfolio redesign" />
-                    </div>
                 </main>
             </React.Fragment>
         )

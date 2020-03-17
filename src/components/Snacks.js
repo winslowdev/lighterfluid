@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 export class HeaderInformation extends Component {
     render() {
         return (
-            <aside className="page-info">
+            <aside className="page-hero">
                 <div className="container" id="developers">
                     <h1>{this.props.pageTitle}</h1>
                     <p className="page-description">{this.props.pageDescription}</p>
@@ -17,7 +17,7 @@ export class HeaderInformation extends Component {
 export class RectangleTile extends Component {
     render() {
         return (
-            <div className="rect-tile"
+            <div className="rectangled"
                 style={{
                     backgroundImage: `url(${this.props.image})`,
                     backgroundRepeat: 'no-repeat',
@@ -37,7 +37,7 @@ export class SquareTile extends Component {
     render() {
         return (
             <div
-                className="square-tile"
+                className="squared"
                 style={{
                     backgroundImage: `url(${this.props.image})`,
                     backgroundRepeat: 'no-repeat',

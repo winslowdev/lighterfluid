@@ -3,10 +3,12 @@ import { RectangleTile, SquareTile } from './Snacks'
 
 export class Home extends Component {
     render() {
+
         return (
             <React.Fragment>
                 <aside className="home">
-                    <div id="superhero" className="container">
+                    <div id="home-hero" className="container">
+
                         <h2>Captain Planet—he's our hero. Gonna take pollution down to zero.</h2>
                     </div>
                 </aside>
@@ -21,7 +23,7 @@ export class Home extends Component {
                     dimensions={this.props.dimensions}
                     title={this.props.pageTitles.projects} />
 
-                <div className="double-tiles">
+                <div className="forced-rectangle">
                     <SquareTile
                         address="/developers"
                         gradientStyle="gradient-2"
