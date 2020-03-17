@@ -8,7 +8,7 @@ export class Home extends Component {
             <React.Fragment>
                 <aside className="home">
                     <div id="home-hero" className="container">
-                        <h2>Captain Planet—he's our hero. Gonna take pollution down to zero.</h2>
+                        <h2>{this.props.highlightPunctuation("Captain Planet—he's our hero. Gonna take pollution down to zero.")}</h2>
                     </div>
                 </aside>
 

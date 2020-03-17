@@ -16,7 +16,7 @@ export default class App extends Component {
                 squareHeight: ''
             },
             pageTitles: {
-                developers: 'Developers & designers',
+                developers: ["Developers ", <span className="punc">&</span>, " designers"],
                 login: 'Developer login',
                 projects: 'Collaborations',
                 skills: 'Stacks, languages & frameworks'
@@ -39,14 +39,14 @@ export default class App extends Component {
     }
 
     highlightPunctuation(phrase) {
-        const splitPhrase = phrase.split('')
         let i;
 
-        for (i = 0; i < splitPhrase.length; i++) {
-            if (splitPhrase[i].match(/[.,\'/#!$%\^&\*;:{}=\-—_`~()]/g)) {
-                splitPhrase[i].replace(splitPhrase[i], <span classname="punctuation">${splitPhrase[i]}</span>)
+        for (i = 0; i < phrase.length; i++) {
+            if (phrase.charAt(i) == '.') {
+                phrase.replace(i, 'x')
             }
         }
+        return phrase.replace(i, 'x')
     }
 
 
@@ -74,13 +74,13 @@ export default class App extends Component {
         return (
             <Router>
                 {this.state.isShowNavigation === true ? <div className="nav-on">
-                        <div className="bg-blur"></div>
-                        <div className="nav-drawer" onMouseLeave={() => { { this.toggleNavbar() } }}>
-                            <h5 className="nav-link" onClick={() => { { this.navigate("internal", "/projects") } }}>{this.state.pageTitles.projects}</h5>
-                            <h5 className="nav-link" onClick={() => { { this.navigate("internal", "/developers") } }}>{this.state.pageTitles.developers}</h5>
-                            <h5 className="nav-link" onClick={() => { { this.navigate("internal", "/skills") } }}>{this.state.pageTitles.skills}</h5>
-                        </div>
-                    </div> : null}
+                    <div className="bg-blur" onClick={() => { { this.toggleNavbar() } }}></div>
+                    <div className="nav-drawer">
+                        <h5 className="nav-link" onClick={() => { { this.navigate("internal", "/projects") } }}>{this.state.pageTitles.projects}</h5>
+                        <h5 className="nav-link" onClick={() => { { this.navigate("internal", "/developers") } }}>{this.state.pageTitles.developers}</h5>
+                        <h5 className="nav-link" onClick={() => { { this.navigate("internal", "/skills") } }}>{this.state.pageTitles.skills}</h5>
+                    </div>
+                </div> : null}
 
                 <header>
                     <div id="header" className="container">
@@ -93,47 +93,49 @@ export default class App extends Component {
                     </div>
                 </header>
 
-                <Route
-                    path="/" exact
-                    render={(props) => <Home {...props}
-                        heroHighlight={this.state.heroHighlight}
-                        highlightPunctuation={this.highlightPunctuation}
-                        navigate={this.navigate}
-                        dimensions={this.state.dimensions}
-                        pageTitles={this.state.pageTitles}
-                    />} />
+                <main>
+                    <Route
+                        path="/" exact
+                        render={(props) => <Home {...props}
+                            // heroHighlight={this.state.pageTitles.heroHighlight}
+                            highlightPunctuation={this.highlightPunctuation}
+                            navigate={this.navigate}
+                            dimensions={this.state.dimensions}
+                            pageTitles={this.state.pageTitles}
+                        />} />
 
-                <Route
-                    path="/projects" exact
-                    render={(props) => <Projects {...props}
-                        dimensions={this.state.dimensions}
-                        navigate={this.navigate}
-                        pageTitles={this.state.pageTitles} />} />
+                    <Route
+                        path="/projects" exact
+                        render={(props) => <Projects {...props}
+                            dimensions={this.state.dimensions}
+                            navigate={this.navigate}
+                            pageTitles={this.state.pageTitles} />} />
 
-                <Route
-                    path="/developers" exact
-                    render={(props) => <Developers {...props}
-                        navigate={this.navigate}
-                        pageTitles={this.state.pageTitles} />} />
+                    <Route
+                        path="/developers" exact
+                        render={(props) => <Developers {...props}
+                            navigate={this.navigate}
+                            pageTitles={this.state.pageTitles} />} />
 
-                <Route
-                    path="/skills" exact
-                    render={(props) => <Skills {...props}
-                        navigate={this.navigate}
-                        pageTitles={this.state.pageTitles} />} />
+                    <Route
+                        path="/skills" exact
+                        render={(props) => <Skills {...props}
+                            navigate={this.navigate}
+                            pageTitles={this.state.pageTitles} />} />
 
-                <Route
-                    path="/login" exact
-                    render={(props) => <Login {...props}
-                        navigate={this.navigate}
-                        pageTitles={this.state.pageTitles} />} />
+                    <Route
+                        path="/login" exact
+                        render={(props) => <Login {...props}
+                            navigate={this.navigate}
+                            pageTitles={this.state.pageTitles} />} />
 
-                <footer>
-                    <div id="footer" className="container">
-                        <p>designed and coded in sf and atl</p>
-                        <p className="pseudolink" onClick={() => { { this.navigate('internal', '/login') } }}>developer login</p>
-                    </div>
-                </footer>
+                    <footer>
+                        <div id="footer" className="container">
+                            <p>designed and coded in sf and atl</p>
+                            <p className="pseudolink" onClick={() => { { this.navigate('internal', '/login') } }}>developer login</p>
+                        </div>
+                    </footer>
+                </main>
             </Router>
         )
     }
