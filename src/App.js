@@ -73,20 +73,14 @@ export default class App extends Component {
     render() {
         return (
             <Router>
-                {this.state.isShowNavigation === true ?
-
-
-                    <div className="nav-on">
+                {this.state.isShowNavigation === true ? <div className="nav-on">
                         <div className="bg-blur"></div>
                         <div className="nav-drawer" onMouseLeave={() => { { this.toggleNavbar() } }}>
                             <h5 className="nav-link" onClick={() => { { this.navigate("internal", "/projects") } }}>{this.state.pageTitles.projects}</h5>
                             <h5 className="nav-link" onClick={() => { { this.navigate("internal", "/developers") } }}>{this.state.pageTitles.developers}</h5>
                             <h5 className="nav-link" onClick={() => { { this.navigate("internal", "/skills") } }}>{this.state.pageTitles.skills}</h5>
                         </div>
-                    </div>
-
-
-                    : null}
+                    </div> : null}
 
                 <header>
                     <div id="header" className="container">
