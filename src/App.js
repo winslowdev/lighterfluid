@@ -85,8 +85,7 @@ export default class App extends Component {
                 <header>
                     <div id="header" className="container">
                         <h6 onClick={() => { { this.navigate("internal", "/") } }}>Lighterfluid</h6>
-                        <div className="nav-icon"
-                            onClick={() => { { this.toggleNavbar() } }}>
+                        <div className="nav-icon" onClick={() => { { this.toggleNavbar() } }}>
                             <div className="nav-icon-top"></div>
                             <div className="nav-icon-mid"></div>
                             <div className="nav-icon-btm"></div>
