@@ -25,7 +25,7 @@ export class RectangleTile extends Component {
                     height: this.props.dimensions.rectangleHeight + 'px',
                 }}
                 onClick={() => { { this.props.navigate("internal", this.props.address) } }}>
-                <div className={`tile-cover ${this.props.gradientStyle}`}>
+                <div className={`coverpiece ${this.props.gradientStyle}`}>
                     <h3>{this.props.title}</h3>
                 </div>
             </div>
@@ -45,7 +45,7 @@ export class SquareTile extends Component {
                     height: this.props.dimensions.squareHeight + 'px',
                 }}
                 onClick={() => { { this.props.navigate("internal", this.props.address) } }}>
-                <div className={`tile-cover ${this.props.gradientStyle}`}>
+                <div className={`coverpiece ${this.props.gradientStyle}`}>
                     <h3>{this.props.title}</h3>
                 </div>
             </div>

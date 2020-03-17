@@ -11,7 +11,7 @@ export class Login extends Component {
 
                 <form id="login-form">
                     <label for="email" hidden>sds</label>
-                    <div className="combined">
+                    <div className="tag-team">
                         <div className="label">
                             email
                         </div>
@@ -19,16 +19,14 @@ export class Login extends Component {
                     </div>
 
                     <label for="password" hidden>sds</label>
-                    <div className="combined">
+                    <div className="tag-team">
                         <div className="label">
                             password
                         </div>
                         <input type="password" id="password" placeholder="enter your password" />
                     </div>
 
-                    <div className="submit">
-                        log in
-                    </div>
+                    <button type="submit">log in</button>
                 </form>
             </React.Fragment>
         )

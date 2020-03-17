@@ -17,7 +17,7 @@ export class Home extends Component {
 
                 <RectangleTile
                     address="/projects"
-                    gradientStyle="gradient-1"
+                    gradientStyle="grad1"
                     image={require('../images/stock/workspace.jpg')}
                     navigate={this.props.navigate}
                     dimensions={this.props.dimensions}
@@ -26,14 +26,14 @@ export class Home extends Component {
                 <div className="forced-rectangle">
                     <SquareTile
                         address="/developers"
-                        gradientStyle="gradient-2"
+                        gradientStyle="grad2"
                         image={require('../images/stock/fake-cyclist.jpg')}
                         navigate={this.props.navigate}
                         dimensions={this.props.dimensions}
                         title={this.props.pageTitles.developers} />
                     <SquareTile
                         address="/skills"
-                        gradientStyle="gradient-3"
+                        gradientStyle="grad3"
                         image={require('../images/stock/code-sample.jpg')}
                         navigate={this.props.navigate}
                         dimensions={this.props.dimensions}

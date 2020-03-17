@@ -12,7 +12,7 @@ export class Projects extends Component {
                 <main className="project-cards">
                         <RectangleTile
                             address="/projects/john-q-citizen-portfolio-redesign"
-                            gradientStyle="gradient-1"
+                            gradientStyle="grad1"
                             image={require('../images/dev/john-citizen.png')}
                             navigate={this.props.navigate}
                             dimensions={this.props.dimensions}

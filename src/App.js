@@ -137,8 +137,8 @@ export default class App extends Component {
 
                 <footer>
                     <div id="footer" className="container">
-                        <p className="footer">designed and coded in sf and atl. <span className="sign-in"
-                            onClick={() => { { this.navigate('internal', '/login') } }}>log in.</span></p>
+                        <p>designed and coded in sf and atl</p>
+                        <p className="pseudolink" onClick={() => { { this.navigate('internal', '/login') } }}>developer login</p>
                     </div>
                 </footer>
             </Router>
