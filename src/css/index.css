@@ -34,7 +34,7 @@ body {
     margin: 0 auto;
 }
 
-#header, #home-hero, #footer, footer {
+header, #home-hero, #footer, footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -42,15 +42,18 @@ body {
 }
 
 header {
-    align-items: center;
     background-color: var(--black);
-    display: flex;
-    flex-direction: row;
     height: 40px;
-    justify-content: center;
     position: fixed;
     width: 100%;
     z-index: 9999;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 aside {
@@ -65,6 +68,8 @@ footer {
     background-color: var(--black);
     height: 30px;
     width: 100%;
+    position: relative;
+    bottom: 0;
 }
 
 #footer {
@@ -83,11 +88,13 @@ footer {
     justify-content: space-between;
     align-items: flex-end;
     height: 10px;
+    margin: 0;
 }
 
 .nav-icon-top, .nav-icon-mid, .nav-icon-btm {
     background-color: var(--lightgrey);
     height: 2px;
+    margin: 0;
     
 }
 
@@ -224,7 +231,6 @@ h1 {
 /* bold hero title */
 h2 {
     color: var(--grey);
-    background-clip: text;
     font-size: 1.75rem;
     font-weight: 700;
     letter-spacing: -0.03rem;
@@ -265,8 +271,10 @@ h6 {
     color: var(--lightgrey);
     font-family: "Sifonn Pro", sans-serif;
     font-size: 0.8rem;
-    line-height: 115%;
+    line-height: 100%;
+    padding: 0;
     text-transform: uppercase;
+    margin: -3px;
 }
 
 p {
@@ -277,7 +285,7 @@ p {
 }
 
 footer p {
-    color: var(--darkgrey);
+    color: var(--grey);
     font-size: 0.3rem;
 }
 
@@ -409,4 +417,75 @@ button {
 
 .skills-item:hover {
     background-color: var(--orange);
+}
+
+@media screen and (min-width: 375px) {
+    header {
+        height: 45px;
+    }
+
+    main {
+        padding-top: 45px;
+    }
+
+    h2 {
+        font-size: 2.1rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 160%;
+    }
+
+    .brand-statement {
+        margin: 30px 5%;
+    }
+
+    .nav-on {
+        padding-top: 45px;
+    }
+}
+
+@media screen and (min-width: 412px) {
+    header {
+        height: 65px;
+    }
+
+    main {
+        padding-top: 65px;
+    }
+ 
+
+    .nav-icon {
+        height: 15px;
+    }
+
+    .nav-icon-top, .nav-icon-mid, .nav-icon-btm {
+        background-color: var(--lightgrey);
+        height: 1.5px;
+        
+    }
+
+    h2 {
+        font-size: 2.3rem;
+    }
+
+    h6 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 160%;
+    }
+
+    
+    .brand-statement {
+        margin: 30px 5%;
+    }
+
+    .nav-on {
+        height: 15px;
+        padding-top: 65px;
+    }
 }
