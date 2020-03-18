@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { highlightPunctuation } from './snacks/functions';
 
 // PAGE TITLE, PAGE DESCRIPTION
 export class HeaderInformation extends Component {
@@ -6,7 +7,7 @@ export class HeaderInformation extends Component {
         return (
             <aside className="page-hero">
                 <div className="container" id="developers">
-                    <h1>{this.props.highlightPunctuation(this.props.pageTitle)}</h1>
+                    <h1>{highlightPunctuation(this.props.pageTitle)}</h1>
                     <p className="page-description">{this.props.pageDescription}</p>
                 </div>
             </aside>
@@ -22,7 +23,7 @@ export class RectangleTile extends Component {
                     backgroundImage: `url(${this.props.image})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    height: this.props.dimensions.rectangleHeight + 'px',
+                    height: this.props.sizes.rectangleHeight + 'px',
                 }}
                 onClick={() => { this.props.navigate("internal", this.props.address) }}>
                 <div className={`coverpiece ${this.props.gradientStyle}`}>
@@ -42,7 +43,7 @@ export class SquareTile extends Component {
                     backgroundImage: `url(${this.props.image})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    height: this.props.dimensions.squareHeight + 'px',
+                    height: this.props.sizes.squareHeight + 'px',
                 }}
                 onClick={() => { this.props.navigate("internal", this.props.address) }}>
                 <div className={`coverpiece ${this.props.gradientStyle}`}>

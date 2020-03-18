@@ -6,8 +6,7 @@ export class Skills extends Component {
         return (
             <React.Fragment>
                 <HeaderInformation
-                    highlightPunctuation={this.props.highlightPunctuation}
-                    pageTitle={this.props.welcome.skills}
+                    pageTitle={this.props.statements.skills}
                     pageDescription="We all speak English. Some of us know Korean or German. But we also have working knowledge of React, AngularJS, SQL, and the list goes on." />
 
                     <div className="skills">

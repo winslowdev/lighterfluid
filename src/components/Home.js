@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { RectangleTile, SquareTile } from './Snacks'
+import { highlightPunctuation } from './snacks/functions';
 
 export class Home extends Component {
     render() {
@@ -8,7 +9,7 @@ export class Home extends Component {
             <React.Fragment>
                 <aside className="home">
                     <div id="home-hero" className="container">
-                        <h2>{this.props.highlightPunctuation(this.props.welcome.home)}</h2>
+                        <h2>{highlightPunctuation(this.props.statements.home)}</h2>
                     </div>
                 </aside>
 
@@ -19,8 +20,8 @@ export class Home extends Component {
                     gradientStyle="grad1"
                     image={require('../images/stock/workspace.jpg')}
                     navigate={this.props.navigate}
-                    dimensions={this.props.dimensions}
-                    title={this.props.welcome.projects} />
+                    sizes={this.props.sizes}
+                    title={this.props.statements.projects} />
 
                 <div className="forced-rectangle">
                     <SquareTile
@@ -28,15 +29,15 @@ export class Home extends Component {
                         gradientStyle="grad2"
                         image={require('../images/stock/fake-cyclist.jpg')}
                         navigate={this.props.navigate}
-                        dimensions={this.props.dimensions}
-                        title={this.props.welcome.developers} />
+                        sizes={this.props.sizes}
+                        title={this.props.statements.developers} />
                     <SquareTile
                         address="/skills"
                         gradientStyle="grad3"
                         image={require('../images/stock/code-sample.jpg')}
                         navigate={this.props.navigate}
-                        dimensions={this.props.dimensions}
-                        title={this.props.welcome.skills} />
+                        sizes={this.props.sizes}
+                        title={this.props.statements.skills} />
                 </div>
             </React.Fragment>
         )

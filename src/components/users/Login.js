@@ -6,8 +6,7 @@ export class Login extends Component {
         return (
             <React.Fragment>
                 <HeaderInformation
-                    highlightPunctuation={this.props.highlightPunctuation}
-                    pageTitle={this.props.welcome.login}
+                    pageTitle={this.props.statements.login}
                     pageDescription="Twhis page is only for developers with an account. To join the Lighterfluid network, reach out at contact@lighterfluid.co." />
 
                 <form id="login-form">
