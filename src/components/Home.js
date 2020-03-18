@@ -8,7 +8,7 @@ export class Home extends Component {
             <React.Fragment>
                 <aside className="home">
                     <div id="home-hero" className="container">
-                        <h2>{this.props.highlightPunctuation("Captain Planet—he's our hero. Gonna take pollution down to zero.")}</h2>
+                        <h2>{this.props.highlightPunctuation(this.props.welcome.home)}</h2>
                     </div>
                 </aside>
 
@@ -20,7 +20,7 @@ export class Home extends Component {
                     image={require('../images/stock/workspace.jpg')}
                     navigate={this.props.navigate}
                     dimensions={this.props.dimensions}
-                    title={this.props.pageTitles.projects} />
+                    title={this.props.welcome.projects} />
 
                 <div className="forced-rectangle">
                     <SquareTile
@@ -29,14 +29,14 @@ export class Home extends Component {
                         image={require('../images/stock/fake-cyclist.jpg')}
                         navigate={this.props.navigate}
                         dimensions={this.props.dimensions}
-                        title={this.props.pageTitles.developers} />
+                        title={this.props.welcome.developers} />
                     <SquareTile
                         address="/skills"
                         gradientStyle="grad3"
                         image={require('../images/stock/code-sample.jpg')}
                         navigate={this.props.navigate}
                         dimensions={this.props.dimensions}
-                        title={this.props.pageTitles.skills} />
+                        title={this.props.welcome.skills} />
                 </div>
             </React.Fragment>
         )

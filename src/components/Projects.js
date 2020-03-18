@@ -6,7 +6,8 @@ export class Projects extends Component {
         return (
             <React.Fragment>
                 <HeaderInformation
-                    pageTitle={this.props.pageTitles.projects}
+                    highlightPunctuation={this.props.highlightPunctuation}
+                    pageTitle={this.props.welcome.projects}
                     pageDescription="We work independently, but periodically, we come together to collaborate on a project—whether it’s for fun or for a client." />
 
                 <main className="project-cards">

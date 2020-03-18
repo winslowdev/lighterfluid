@@ -6,7 +6,8 @@ export class Developers extends Component {
         return (
             <React.Fragment>
                 <HeaderInformation
-                    pageTitle={this.props.pageTitles.developers}
+                    highlightPunctuation={this.props.highlightPunctuation}
+                    pageTitle={this.props.welcome.developers}
                     pageDescription="We are a network of freelance developers located throughout the United States—from sea to shining C#." />
             </React.Fragment>
         )
