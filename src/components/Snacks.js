@@ -1,5 +1,19 @@
 import React, { Component } from 'react';
-import { highlightPunctuation } from './snacks/functions';
+import { highlightPunctuation, navigate } from './snacks/functions';
+
+export class ContactMethod extends Component {
+    render() {
+        return (
+            <div className="team"
+                onClick={() => {
+                    this.props.visible ? navigate(this.props.addressType, this.props.address) : this.props.toggleContactMethod(this.props.method)
+                }}>
+                <div className={`iconic ${this.props.visible ? 'partial' : 'full'}`}><img src={this.props.icon} alt={this.props.iconAlt} /></div>
+                {this.props.visible ? <div className="reach-out">{this.props.reach}</div> : null}
+            </div>
+        )
+    }
+}
 
 // PAGE TITLE, PAGE DESCRIPTION
 export class HeaderInformation extends Component {
@@ -25,7 +39,7 @@ export class RectangleTile extends Component {
                     backgroundSize: 'cover',
                     height: this.props.sizes.rectangleHeight + 'px',
                 }}
-                onClick={() => { this.props.navigate("internal", this.props.address) }}>
+                onClick={() => { navigate("internal", this.props.address) }}>
                 <div className={`coverpiece ${this.props.gradientStyle}`}>
                     <h3>{this.props.title}</h3>
                 </div>
@@ -45,7 +59,7 @@ export class SquareTile extends Component {
                     backgroundSize: 'cover',
                     height: this.props.sizes.squareHeight + 'px',
                 }}
-                onClick={() => { this.props.navigate("internal", this.props.address) }}>
+                onClick={() => { navigate("internal", this.props.address) }}>
                 <div className={`coverpiece ${this.props.gradientStyle}`}>
                     <h3>{this.props.title}</h3>
                 </div>

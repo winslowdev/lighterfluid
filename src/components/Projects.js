@@ -14,7 +14,6 @@ export class Projects extends Component {
                             address="/projects/john-q-citizen-portfolio-redesign"
                             gradientStyle="grad1"
                             image={require('../images/dev/john-citizen.png')}
-                            navigate={this.props.navigate}
                             sizes={this.props.sizes}
                             title="John Q. Citizen portfolio redesign" />
                 </main>

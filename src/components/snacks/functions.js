@@ -15,3 +15,13 @@ export const highlightPunctuation = (phrase) => {
     highlightedPhrase.join('')
     return highlightedPhrase
 }
+
+export const navigate = (type, address) => {
+    if (type === "external") {
+        window.open(address)
+    } else if (type === "internal") {
+        window.location.href = address
+    } if (type === "mail") {
+        window.open("mailto:" + address)
+    }
+}

@@ -5,13 +5,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-// snacks
-import { highlightPunctuation } from './components/snacks/functions';
+// functions
+import { highlightPunctuation, navigate } from './components/snacks/functions';
 
 // components
 import { Developers } from './components/Developers.js'
 import { Home } from './components/Home.js'
 import { Login } from './components/users/Login.js'
+import { Profile } from './components/users/Profile.js'
 import { Projects } from './components/Projects.js'
 import { Skills } from './components/Skills.js'
 
@@ -25,8 +26,10 @@ export default class App extends Component {
         this.state = {
             isShowNavDrawer: false,
             sizes: {
+                currentWidth: '',
                 rectangleHeight: '',
-                squareHeight: ''
+                squareHeight: '',
+                appBlurWidth: ''
             },
             statements: {
                 developers: 'Developers & designers',
@@ -37,7 +40,6 @@ export default class App extends Component {
             },
         }
         this.determineSizes = this.determineSizes.bind(this)
-        this.navigate = this.navigate.bind(this)
         this.toggleNavDrawer = this.toggleNavDrawer.bind(this)
     }
 
@@ -45,18 +47,12 @@ export default class App extends Component {
         this.setState({
             sizes: {
                 ...this.state.sizes,
+                currentWidth: window.innerWidth,
                 rectangleHeight: window.innerWidth * 0.4,
-                squareHeight: window.innerWidth * 0.5
+                squareHeight: window.innerWidth * 0.5,
+                appBlurWidth: Math.round(window.innerWidth * 0.05 + document.getElementById('app-title').offsetWidth + 50)
             }
         })
-    }
-
-    navigate(type, address) {
-        if (type === "external") {
-            window.open(address)
-        } else if (type === "internal") {
-            window.location.href = address
-        }
     }
 
     toggleNavDrawer() {
@@ -74,17 +70,20 @@ export default class App extends Component {
         return (
             <Router>
                 {this.state.isShowNavDrawer === true ? <div className="nav-on">
-                    <div className="bg-blur" onClick={() => { this.toggleNavDrawer() }}></div>
-                    <div className="nav-drawer">
-                        <h5 className="nav-link" onClick={() => { this.navigate("internal", "/projects") }}>{highlightPunctuation(this.state.statements.projects)}</h5>
-                        <h5 className="nav-link" onClick={() => { this.navigate("internal", "/developers") }}>{highlightPunctuation(this.state.statements.developers)}</h5>
-                        <h5 className="nav-link" onClick={() => { this.navigate("internal", "/skills") }}>{highlightPunctuation(this.state.statements.skills)}</h5>
+                    <div className="bg-blur"
+                        onClick={() => { this.toggleNavDrawer() }}
+                        style={{ width: this.state.sizes.appBlurWidth + 'px' }}></div>
+                    <div className="nav-drawer"
+                        style={{ width: this.state.sizes.currentWidth - this.state.sizes.appBlurWidth + 'px' }}>
+                        <h5 className="nav-link" onClick={() => { navigate("internal", "/projects") }}>{highlightPunctuation(this.state.statements.projects)}</h5>
+                        <h5 className="nav-link" onClick={() => { navigate("internal", "/developers") }}>{highlightPunctuation(this.state.statements.developers)}</h5>
+                        <h5 className="nav-link" onClick={() => { navigate("internal", "/skills") }}>{highlightPunctuation(this.state.statements.skills)}</h5>
                     </div>
                 </div> : null}
 
                 <header>
-                    <div id="header" className="container">
-                        <h6 onClick={() => { this.navigate("internal", "/") }}>Lighterfluid</h6>
+                    <div className="container" id="header">
+                        <h6 onClick={() => { navigate("internal", "/") }} id="app-title">Lighterfluid</h6>
                         <div className="nav-icon" onClick={() => { this.toggleNavDrawer() }}>
                             <div className="nav-icon-top"></div>
                             <div className="nav-icon-mid"></div>
@@ -97,8 +96,6 @@ export default class App extends Component {
                     <Route
                         path="/" exact
                         render={(props) => <Home {...props}
-                            highlightPunctuation={highlightPunctuation}
-                            navigate={this.navigate}
                             sizes={this.state.sizes}
                             statements={this.state.statements}
                         />} />
@@ -107,35 +104,33 @@ export default class App extends Component {
                         path="/projects" exact
                         render={(props) => <Projects {...props}
                             sizes={this.state.sizes}
-                            highlightPunctuation={highlightPunctuation}
-                            navigate={this.navigate}
                             statements={this.state.statements} />} />
 
                     <Route
                         path="/developers" exact
                         render={(props) => <Developers {...props}
-                            highlightPunctuation={highlightPunctuation}
-                            navigate={this.navigate}
+                            statements={this.state.statements} />} />
+
+                    <Route
+                        path="/profiles" exact
+                        render={(props) => <Profile {...props}
+                            sizes={this.state.sizes}
                             statements={this.state.statements} />} />
 
                     <Route
                         path="/skills" exact
                         render={(props) => <Skills {...props}
-                            highlightPunctuation={highlightPunctuation}
-                            navigate={this.navigate}
                             statements={this.state.statements} />} />
 
                     <Route
                         path="/login" exact
                         render={(props) => <Login {...props}
-                            highlightPunctuation={highlightPunctuation}
-                            navigate={this.navigate}
                             statements={this.state.statements} />} />
 
                     <footer>
                         <div id="footer" className="container">
                             <p>designed and coded in sf and atl</p>
-                            <p className="pseudolink" onClick={() => { this.navigate('internal', '/login') }}>developer login</p>
+                            <p className="pseudolink" onClick={() => { navigate('internal', '/login') }}>developer login</p>
                         </div>
                     </footer>
                 </main>
