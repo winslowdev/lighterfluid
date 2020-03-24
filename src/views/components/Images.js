@@ -10,3 +10,7 @@ export const icons = {
     linkedin: require('../../images/icons/linkedin.png'),
     twitter: require('../../images/icons/twitter.png')
 }
+
+export const profiles = {
+    addison: require('../../images/users/taegeuk-heaven.jpg')
+}

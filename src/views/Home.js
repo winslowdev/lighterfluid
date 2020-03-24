@@ -5,7 +5,6 @@ import { backgrounds } from './components/Images'
 
 export class Home extends Component {
     render() {
-
         return (
             <React.Fragment>
                 <aside className="home">

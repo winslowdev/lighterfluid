@@ -16,6 +16,7 @@
     --darkgrey: #111111;
     --grey: #828282;
     --lightgrey: #dddddd;
+    --mint: #00ff99;
     --orange: #f36100;
 }
 
@@ -424,6 +425,17 @@ button {
 /* =========================== PROFILES */
 /* =========================== PROFILES */
 
+.developer-grid {
+    background-color: red;
+    width: 90%;
+    margin: 0 auto;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
 .profile-head {
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
@@ -456,7 +468,7 @@ button {
     justify-content: space-around;
     align-items: center;
     position: relative;
-    bottom: 20px;
+    bottom: -75px;
 }
 
 .profile-cover h1 {
@@ -465,7 +477,7 @@ button {
 }
 
 .profile-title {
-    color: #4FB885;
+    color: var(--mint);
     font-size: 0.8rem;
     font-weight: 600;
 }
@@ -509,12 +521,12 @@ button {
 }
 
 .iconic img {
-    width: 18px;
+    width: 20px;
     height: auto;
 }
 
 .partial {
-    background-color: #4FB885;
+    background-color: var(--mint);
     border-radius: 3px 0 0 3px;
 }
 
@@ -536,4 +548,47 @@ button {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (min-width: 375px) {
+    .profile-info {
+        bottom: -50px;
+    }
+}
+
+@media screen and (min-width: 412px) {
+    .profile-info {
+        bottom: -25px;
+    }
+
+    .team {
+        margin-right: 7px;
+    }
+
+    .iconic {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .iconic img {
+        width: 27px;
+    }
+
+    .partial {
+        background-color: var(--mint);
+        border-radius: 5px 0 0 5px;
+    }
+    
+    .full {
+        background-color: var(--lightgrey);
+        border-radius: 5px;
+    }
+
+    .reach-out {
+        border-radius: 0 5px 5px 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        height: 40px;
+        padding: 0 13px;
+    }
 }

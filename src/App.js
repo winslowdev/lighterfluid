@@ -108,10 +108,11 @@ export default class App extends Component {
                     <Route
                         path="/developers" exact
                         render={(props) => <Developers {...props}
+                        sizes={this.state.sizes}
                             statements={this.state.statements} />} />
 
                     <Route
-                        path="/profiles" exact
+                        path="/profiles/winslow-mays" exact
                         render={(props) => <Profile {...props}
                             sizes={this.state.sizes}
                             statements={this.state.statements} />} />
@@ -126,12 +127,12 @@ export default class App extends Component {
                         render={(props) => <Login {...props}
                             statements={this.state.statements} />} />
 
-                    <footer>
+                    {/* <footer>
                         <div id="footer" className="container">
                             <p>designed and coded in sf and atl</p>
                             <p className="pseudolink" onClick={() => { navigate('internal', '/login') }}>developer login</p>
                         </div>
-                    </footer>
+                    </footer> */}
                 </main>
             </Router>
         )
