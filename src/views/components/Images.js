@@ -1,5 +1,7 @@
 export const backgrounds = {
-    projects: require('../../images/backgrounds/workspace.jpg')
+    codeSample: require('../../images/backgrounds/code-sample.jpg'),
+    fakeCyclist: require('../../images/backgrounds/fake-cyclist.jpg'),
+    workspace: require('../../images/backgrounds/workspace.jpg'),
 }
 
 export const icons = {

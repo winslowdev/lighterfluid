@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { RectangleTile, SquareTile } from './components/Snacks'
-import { highlightPunctuation } from './components/Functions';
+import { highlightPunctuation } from './components/Functions'
+import { backgrounds } from './components/Images'
 
 export class Home extends Component {
     render() {
@@ -18,7 +19,7 @@ export class Home extends Component {
                 <RectangleTile
                     address="/projects"
                     gradientStyle="grad1"
-                    image={require('../images/stock/workspace.jpg')}
+                    image={backgrounds.workspace}
                     sizes={this.props.sizes}
                     title={this.props.statements.projects} />
 
@@ -26,13 +27,13 @@ export class Home extends Component {
                     <SquareTile
                         address="/developers"
                         gradientStyle="grad2"
-                        image={require('../images/stock/fake-cyclist.jpg')}
+                        image={backgrounds.fakeCyclist}
                         sizes={this.props.sizes}
                         title={this.props.statements.developers} />
                     <SquareTile
                         address="/skills"
                         gradientStyle="grad3"
-                        image={require('../images/stock/code-sample.jpg')}
+                        image={backgrounds.codeSample}
                         sizes={this.props.sizes}
                         title={this.props.statements.skills} />
                 </div>
