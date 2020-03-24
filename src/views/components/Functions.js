@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export const highlightPunctuation = (phrase) => {
     const splitPhrase = phrase.split('')

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HeaderInformation, RectangleTile } from './Snacks'
+import { HeaderInformation, RectangleTile } from './components/Snacks'
 
 export class Projects extends Component {
     render() {

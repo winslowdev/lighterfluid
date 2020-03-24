@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { highlightPunctuation, navigate } from './snacks/functions';
+import React, { Component } from 'react'
+import { highlightPunctuation, navigate } from './Functions'
 
 export class ContactMethod extends Component {
     render() {

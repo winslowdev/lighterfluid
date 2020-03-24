@@ -519,7 +519,7 @@ button {
 }
 
 .full {
-    background-color: var(--grey);
+    background-color: var(--lightgrey);
     border-radius: 3px;
 }
 

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { ContactMethod } from '../Snacks'
+import { ContactMethod } from './components/Snacks'
+import './components/Images'
+import { icons } from './components/Images'
 
 export class Profile extends Component {
     constructor(props) {
@@ -63,7 +65,7 @@ export class Profile extends Component {
         return (
             <React.Fragment>
                 <div className="profile-head" style={{
-                    backgroundImage: `url(${require('../../images/users/taegeuk-heaven.jpg')})`,
+                    backgroundImage: `url(${require('../images/users/taegeuk-heaven.jpg')})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
                     height: this.props.sizes.currentWidth + 'px',
@@ -78,7 +80,7 @@ export class Profile extends Component {
                                 <ContactMethod
                                     address="winslow@lighterfluid.co"
                                     addressType="mail"
-                                    icon={require("../../images/dev/email-icon.png")}
+                                    icon={icons.email}
                                     iconAlt="email icon"
                                     method="email"
                                     reach="winslow@lighterfluid.co"
@@ -86,9 +88,19 @@ export class Profile extends Component {
                                     visible={this.state.contacts.isEmail} />
 
                                 <ContactMethod
+                                    address="https://github.com/winslowdev"
+                                    addressType="external"
+                                    icon={icons.github}
+                                    iconAlt="github icon"
+                                    method="github"
+                                    reach="@winslowdev"
+                                    toggleContactMethod={this.toggleContactMethod}
+                                    visible={this.state.contacts.isGithub} />
+
+                                <ContactMethod
                                     address="https://linkedin.com/in/winslowmays"
                                     addressType="external"
-                                    icon={require("../../images/dev/linkedin-icon.png")}
+                                    icon={icons.linkedin}
                                     iconAlt="linkedin icon"
                                     method="linkedin"
                                     reach="in/winslowmays"
@@ -98,7 +110,7 @@ export class Profile extends Component {
                                 <ContactMethod
                                     address="http://twitter.com/winslowdev"
                                     addressType="external"
-                                    icon={require("../../images/dev/twitter-icon.png")}
+                                    icon={icons.twitter}
                                     iconAlt="twitter icon"
                                     method="twitter"
                                     reach="@winslowdev"

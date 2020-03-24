@@ -6,16 +6,15 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // functions
-import { highlightPunctuation, navigate } from './components/snacks/functions';
+import { highlightPunctuation, navigate } from './views/components/Functions';
 
 // components
-import { Developers } from './components/Developers.js'
-import { Home } from './components/Home.js'
-import { Login } from './components/users/Login.js'
-import { Profile } from './components/users/Profile.js'
-import { Projects } from './components/Projects.js'
-import { Skills } from './components/Skills.js'
-
+import { Developers } from './views/Developers'
+import { Home } from './views/Home'
+import { Login } from './views/Login'
+import { Profile } from './views/Profile'
+import { Projects } from './views/Projects'
+import { Skills } from './views/Skills'
 
 // ======================================== APP
 // ======================================== APP

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { RectangleTile, SquareTile } from './Snacks'
-import { highlightPunctuation, navigate } from './snacks/functions';
+import { RectangleTile, SquareTile } from './components/Snacks'
+import { highlightPunctuation } from './components/Functions';
 
 export class Home extends Component {
     render() {

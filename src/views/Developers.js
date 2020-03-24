@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HeaderInformation } from './Snacks'
+import { HeaderInformation } from './components/Snacks'
 
 export class Developers extends Component {
     render() {
