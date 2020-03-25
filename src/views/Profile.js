@@ -74,7 +74,7 @@ export class Profile extends Component {
                         <div className="profile-info">
                             <p className="profile-title">Full-Stack Web Developer</p>
                             <h1>Winslow Mays</h1>
-                            <p className="profile-brand">Working in linguistics taught me that solving problems isn't always as easy as ABC. Whether you’re reworking an existing project or coding a new one from the root up, I know how to translate everything you want into a product that's right for U.</p>
+                            <p className="profile-brand">Whether you’re reworking an existing project or coding a new one from the root up, I know how to translate everything you want into a product that's right for U.</p>
 
                             <div className="social-info">
                                 <ContactMethod

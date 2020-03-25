@@ -558,7 +558,7 @@ button {
 
 @media screen and (min-width: 412px) {
     .profile-info {
-        bottom: -25px;
+        bottom: -40px;
     }
 
     .team {
@@ -590,5 +590,9 @@ button {
         font-weight: 600;
         height: 40px;
         padding: 0 13px;
+    }
+
+    .profile-brand {
+        font-size: 0.9rem;
     }
 }
