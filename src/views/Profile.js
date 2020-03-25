@@ -120,7 +120,10 @@ export class Profile extends Component {
                         <div className="profile-data">
                             <div className="data-header">
                                 <p className="user-designation">Full-Stack Web Developer</p>
-                                <input type="text" className={this.state.ghost.isName ? `ghost ghost-name` : `hidden`} placeholder="Winslow Mays" style={{
+                                <input type="text" className={this.state.ghost.isName ? `ghost ghost-name` : `hidden`}
+                                    placeholder="Winslow Mays"
+                                    onBlur={() => {this.resizeFont("name", "Ghost inputs rocksss")}}
+                                    style={{
                                     height: this.state.heights.name + 'px',
                                     fontSize: this.resizeFont("name", "Winslow Mays") + 'rem'
                                 }} />
