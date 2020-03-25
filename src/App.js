@@ -34,7 +34,7 @@ export default class App extends Component {
                 developers: 'Developers & designers',
                 home: 'Captain Planet—he\'s our hero. Gonna take pollution down to zero.',
                 login: 'Developer login',
-                projects: 'Collaborations',
+                projects: 'Collaborative work',
                 skills: 'Stacks, languages & frameworks'
             },
         }

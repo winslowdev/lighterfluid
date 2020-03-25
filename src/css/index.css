@@ -130,7 +130,7 @@ footer {
     height: 100%;
     position: fixed;
     padding-top: 40px;
-    z-index: 100;
+    z-index: 9998;
     width: 100%;
 }
 
@@ -436,66 +436,59 @@ button {
     align-items: flex-start;
 }
 
-.profile-head {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
+
+/* =========================== USER PROFILE */
+/* =========================== USER PROFILE */
+
+.user-profile {
     width: 100%;
 }
-
-
-
-
 
 .profile-cover {
     background-image: linear-gradient(to top, #000000, rgb(18, 18, 18, 0.12));
+    position: relative;
+    z-index: 100;
+}
+
+.profile-data {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    justify-content: flex-start;
+    margin: 0 auto;
     position: relative;
-    transform: rotate(-90deg);
-    width: 100%;
-    z-index: 8888;
+    top: 200px;
+    width: 90%;
+    z-index: 150;
+}
+
+.data-header {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 50px;
 }
 
-.profile-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    bottom: -75px;
-}
-
-.profile-cover h1 {
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.profile-title {
+.user-designation {
     color: var(--mint);
     font-size: 0.8rem;
     font-weight: 600;
 }
 
-.profile-brand {
-    font-size: 0.7rem;
-    text-align: center;
-    width: 88%;
-    margin: 0 auto;
-    color: #979198;
+.user-name {
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
-.social-info {
-    margin-top: 20px;
+
+.user-contacts {
+    align-items: flex-start;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: flex-start;
+    margin-top: 10px;
 }
 
 .team {
@@ -550,6 +543,64 @@ button {
     align-items: center;
 }
 
+
+/* ========= ABOUT ========= */
+/* ========= ABOUT ========= */
+
+.data-about, .data-skills, .data-projects {
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.data-title {
+    color: var(--mint);
+    font-size: 0.5rem;
+    font-weight: 500;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+}
+
+.about-me {
+    color: var(--grey);
+}
+
+
+
+.skill-point {
+    background-color: var(--lightgrey);
+    border-radius: 3px;
+    color: var(--darkgrey);
+    font-size: 0.6rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 7px 9px;
+}
+
+.skill-point:first-of-type {
+    margin: 0;
+    margin-right: 5px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.project-grid img {
+    margin-top: 10px;
+    width: 90%;
+    height: auto;
+}
+
+.project-about {
+    margin-top: 5px;
+    width: 93%;
+}
+
 @media screen and (min-width: 375px) {
     .profile-info {
         bottom: -50px;
@@ -595,4 +646,27 @@ button {
     .profile-brand {
         font-size: 0.9rem;
     }
+}
+
+
+/* ----------- EXPERIMENTAL INPUTS */
+/* ----------- EXPERIMENTAL INPUTS */
+
+.hidden {
+    display: none;
+}
+
+.ghost-name {
+    background-color: #00000000;
+    border-radius: 0;
+    color: var(--lightgrey);
+    font-weight: 700;
+    letter-spacing: -0.03rem;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.ghost-name::placeholder {
+    opacity: 1
 }

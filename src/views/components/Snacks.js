@@ -48,6 +48,14 @@ export class RectangleTile extends Component {
     }
 }
 
+export class SkillPoint extends Component {
+    render() {
+        return (
+            <div className="skill-point">{this.props.skill}</div>
+        )
+    }
+}
+
 export class SquareTile extends Component {
     render() {
         return (

@@ -14,3 +14,7 @@ export const icons = {
 export const profiles = {
     addison: require('../../images/users/taegeuk-heaven.jpg')
 }
+
+export const projects = {
+    romanizeMeCaptain: require('../../images/projects/romanizemecaptain.png')
+}
