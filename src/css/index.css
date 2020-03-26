@@ -2,6 +2,7 @@
 /* =========================== IMPORTS */
 
 @import url('normalize.css');
+@import url('projects.css');
 
 /* LOGO TITLE ONLY */
 @font-face {
@@ -13,9 +14,9 @@
 
 :root {
     --black: #000000;
-    --darkgrey: #111111;
+    --darkgrey: #666666;
     --grey: #828282;
-    --lightgrey: #dddddd;
+    --lightgrey: #d0d0d0;
     --mint: #00ff99;
     --orange: #f36100;
 }
@@ -32,7 +33,7 @@ body {
 
 header {
     background-color: var(--black);
-    height: 45px;
+    height: 55px;
     position: fixed;
     width: 100%;
     z-index: 9999;
@@ -68,7 +69,7 @@ aside {
 }
 
 main {
-    padding-top: 45px;
+    padding-top: 55px;
 }
 
 
@@ -219,18 +220,11 @@ footer {
 /* =========================== TEXT */
 /* =========================== TEXT */
 
-h1, h2, h3, h6, p {
+h1, h2, h3, h6 {
     margin: 0;
 }
 
-/* page title */
-h1 {
-    color: var(--lightgrey);
-    font-size: 2.5rem;
-    font-weight: 800;
-    letter-spacing: -0.03rem;
-    line-height: 90%;
-}
+
 
 /* bold hero title */
 h2 {
@@ -279,17 +273,9 @@ h6 {
     text-transform: uppercase;
 }
 
-p {
-    color: var(--grey);
-    font-size: 0.7rem;
-    line-height: 160%;
-    text-align: left;
-}
 
-footer p {
-    color: var(--grey);
-    font-size: 0.3rem;
-}
+
+
 
 .pseudolink {
     text-decoration: underline;
@@ -669,4 +655,63 @@ button {
 
 .ghost-name::placeholder {
     opacity: 1
+}
+
+
+
+
+
+
+.this {
+    color: var(--darkgrey);
+    margin-bottom: 5px;
+}
+
+.that {
+    color: var(--lightgrey);
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+
+
+
+/* LINK + ARROW */
+
+.point-link {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.point-link p {
+    margin: 0 5px 5px 0;
+}
+
+.point-link img {
+    height: 12px;
+    width: 12px;
+}
+
+.pseudolink {
+    cursor: pointer;
+}
+
+/* TEXT P */
+
+h1 {
+    color: var(--lightgrey);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.03px;
+    line-height: 2.45rem;
+}
+
+p {
+    color: var(--lightgrey);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: -0.03px;
+    margin: 0;
 }

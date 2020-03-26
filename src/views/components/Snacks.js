@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { highlightPunctuation, navigate } from './Functions'
+import { icons } from './Images'
 
 export class ContactMethod extends Component {
     render() {
@@ -71,6 +72,30 @@ export class SquareTile extends Component {
                 <div className={`coverpiece ${this.props.gradientStyle}`}>
                     <h3>{this.props.title}</h3>
                 </div>
+            </div>
+        )
+    }
+}
+
+
+
+export class Point extends Component {
+    render() {
+        return (
+            <div className="point">
+                <p className="this">{this.props.this}</p>
+                <p className="that">{this.props.that}</p>
+            </div>
+        )
+    }
+}
+
+export class PointLink extends Component {
+    render() {
+        return (
+            <div className="point-link pseudolink" onClick={() => { navigate("external", this.props.address )}}>
+                <p>{this.props.that}</p>
+                <img src={icons.externalClick} />
             </div>
         )
     }

@@ -15,6 +15,7 @@ import { Login } from './views/Login'
 import { Profile } from './views/Profile'
 import { Projects } from './views/Projects'
 import { Skills } from './views/Skills'
+import { JohnQ } from './views/JohnQ'
 
 // ======================================== APP
 // ======================================== APP
@@ -106,9 +107,15 @@ export default class App extends Component {
                             statements={this.state.statements} />} />
 
                     <Route
+                        path="/projects/john-q" exact
+                        render={(props) => <JohnQ {...props}
+                            sizes={this.state.sizes}
+                            statements={this.state.statements} />} />
+
+                    <Route
                         path="/developers" exact
                         render={(props) => <Developers {...props}
-                        sizes={this.state.sizes}
+                            sizes={this.state.sizes}
                             statements={this.state.statements} />} />
 
                     <Route

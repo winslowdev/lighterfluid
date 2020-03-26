@@ -6,6 +6,7 @@ export const backgrounds = {
 
 export const icons = {
     email: require('../../images/icons/email.png'),
+    externalClick: require('../../images/icons/external-click.png'),
     github: require('../../images/icons/github.png'),
     linkedin: require('../../images/icons/linkedin.png'),
     twitter: require('../../images/icons/twitter.png')
