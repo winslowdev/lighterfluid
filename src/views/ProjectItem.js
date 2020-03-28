@@ -7,7 +7,6 @@ import { TagTeam, DirectLink } from '../universals/Snacks'
 
 // ============================== PROJECT ITEM ON MOBILE
 
-
 export class ProjectItem extends Component {
     render() {
         return (
