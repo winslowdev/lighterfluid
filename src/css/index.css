@@ -2,12 +2,16 @@
 /* =========================== IMPORT & VAR */
 
 @import url('normalize.css');
+@import url('text.css');
+
+
+
 @import url('projects.css');
 @import url('header.css');
 
 :root {
     --black: #000000;
-    --grey: #bdbdbd;
+    --grey: #535353;
     --orange: #e87d00;
     --slightblack: #101010;
     --white: #f5f5f5;
@@ -35,7 +39,7 @@ body {
 
 :root {
     --black: #000000;
-    --darkgrey: #666666;
+    
     --grey: #828282;
     --lightgrey: #d0d0d0;
     --mint: #00ff99;
@@ -51,19 +55,17 @@ body {
 
 
 
-header, #home-hero, #footer, footer {
+#footer, footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-aside {
-    padding: 5px 0;
-}
+
 
 main {
-    padding-top: 55px;
+    /* padding-top: 55px; */
 }
 
 
@@ -140,13 +142,9 @@ footer {
 /* =========================== HEROES */
 /* =========================== HEROES */
 
-.home {
-    background-color: var(--darkgrey);
-}
 
-#home-hero {
-    padding: 25px 0;
-}
+
+
 
 .page-hero {
     padding: 10px 0;
@@ -211,62 +209,19 @@ footer {
 }
 
 
-/* =========================== TEXT */
-/* =========================== TEXT */
-
-h1, h2, h3 {
-    margin: 0;
-}
 
 
 
-/* bold hero title */
-h2 {
-    color: var(--grey);
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: -0.03rem;
-    line-height: 120%;
-}
 
-/* tile title */
-h3 {
-    color: var(--lightgrey);
-    font-size: 1.3rem;
-    font-weight: 600;
-    letter-spacing: -0.03rem;
-    margin-bottom: 10px;
-    margin-left: 5%;
-}
 
-.rectangle h3 {
-    width: 70%;
-}
-
-/* nav menu links */
-h5 {
-    color: var(--grey);
-    font-size: 1.3rem;
-    font-weight: 600;
-    letter-spacing: -0.03rem;
-    line-height: 110%;
-    margin: 0;
-    margin-bottom: 30px;
-}
-
-h5:hover {
-    color: var(--lightgrey);
+.container {
+    width: 90%;
+    margin: 0 auto;
 }
 
 
 
 
-
-
-
-.pseudolink {
-    text-decoration: underline;
-}
 
 .punc {
     color: white;
@@ -298,10 +253,6 @@ input {
     height: 30px;
     outline: none;
     padding: 0 10px;
-}
-
-#login-form input {
-    width: 75%;
 }
 
 .tag-team {
@@ -650,7 +601,7 @@ button {
 
 
 .this {
-    color: var(--darkgrey);
+    color: var(--grey);
     margin-bottom: 5px;
 }
 
@@ -681,24 +632,158 @@ button {
     width: 12px;
 }
 
-.cursor {
-    cursor: pointer;
-}
+
+
 
 /* TEXT P */
 
-h1 {
-    color: var(--lightgrey);
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: -0.03px;
-    line-height: 2.45rem;
+
+
+
+
+/* HOME =============== HERO */
+/* HOME =============== HERO */
+
+.hero {
+    background-color: var(--slightblack);
 }
 
-p {
-    color: var(--lightgrey);
-    font-size: 1.1rem;
-    font-weight: 400;
-    letter-spacing: -0.03px;
-    margin: 0;
+.anchorspoof {
+    cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+.profile-4k {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+    margin-left: 5%;
+    margin-top: 100px;
+    width: 90%;
+}
+
+.ui-header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.uih-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 150px;
+}
+
+.user-intro {
+    width: 45%;
+}
+
+.uih-image {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    margin-right: 30px;
+}
+
+.uihi-designation {
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.important {
+    color: #2f80ed;
+}
+
+.unimportant {
+    color: var(--grey);
+}
+
+
+.ui-summary {
+    color: var(--white);
+    margin-bottom: 100px;
+    width: 95%;
+}
+
+.user-scroll {
+    width: 50%;
+}
+
+
+
+
+
+.contacts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.point {
+    margin-bottom: 80px;
+    width: 95%;;
+    width: 50%;
+}
+
+.point-link p {
+    color: var(--white);
+}
+
+.point-link img {
+    height: 20px;
+    width: 20px;
+}
+
+
+
+
+.contact-directs {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.nav-ribbon {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
+
+
+.point .anchorspoof:hover {
+    color: #2f80ed;
+}
+
+.skills-cloud {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    position: relative;
+    width: 113%;
+    right: 0px;
+    overflow-x: scroll;
+}
+
+.active {
+    color: var(--white);
+}
+
+/* * {
+    border: 1px solid red;
+} */

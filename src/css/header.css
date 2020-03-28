@@ -1,59 +1,64 @@
-@font-face {
-    font-family: 'Sifonn Pro';
-    src: url('fonts/sifonn-pro/sifonn-pro.otf');
-    font-weight: normal;
-    font-style: normal;
-}
 
-
-
-/* LOGO TITLE ONLY */
-
-
-/* APP TITLE ONLY */
-h6 {
-    color: var(--lightgrey);
-    margin: 0;
-    font-family: "Sifonn Pro", sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-
-
-
-
-
-
-
-
-
-/* h6 {
-    font-size: 20rem;
-}
 
 
 header {
+    align-items: center;
     background-color: var(--black);
-    height: 55px;
-    position: fixed;
-    width: 100%;
-    z-index: 9999;
-}
-
-#header {
-    align-items: flex-start;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 15px 0;
+    width: 100%;
 }
 
-.container {
-    width: 90%;
-    margin: 0 auto;
-} */
+.nav-link {
+    line-height: 110%;
+    margin-bottom: 30px;
+    margin-left: 0;
+}
+
+.nav-link:hover {
+    color: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+
+    header {
+        padding: 25px 0;
+    }
+    
+    #header {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-link {
+        color: var(--grey);
+    }
+}
 
 
+@media screen and (min-width: 2000px) {
+    header {
+        padding: 50px 0;
+    }
 
+    nav {
+        width: 40%;
+    }
 
+    .nav-link {
+        color: var(--grey);
+        font-weight: 400;
+    }
+
+}

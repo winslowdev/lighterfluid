@@ -1,7 +1,11 @@
-import React, { Component } from 'react'
-import { ContactMethod, SkillPoint } from './components/Snacks'
-import { icons, projects } from './components/Images'
+// ============================== IMPORTS
 
+import React, { Component } from 'react'
+import { icons, projects, stock } from '../universals/Images'
+import { TagTeam, DirectLink, DirectDownload, Bullet } from '../universals/Snacks'
+
+
+// ============================== PROFILE ON MOBILE
 
 export class Profile extends Component {
     constructor(props) {
@@ -23,7 +27,6 @@ export class Profile extends Component {
         this.determineHeights = this.determineHeights.bind(this)
         this.goGoGadgetGhostInput = this.goGoGadgetGhostInput.bind(this)
         this.resizeFont = this.resizeFont.bind(this)
-        this.toggleContactMethod = this.toggleContactMethod.bind(this)
     }
 
     determineHeights() {
@@ -37,7 +40,7 @@ export class Profile extends Component {
 
     goGoGadgetGhostInput(type, userInput) {
         if (type === "name") {
-            this.setState({    
+            this.setState({
                 ghost: {
                     ...this.state.ghost,
                     isName: true
@@ -58,50 +61,6 @@ export class Profile extends Component {
         }
     }
 
-    toggleContactMethod(method) {
-        if (method === 'email') {
-            this.setState({
-                contacts: {
-                    ...this.state.contacts,
-                    isEmail: true,
-                    isGithub: false,
-                    isLinkedin: false,
-                    isTwitter: false
-                }
-            })
-        } else if (method === 'github') {
-            this.setState({
-                contacts: {
-                    ...this.state.contacts,
-                    isEmail: false,
-                    isGithub: true,
-                    isLinkedin: false,
-                    isTwitter: false
-                }
-            })
-        } else if (method === 'linkedin') {
-            this.setState({
-                contacts: {
-                    ...this.state.contacts,
-                    isEmail: false,
-                    isGithub: false,
-                    isLinkedin: true,
-                    isTwitter: false
-                }
-            })
-        } else if (method === 'twitter') {
-            this.setState({
-                contacts: {
-                    ...this.state.contacts,
-                    isEmail: false,
-                    isGithub: false,
-                    isLinkedin: false,
-                    isTwitter: true
-                }
-            })
-        }
-    }
-
     componentDidMount() {
         this.determineHeights()
         window.addEventListener('resize', this.determineHeights)
@@ -111,7 +70,7 @@ export class Profile extends Component {
         return (
             <React.Fragment>
                 <div className="user-profile" style={{
-                    backgroundImage: `url(${require('../images/users/taegeuk-heaven.jpg')})`,
+                    backgroundImage: `url(${stock.genericMale})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
                     height: this.props.sizes.currentWidth + 'px',
@@ -122,57 +81,19 @@ export class Profile extends Component {
                                 <p className="user-designation">Full-Stack Web Developer</p>
                                 <input type="text" className={this.state.ghost.isName ? `ghost ghost-name` : `hidden`}
                                     placeholder="Winslow Mays"
-                                    onBlur={() => {this.resizeFont("name", "Ghost inputs rocksss")}}
+                                    onBlur={() => { this.resizeFont("name", "Ghost inputs rocksss") }}
                                     style={{
-                                    height: this.state.heights.name + 'px',
-                                    fontSize: this.resizeFont("name", "Winslow Mays") + 'rem'
-                                }} />
+                                        height: this.state.heights.name + 'px',
+                                        fontSize: this.resizeFont("name", "Winslow Mays") + 'rem'
+                                    }} />
                                 <h1 id="user-name"
-                                    onClick={() => { this.goGoGadgetGhostInput("name", "Winslow Mays")}}
+                                    onClick={() => { this.goGoGadgetGhostInput("name", "Winslow Mays") }}
                                     className={this.state.ghost.isName ? `hidden` : `user-name`}
                                     style={{
                                         fontSize: this.resizeFont("name", "Winslow Mays") + 'rem'
                                     }}>Winslow Mays</h1>
                                 <div className="user-contacts">
-                                    <ContactMethod
-                                        address="winslow@lighterfluid.co"
-                                        addressType="mail"
-                                        icon={icons.email}
-                                        iconAlt="email icon"
-                                        method="email"
-                                        reach="winslow@lighterfluid.co"
-                                        toggleContactMethod={this.toggleContactMethod}
-                                        visible={this.state.contacts.isEmail} />
-
-                                    <ContactMethod
-                                        address="https://github.com/winslowdev"
-                                        addressType="external"
-                                        icon={icons.github}
-                                        iconAlt="github icon"
-                                        method="github"
-                                        reach="@winslowdev"
-                                        toggleContactMethod={this.toggleContactMethod}
-                                        visible={this.state.contacts.isGithub} />
-
-                                    <ContactMethod
-                                        address="https://linkedin.com/in/winslowmays"
-                                        addressType="external"
-                                        icon={icons.linkedin}
-                                        iconAlt="linkedin icon"
-                                        method="linkedin"
-                                        reach="in/winslowmays"
-                                        toggleContactMethod={this.toggleContactMethod}
-                                        visible={this.state.contacts.isLinkedin} />
-
-                                    <ContactMethod
-                                        address="http://twitter.com/winslowdev"
-                                        addressType="external"
-                                        icon={icons.twitter}
-                                        iconAlt="twitter icon"
-                                        method="twitter"
-                                        reach="@winslowdev"
-                                        toggleContactMethod={this.toggleContactMethod}
-                                        visible={this.state.contacts.isTwitter} />
+                                    
                                 </div>
                             </div>
 
@@ -184,22 +105,22 @@ export class Profile extends Component {
                             <div className="data-skills">
                                 <p className="data-title">Skills</p>
                                 <div className="skills-grid">
-                                    <SkillPoint skill="HTML5" />
-                                    <SkillPoint skill="CSS3" />
-                                    <SkillPoint skill="AngularJS" />
-                                    <SkillPoint skill="Heroku" />
-                                    <SkillPoint skill="SASS" />
-                                    <SkillPoint skill="JavaScript" />
-                                    <SkillPoint skill="GitHub" />
-                                    <SkillPoint skill="BCrypt" />
-                                    <SkillPoint skill="React" />
-                                    <SkillPoint skill="Figma" />
-                                    <SkillPoint skill="React Native" />
-                                    <SkillPoint skill="3rd Party APIs" />
-                                    <SkillPoint skill="jQuery" />
-                                    <SkillPoint skill="SQL" />
-                                    <SkillPoint skill="Version Control" />
-                                    <SkillPoint skill="Microsoft Visual Studio Code" />
+                                    <Bullet skill="HTML5" />
+                                    <Bullet skill="CSS3" />
+                                    <Bullet skill="AngularJS" />
+                                    <Bullet skill="Heroku" />
+                                    <Bullet skill="SASS" />
+                                    <Bullet skill="JavaScript" />
+                                    <Bullet skill="GitHub" />
+                                    <Bullet skill="BCrypt" />
+                                    <Bullet skill="React" />
+                                    <Bullet skill="Figma" />
+                                    <Bullet skill="React Native" />
+                                    <Bullet skill="3rd Party APIs" />
+                                    <Bullet skill="jQuery" />
+                                    <Bullet skill="SQL" />
+                                    <Bullet skill="Version Control" />
+                                    <Bullet skill="Microsoft Visual Studio Code" />
                                 </div>
                             </div>
 
@@ -215,6 +136,126 @@ export class Profile extends Component {
                     </div>
                 </div>
             </React.Fragment >
+        )
+    }
+}
+
+// ============================== PROFILE ON LARGE MONITORS
+
+export class ProfileLarge extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            sections: {
+                skills: true,
+                projects: false,
+                resume: false,
+            }
+        }
+        this.loadSection = this.loadSection.bind(this)
+    }
+
+    loadSection(section) {
+        if (section === "skills") {
+            this.setState({
+                sections: {
+                    ...this.state.section,
+                    skills: true,
+                    projects: false,
+                    resume: false
+                }
+            })
+        } else if (section === "projects") {
+            this.setState({
+                sections: {
+                    ...this.state.section,
+                    skills: false,
+                    projects: true,
+                    resume: false
+                }
+            })
+        } else if (section === "resume") {
+            this.setState({
+                sections: {
+                    ...this.state.section,
+                    skills: false,
+                    projects: false,
+                    resume: true
+                }
+            })
+        }
+    }
+
+
+    render() {
+        return (
+            <div className="profile-4k">
+
+                <aside className="user-intro">
+
+                    {/* PROFILE IMAGE, NAME, DESIGNATION */}
+                    <div className="ui-header">
+                        <img src={stock.genericMale} alt="profile-img" className="uih-image" />
+
+                        <div className="uih-info">
+                            <h1 className="uihi-name">J. Benjamin Nimble</h1>
+                            <p className="uihi-designation important">UX Designer & Front-End Developer <span className="unimportant">in Toronto</span></p>
+                        </div>
+                    </div>
+
+                    {/* SUMMARY */}
+                    <p className="ui-summary">Quis non, nulla facilisis tempor tortor id. Tortor enim lectus ac, in. Tortor mattis blandit cras congue cursus tortor mauris risus vestibulum. Porta adipiscing neque suspendisse arcu adipiscing sociis. Porta placerat at velit enim sit tincidunt sem adipiscing. Fusce sed egestas sit rutrum.</p>
+
+                    <div className="contacts">
+                        <TagTeam
+                            title="Email"
+                            caption="jack@lighterfluid.co" />
+
+                        <TagTeam
+                            title="LinkedIn"
+                            caption="winslowmays" />
+
+                        <TagTeam
+                            title="GitHub"
+                            caption="jackbnimble" />
+
+                        <TagTeam
+                            title="Twitter"
+                            caption="jackbnimble" />
+
+                        <div className="contact-directs">
+                            <DirectLink
+                                title="Personal website"
+                                address="https://wins.dev" />
+
+                            <DirectDownload
+                                title="Download resume as PDF"
+                                address="https://drive.google.com/file/d/1991ZbYlZhaNEdC7Y8qi_hnVY2os3gc3h/view?usp=sharing" />
+                        </div>
+                    </div>
+                </aside>
+
+                <div className="user-scroll">
+                    <div className="nav-ribbon">
+                        <h1 className={`ribbon-link anchorspoof ${this.state.sections.skills ? 'active' : 'unimportant'}`} onClick={() => { this.loadSection("skills") }}>Skills</h1>
+                        <h1 className={`ribbon-link anchorspoof ${this.state.sections.projects ? 'active' : 'unimportant'}`} onClick={() => { this.loadSection("projects") }}>Projects</h1>
+                        <h1 className={`ribbon-link anchorspoof ${this.state.sections.resume ? 'active' : 'unimportant'}`} onClick={() => { this.loadSection("resume") }}>Resume</h1>
+                    </div>
+
+                    {this.state.sections.skills ? <div className="skills-cloud">
+                        <h1 className="skillbounce">HTML5</h1>
+                        <h1 className="skillbounce">PostgreSQL</h1>
+                        <h1 className="skillbounce">Python</h1>
+                        <h1 className="skillbounce">CSS3</h1>
+                        <h1 className="skillbounce">MEAN stack</h1>
+                        <h1 className="skillbounce">GitHub</h1>
+                    </div>
+
+                        : null}
+
+
+                </div>
+            </div>
         )
     }
 }

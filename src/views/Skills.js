@@ -1,11 +1,16 @@
+// ============================== IMPORTS
+
 import React, { Component } from 'react';
-import { HeaderInformation } from './components/Snacks'
+import { PageInformation } from '../universals/Snacks'
+
+
+// ============================== SKILLS SECTION ON LARGE MONITORS
 
 export class Skills extends Component {
     render() {
         return (
             <React.Fragment>
-                <HeaderInformation
+                <PageInformation
                     pageTitle={this.props.statements.skills}
                     pageDescription="We all speak English. Some of us know Korean or German. But we also have working knowledge of React, AngularJS, SQL, and the list goes on." />
 

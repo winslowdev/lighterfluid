@@ -1,24 +1,18 @@
-// ======================================== IMPORTS
-// ======================================== IMPORTS
+// ============================== IMPORTS
 
-// basics
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { highlightPunctuation, navigate } from './universals/Functions';
 
-// functions
-import { highlightPunctuation, navigate } from './views/components/Functions';
-
-// components
 import { Developers } from './views/Developers'
 import { Home } from './views/Home'
-import { Login } from './views/Login'
-import { Profile } from './views/Profile'
+import { Profile, ProfileLarge } from './views/Profile'
+import { ProjectItem } from './views/ProjectItem'
 import { Projects } from './views/Projects'
 import { Skills } from './views/Skills'
-import { JohnQ } from './views/JohnQ'
 
-// ======================================== APP
-// ======================================== APP
+
+// ============================== COMPLETE APPLICATION
 
 export default class App extends Component {
     constructor(props) {
@@ -32,11 +26,10 @@ export default class App extends Component {
                 appBlurWidth: ''
             },
             statements: {
-                developers: 'Developers & designers',
+                developers: 'Developers',
                 home: 'Captain Planet—he\'s our hero. Gonna take pollution down to zero.',
-                login: 'Developer login',
-                projects: 'Collaborative work',
-                skills: 'Stacks, languages & frameworks'
+                projects: ['Collaborative', <br />,  'projects'],
+                skills: ['Skills &', <br />, 'competencies']
             },
         }
         this.determineSizes = this.determineSizes.bind(this)
@@ -50,7 +43,7 @@ export default class App extends Component {
                 currentWidth: window.innerWidth,
                 rectangleHeight: window.innerWidth * 0.4,
                 squareHeight: window.innerWidth * 0.5,
-                appBlurWidth: Math.round(window.innerWidth * 0.05 + document.getElementById('app-title').offsetWidth + 50)
+                // appBlurWidth: Math.round(window.innerWidth * 0.05 + document.getElementById('app-title').offsetWidth + 50)
             }
         })
     }
@@ -63,7 +56,10 @@ export default class App extends Component {
 
     componentDidMount() {
         this.determineSizes()
-        window.addEventListener("resize", this.determineSizes)
+
+        window.addEventListener("resize", () => {
+            this.determineSizes()
+        })
     }
 
     render() {
@@ -75,13 +71,37 @@ export default class App extends Component {
                         style={{ width: this.state.sizes.appBlurWidth + 'px' }}></div>
                     <div className="nav-drawer"
                         style={{ width: this.state.sizes.currentWidth - this.state.sizes.appBlurWidth + 'px' }}>
-                        <h5 className="nav-link" onClick={() => { navigate("/projects") }}>{highlightPunctuation(this.state.statements.projects)}</h5>
-                        <h5 className="nav-link" onClick={() => { navigate("/developers") }}>{highlightPunctuation(this.state.statements.developers)}</h5>
-                        <h5 className="nav-link" onClick={() => { navigate("/skills") }}>{highlightPunctuation(this.state.statements.skills)}</h5>
+                        <h3 className="nav-link anchorspoof" onClick={() => { navigate("/projects") }}>{highlightPunctuation(this.state.statements.projects)}</h3>
+                        <h3 className="nav-link anchorspoof" onClick={() => { navigate("/developers") }}>{highlightPunctuation(this.state.statements.developers)}</h3>
+                        <h3 className="nav-link anchorspoof" onClick={() => { navigate("/skills") }}>{highlightPunctuation(this.state.statements.skills)}</h3>
                     </div>
                 </div> : null}
 
-                <header>
+                {window.innerWidth < 1000 ? <header>
+                    <h6 onClick={() => { navigate("/") }} id="app-title">Lighterfluid</h6>
+
+                    { <Route path="/" exact /> ? <div className="nav-icon" onClick={() => { this.toggleNavDrawer() }}>
+                            <div className="nav-icon-top"></div>
+                            <div className="nav-icon-mid"></div>
+                            <div className="nav-icon-btm"></div>
+                        </div> : null }
+                </header> : null}
+
+                {window.innerWidth >= 1000 ? <header>
+                    <div className="container" id="header">
+                        <h6 onClick={() => { navigate("/") }} id="app-title" className="anchorspoof">Lighterfluid</h6>
+
+                        <nav>
+                            <p className="nav-link anchorspoof">{this.state.statements.developers}</p>
+                            <p className="nav-link anchorspoof">{this.state.statements.projects}</p>
+                            <p className="nav-link anchorspoof">{this.state.statements.skills}</p>
+                        </nav>
+                    </div>
+                </header> : null}
+
+
+
+                {/* <header>
                     <div className="container" id="header">
                         <h6 onClick={() => { navigate("/") }} id="app-title">Lighterfluid</h6>
                         <div className="nav-icon" onClick={() => { this.toggleNavDrawer() }}>
@@ -90,7 +110,7 @@ export default class App extends Component {
                             <div className="nav-icon-btm"></div>
                         </div>
                     </div>
-                </header>
+                </header> */}
 
                 <main>
                     <Route
@@ -108,7 +128,7 @@ export default class App extends Component {
 
                     <Route
                         path="/projects/john-q" exact
-                        render={(props) => <JohnQ {...props}
+                        render={(props) => <ProjectItem {...props}
                             sizes={this.state.sizes}
                             statements={this.state.statements} />} />
 
@@ -118,28 +138,21 @@ export default class App extends Component {
                             sizes={this.state.sizes}
                             statements={this.state.statements} />} />
 
-                    <Route
-                        path="/profiles/winslow-mays" exact
+                    { window.innerWidth < 2000 ? <Route
+                        path="/profiles/jack" exact
                         render={(props) => <Profile {...props}
                             sizes={this.state.sizes}
-                            statements={this.state.statements} />} />
+                            statements={this.state.statements} />} /> : <Route
+                            path="/profiles/jack" exact
+                            render={(props) => <ProfileLarge {...props}
+                                sizes={this.state.sizes}
+                    statements={this.state.statements} />} /> }
 
                     <Route
                         path="/skills" exact
                         render={(props) => <Skills {...props}
                             statements={this.state.statements} />} />
 
-                    <Route
-                        path="/login" exact
-                        render={(props) => <Login {...props}
-                            statements={this.state.statements} />} />
-
-                    {/* <footer>
-                        <div id="footer" className="container">
-                            <p>designed and coded in sf and atl</p>
-                            <p className="pseudolink" onClick={() => { navigate('internal', '/login') }}>developer login</p>
-                        </div>
-                    </footer> */}
                 </main>
             </Router>
         )
