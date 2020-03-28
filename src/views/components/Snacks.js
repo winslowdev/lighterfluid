@@ -40,7 +40,7 @@ export class RectangleTile extends Component {
                     backgroundSize: 'cover',
                     height: this.props.sizes.rectangleHeight + 'px',
                 }}
-                onClick={() => { navigate("internal", this.props.address) }}>
+                onClick={() => { navigate(this.props.address) }}>
                 <div className={`coverpiece ${this.props.gradientStyle}`}>
                     <h3>{this.props.title}</h3>
                 </div>
@@ -68,7 +68,7 @@ export class SquareTile extends Component {
                     backgroundSize: 'cover',
                     height: this.props.sizes.squareHeight + 'px',
                 }}
-                onClick={() => { navigate("internal", this.props.address) }}>
+                onClick={() => { navigate(this.props.address) }}>
                 <div className={`coverpiece ${this.props.gradientStyle}`}>
                     <h3>{this.props.title}</h3>
                 </div>
@@ -82,9 +82,9 @@ export class SquareTile extends Component {
 export class Point extends Component {
     render() {
         return (
-            <div className="point">
+            <div className="point" onClick={() => { navigate(this.props.type, this.props.address)}}>
                 <p className="this">{this.props.this}</p>
-                <p className="that">{this.props.that}</p>
+                <p className={`that ${this.props.address ? 'cursor' : null}`} >{this.props.that}</p>
             </div>
         )
     }
@@ -93,7 +93,7 @@ export class Point extends Component {
 export class PointLink extends Component {
     render() {
         return (
-            <div className="point-link pseudolink" onClick={() => { navigate("external", this.props.address )}}>
+            <div className="point-link cursor" onClick={() => { navigate(this.props.address )}}>
                 <p>{this.props.that}</p>
                 <img src={icons.externalClick} />
             </div>

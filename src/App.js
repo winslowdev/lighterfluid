@@ -75,15 +75,15 @@ export default class App extends Component {
                         style={{ width: this.state.sizes.appBlurWidth + 'px' }}></div>
                     <div className="nav-drawer"
                         style={{ width: this.state.sizes.currentWidth - this.state.sizes.appBlurWidth + 'px' }}>
-                        <h5 className="nav-link" onClick={() => { navigate("internal", "/projects") }}>{highlightPunctuation(this.state.statements.projects)}</h5>
-                        <h5 className="nav-link" onClick={() => { navigate("internal", "/developers") }}>{highlightPunctuation(this.state.statements.developers)}</h5>
-                        <h5 className="nav-link" onClick={() => { navigate("internal", "/skills") }}>{highlightPunctuation(this.state.statements.skills)}</h5>
+                        <h5 className="nav-link" onClick={() => { navigate("/projects") }}>{highlightPunctuation(this.state.statements.projects)}</h5>
+                        <h5 className="nav-link" onClick={() => { navigate("/developers") }}>{highlightPunctuation(this.state.statements.developers)}</h5>
+                        <h5 className="nav-link" onClick={() => { navigate("/skills") }}>{highlightPunctuation(this.state.statements.skills)}</h5>
                     </div>
                 </div> : null}
 
                 <header>
                     <div className="container" id="header">
-                        <h6 onClick={() => { navigate("internal", "/") }} id="app-title">Lighterfluid</h6>
+                        <h6 onClick={() => { navigate("/") }} id="app-title">Lighterfluid</h6>
                         <div className="nav-icon" onClick={() => { this.toggleNavDrawer() }}>
                             <div className="nav-icon-top"></div>
                             <div className="nav-icon-mid"></div>

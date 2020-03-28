@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'Sifonn Pro';
+    src: url('fonts/sifonn-pro/sifonn-pro.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* LOGO TITLE ONLY */
+
+
+/* APP TITLE ONLY */
+h6 {
+    color: var(--lightgrey);
+    margin: 0;
+    font-family: "Sifonn Pro", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+/* h6 {
+    font-size: 20rem;
+}
+
+
+header {
+    background-color: var(--black);
+    height: 55px;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+
+#header {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+} */
+
+
+
+

@@ -16,12 +16,12 @@ export const highlightPunctuation = (phrase) => {
     return highlightedPhrase
 }
 
-export const navigate = (type, address) => {
-    if (type === "external") {
+export const navigate = (address) => {
+    if (address.slice(0, 3) === "http") {
         window.open(address)
-    } else if (type === "internal") {
-        window.location.href = address
-    } if (type === "mail") {
+    } else if (address.includes("@") && address.includes(".")) {
         window.open("mailto:" + address)
+    } else {
+        window.open(address)
     }
 }

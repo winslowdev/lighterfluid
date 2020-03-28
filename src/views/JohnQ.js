@@ -11,13 +11,13 @@ export class JohnQ extends Component {
 
                 <div className="sheet-record">
                     <div className="record-basics">
-                        <Point this="Developer" that="Ross Davidson" />
+                        <Point this="Developer" that="Ross Davidson" address="/developers/ross-davidson" />
                         <Point this="Completed" that="December 2029" />
                     </div>
 
                     <div className="record-links">
-                        <PointLink that="Live website" address="#" />
-                        <PointLink that="GitHub" address="#" />
+                        <PointLink that="Live website" address="https://wins.dev" />
+                        <PointLink that="GitHub" address="https://github.com/winslowdev" />
                     </div>
 
                     <p>Privacy and security matter. Stop using hand sanitizerer. You can use this vanilla JS-based tool to generate a stronger password. If you need a password manager, I highly recommend using 1Password.</p>
