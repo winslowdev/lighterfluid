@@ -78,7 +78,7 @@ export default class App extends Component {
                 </div> : null}
 
                 {window.innerWidth < 1000 ? <header>
-                    <h6 onClick={() => { navigate("/") }} id="app-title">Lighterfluid</h6>
+                    <h6 onClick={() => { navigate(null, "/") }} id="app-title">Lighterfluid</h6>
 
                     { <Route path="/" exact /> ? <div className="nav-icon" onClick={() => { this.toggleNavDrawer() }}>
                             <div className="nav-icon-top"></div>
@@ -89,7 +89,7 @@ export default class App extends Component {
 
                 {window.innerWidth >= 1000 ? <header>
                     <div className="container" id="header">
-                        <h6 onClick={() => { navigate("/") }} id="app-title" className="anchorspoof">Lighterfluid</h6>
+                        <h6 onClick={() => { navigate(null, "/") }} id="app-title" className="anchorspoof">Lighterfluid</h6>
 
                         <nav>
                             <p className="nav-link anchorspoof">{this.state.statements.developers}</p>

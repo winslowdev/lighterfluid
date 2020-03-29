@@ -1,12 +1,7 @@
-@font-face {
-    font-family: 'Sifonn Pro';
-    src: url('fonts/sifonn-pro/sifonn-pro.otf');
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 h1 {
-    color: var(--lightgrey);
+    color: var(--white);
     font-size: 1.9375rem;
     font-weight: 700;
     letter-spacing: -0.03px;
@@ -28,7 +23,7 @@ h2 {
     }
 
 h3 {
-    color: var(--lightgrey);
+    color: var(--white);
     font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: -0.03rem;
@@ -116,6 +111,6 @@ p {
     }
 
     p {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 }

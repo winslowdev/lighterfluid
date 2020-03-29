@@ -27,18 +27,16 @@ export const highlightPunctuation = (phrase) => {
 }
 
 export const navigate = (method, destination) => {
-    const operator = method.toLowerCase()
+    let operator = method != null ? method.toLowerCase() : null
 
-    if (method || destination === "/") {
-        window.location.href = "/"
-    } else if (operator === "github" || operator === "twitter") {
+    if (operator === "github" || operator === "twitter") {
         window.open("https://" + operator + ".com/" + destination)
     } else if (operator === "linkedin") {
         window.open("https://linkedin.com/in/" + destination)
-    } else if (destination.includes("http")) {
-        window.open(destination)
     } else if (destination.includes("@") && destination.includes(".")) {
         window.open("mailto:" + destination)
+    } else if (destination.slice(0, 4) === "http") {
+        window.open(destination)
     } else {
         window.location.href = destination
     }

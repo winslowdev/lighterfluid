@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { stock } from '../universals/Images'
-import { TagTeam, DirectLink } from '../universals/Snacks'
+import { Team, TeamLeader } from '../universals/Snacks'
 
 
 // ============================== PROJECT ITEM ON MOBILE
@@ -16,13 +16,13 @@ export class ProjectItem extends Component {
 
                 <div className="sheet-record">
                     <div className="record-basics">
-                        <TagTeam this="Developer" that="Ross Davidson" address="/developers/ross-davidson" />
-                        <TagTeam this="Completed" that="December 2029" />
+                        <Team this="Developer" that="Ross Davidson" address="/developers/ross-davidson" />
+                        <Team this="Completed" that="December 2029" />
                     </div>
 
                     <div className="record-links">
-                        <DirectLink that="Live website" address="https://wins.dev" />
-                        <DirectLink that="GitHub" address="https://github.com/winslowdev" />
+                        <TeamLeader that="Live website" address="https://wins.dev" />
+                        <TeamLeader that="GitHub" address="https://github.com/winslowdev" />
                     </div>
 
                     <p>Privacy and security matter. Stop using hand sanitizerer. You can use this vanilla JS-based tool to generate a stronger password. If you need a password manager, I highly recommend using 1Password.</p>

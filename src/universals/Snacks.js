@@ -21,9 +21,7 @@ export class Bullet extends Component {
 export class DirectDownload extends Component {
     render() {
         return (
-            <div className="point-download anchorspoof" onClick={() => { navigate(this.props.address) }}>
-                <p className="important">{this.props.title}</p>
-            </div>
+            <p className="anchorspoof important" onClick={() => { navigate(null, this.props.address) }}>{this.props.captain}</p>
         )
     }
 }
@@ -31,11 +29,11 @@ export class DirectDownload extends Component {
 
 // ============================== DIRECT LINK TO EXTERNAL SITES
 
-export class DirectLink extends Component {
+export class TeamLeader extends Component {
     render() {
         return (
-            <div className="point-link anchorspoof" onClick={() => { navigate(this.props.address) }}>
-                <p>{this.props.title}</p>
+            <div className="team-leader anchorspoof" onClick={() => { navigate(null, this.props.address) }}>
+                <p>{this.props.captain}</p>
                 <img src={icons.externalClick} />
             </div>
         )
@@ -73,7 +71,7 @@ export class RectangleTile extends Component {
                 }}
                 onClick={() => { navigate(this.props.address) }}>
                 <div className={`coverpiece ${this.props.gradientStyle}`}>
-                    <h3>{this.props.title}</h3>
+                    <h3>{this.props.captain}</h3>
                 </div>
             </div>
         )
@@ -96,7 +94,7 @@ export class SquareTile extends Component {
                 }}
                 onClick={() => { navigate(this.props.address) }}>
                 <div className={`coverpiece ${this.props.gradientStyle}`}>
-                    <h3>{this.props.title}</h3>
+                    <h3>{this.props.captain}</h3>
                 </div>
             </div>
         )
@@ -106,21 +104,31 @@ export class SquareTile extends Component {
 
 // ============================== TOPIC & STATEMENT // METHOD & ADDRESS
 
-export class TagTeam extends Component {
+export class Team extends Component {
 
     determineIfLink() {
-        const operator = this.props.title.toLowerCase()
+        const operator = this.props.captain.toLowerCase()
 
         if (operator === "email" || "github" || "linkedin" || "twitter") {
             return true
         }
     }
 
+    determineMethod() {
+        const operator = this.props.captain.toLowerCase()
+
+        if (operator === "github" || "linkedin" || "twitter") {
+            return operator
+        } else {
+            return null
+        }
+    }
+
     render() {
         return (
-            <div className="point" onClick={() => { navigate(this.props.title, this.props.caption) }}>
-                <p className="this">{this.props.title}</p>
-                <p className={`that ${this.determineIfLink() ? 'anchorspoof' : null}`} >{determineFate(this.props.title, this.props.caption)} </p>
+            <div className="team" onClick={() => { navigate(this.determineMethod(), this.props.player) }}>
+                <p>{this.props.captain}</p>
+                <p className={this.determineIfLink() ? 'anchorspoof' : null} >{determineFate(this.props.captain, this.props.player)} </p>
             </div>
         )
     }

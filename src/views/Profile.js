@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { icons, projects, stock } from '../universals/Images'
-import { TagTeam, DirectLink, DirectDownload, Bullet } from '../universals/Snacks'
+import { Team, TeamLeader, DirectDownload, Bullet } from '../universals/Snacks'
 
 
 // ============================== PROFILE ON MOBILE
@@ -207,29 +207,29 @@ export class ProfileLarge extends Component {
                     <p className="ui-summary">Quis non, nulla facilisis tempor tortor id. Tortor enim lectus ac, in. Tortor mattis blandit cras congue cursus tortor mauris risus vestibulum. Porta adipiscing neque suspendisse arcu adipiscing sociis. Porta placerat at velit enim sit tincidunt sem adipiscing. Fusce sed egestas sit rutrum.</p>
 
                     <div className="contacts">
-                        <TagTeam
-                            title="Email"
-                            caption="jack@lighterfluid.co" />
+                        <Team
+                            captain="Email"
+                            player="jack@lighterfluid.co" />
 
-                        <TagTeam
-                            title="LinkedIn"
-                            caption="winslowmays" />
+                        <Team
+                            captain="LinkedIn"
+                            player="winslowmays" />
 
-                        <TagTeam
-                            title="GitHub"
-                            caption="jackbnimble" />
+                        <Team
+                            captain="GitHub"
+                            player="jackbnimble" />
 
-                        <TagTeam
-                            title="Twitter"
-                            caption="jackbnimble" />
+                        <Team
+                            captain="Twitter"
+                            player="jackbnimble" />
 
                         <div className="contact-directs">
-                            <DirectLink
-                                title="Personal website"
+                            <TeamLeader
+                                captain="Personal website"
                                 address="https://wins.dev" />
 
                             <DirectDownload
-                                title="Download resume as PDF"
+                                captain="Download resume as PDF"
                                 address="https://drive.google.com/file/d/1991ZbYlZhaNEdC7Y8qi_hnVY2os3gc3h/view?usp=sharing" />
                         </div>
                     </div>
