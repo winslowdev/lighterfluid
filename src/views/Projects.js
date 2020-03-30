@@ -1,11 +1,15 @@
+// ============================== IMPORTS
+
 import React, { Component } from 'react';
-import { HeaderInformation, RectangleTile } from './components/Snacks'
+import { PageInformation, RectangleTile } from '../universals/Snacks'
+
+// ============================== PROJECTS ON MOBILE
 
 export class Projects extends Component {
     render() {
         return (
             <React.Fragment>
-                <HeaderInformation
+                <PageInformation
                     pageTitle={this.props.statements.projects}
                     pageDescription="We work independently, but periodically, we come together to collaborate on a project—whether it’s for fun or for a client." />
 
