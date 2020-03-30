@@ -41,3 +41,25 @@ export class Home extends Component {
         )
     }
 }
+
+export class HomeLarge extends Component {
+    render() {
+        return (
+            <React.Fragment>
+                <div className="navigation container">
+                    <h1 className="navigation-link anchorspoof"
+                        onMouseEnter={() => { this.props.setAppStyle("work") }}
+                        onMouseLeave={() => { this.props.setAppStyle() }}>Work</h1>
+
+                    <h1 className="navigation-link anchorspoof"
+                        onMouseEnter={() => { this.props.setAppStyle("developers") }}
+                        onMouseLeave={() => { this.props.setAppStyle() }}>Developers</h1>
+
+                    <h1 className="navigation-link anchorspoof"
+                        onMouseEnter={() => { this.props.setAppStyle("contact") }}
+                        onMouseLeave={() => { this.props.setAppStyle() }}>Contact</h1>
+                </div>
+            </React.Fragment>
+        )
+    }
+}

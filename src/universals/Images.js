@@ -11,8 +11,11 @@ export const projects = {
 }
 
 export const stock = {
+    bixbyCreekBridge: require('../images/stock/bixbycreekbridge.jpg'),
     codeSample: require('../images/stock/code-sample.jpg'),
+    elCapitan: require('../images/stock/elcapitan.jpg'),
     fakeCyclist: require('../images/stock/fake-cyclist.jpg'),
     genericMale: require('../images/stock/male-hope.jpeg'),
+    goldenGateBridge: require('../images/stock/goldengatebridge.jpg'),
     workspace: require('../images/stock/workspace.jpg'),
 }
