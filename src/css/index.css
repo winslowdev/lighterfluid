@@ -1,15 +1,32 @@
 /* ============================== IMPORTS, ROOT, BODY */
 /* ============================== IMPORTS, ROOT, BODY */
 
-@import url('./working/normalize.css');
-@import url('./working/text.css');
-@import url('./working/projects.css');
-@import url('./working/main.css');
-@import url('./working/header.css');
+@import url('organizing/normalize.css');
+@import url('organizing/text.css');
+@import url('organizing/projects.css');
+@import url('organizing/main.css');
+@import url('organizing/header.css');
 
+/* RADNIKA REGULAR */
 @font-face {
-    font-family: 'Sifonn Pro';
-    src: url('fonts/sifonn-pro/sifonn-pro.otf');
+    font-family: 'Radnika Regular';
+    src: url('fonts/radnika/radnika-regular.eot');
+    src: url('fonts/radnika/radnika-regular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/radnika/radnika-regular.woff2') format('woff2'),
+         url('fonts/radnika/radnika-regular.woff') format('woff'),
+         url('fonts/radnika/radnika-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* RADNIKA BOLD */
+@font-face {
+    font-family: 'Radnika Bold';
+    src: url('fonts/radnika/radnika-bold.eot');
+    src: url('fonts/radnika/radnika-bold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/radnika/radnika-bold.woff2') format('woff2'),
+         url('fonts/radnika/radnika-bold.woff') format('woff'),
+         url('fonts/radnika/radnika-bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -20,14 +37,18 @@
     --grey: #535353;
     --orange: #e87d00;
     --slightblack: #101010;
-    --white: #f5f5f5;
+    --white: #ffffff;
 }
 
 body {
     background-color: var(--black);
-    font-family: -apple-system, BlinkMacSystemFont, 'Basier Square Regular', sans-serif;
     margin: 0;
 }
+
+/* 
+* {
+    border: 1px solid red;
+} */
 
 .anchorspoof {
     cursor: pointer;
@@ -75,4 +96,81 @@ body {
 .team-leader img {
     height: 20px;
     width: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navigation {
+    display: block;
+    margin-bottom: 50px;
+}
+
+.navigation-link {
+    color: var(--white);
+    -webkit-text-fill-color: #00000000;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: var(--white);
+    font-family: "Radnika Bold", Arial, Helvetica, sans-serif;
+    font-size: 9rem;
+    text-transform: uppercase;
+}
+
+.navigation-link:hover {
+    -webkit-text-fill-color: var(--white);
+}
+
+
+
+
+@media screen and (min-width: 2000px) {
+    .home-large {
+        
+        
+        overflow: hidden;
+    }
+
+    .gradient-cover {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        height: 100vh;
+        z-index: 200;
+    }
+
+    .blue-yellow {
+        background-image: linear-gradient(to bottom right, rgba(0, 36, 128, 0.589), rgba(250, 175, 83, 0.726));
+    }
+
+    .blue-red {
+        background-image: linear-gradient(to bottom right, rgb(9, 95, 122, .72), rgba(214, 14, 0, 0.349));
+    }
+
+    .blue-green {
+        background-image: linear-gradient(to bottom right, rgb(9, 95, 122, .72), rgba(98, 39, 207, 0.521));
+    }
 }
