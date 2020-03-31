@@ -1,116 +1,119 @@
+// ============================== IMPORTS
+
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Home } from './components/Home.js'
-import { Developers } from './components/Developers.js'
-import { Skills } from './components/Skills.js'
-import { Projects } from './components/Projects.js'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { highlightPunctuation, navigate } from './universals/Functions';
+import { stock } from './universals/Images';
+
+import { Home } from './views/Home'
+import { Developers } from './views/Developers'
+
+
+
+// ============================== COMPLETE APPLICATION
 
 export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            isShowNavigation: false,
-            dimensions: {
+            currentHoverState: '',
+            introStatement: '',
+            isShowNavDrawer: false,
+            thisPage: {
+                intro: ['We turn good concepts', <br />, 'into badass web apps.'],
+                name: 'home',
+                title: '',
+                titleColor: 'text-deepocean50',
+            },
+            sizes: {
+                currentWidth: '',
                 rectangleHeight: '',
-                squareHeight: ''
-            },
-            pageTitles: {
-                developers: 'Developers & designers',
-                projects: 'Collaborations',
-                skills: 'Stacks, languages & frameworks'
-            },
+                squareHeight: '',
+                appBlurWidth: ''
+            }
         }
-        this.findDimensions = this.findDimensions.bind(this)
-        this.navigate = this.navigate.bind(this)
-        this.toggleNavbar = this.toggleNavbar.bind(this)
+        this.determineSizes = this.determineSizes.bind(this)
+        this.renderStyling = this.renderStyling.bind(this)
+        this.setThisPage = this.setThisPage.bind(this)
     }
 
-    findDimensions() {
+    determineSizes() {
         this.setState({
-            dimensions: {
-                ...this.state.dimensions,
+            sizes: {
+                ...this.state.sizes,
+                currentWidth: window.innerWidth,
                 rectangleHeight: window.innerWidth * 0.4,
-                squareHeight: window.innerWidth * 0.5
+                square: window.innerWidth * 0.5,
             }
         })
     }
 
-    navigate(type, address) {
-        if (type === "external") {
-            window.open(address)
-        } else if (type === "internal") {
-            window.location.href = address
+    renderStyling(name) {
+        if (name === "home") {
+            this.setState({
+                thisPage: {
+                    ...this.state.thisPage,
+                    intro: ['We turn good concepts', <br />, 'into badass web apps.'],
+                    titleColor: 'text-deepocean50'
+                }
+            })
+        } else if (name === "developers") {
+            this.setState({
+                thisPage: {
+                    ...this.state.thisPage,
+                    intro: ['We\'re freelance developers located throughout the United States—from sea to shining C#.'],
+                    title: 'Developers & designers',
+                    titleColor: 'text-deepocean7'
+                }
+            })
         }
     }
 
-    toggleNavbar() {
+    setThisPage(pageName) {
         this.setState({
-            isShowNavigation: !this.state.isShowNavigation
+            thisPage: {
+                ...this.state.thisPage,
+                name: pageName
+            }
         })
+
+        this.renderStyling(name)
     }
 
     componentDidMount() {
-        this.findDimensions()
-        window.addEventListener("resize", this.findDimensions)
+        this.determineSizes()
+
+        window.addEventListener("resize", () => {
+            this.determineSizes()
+        })
     }
 
     render() {
         return (
             <Router>
-                {this.state.isShowNavigation === true ? <div className="navigation-menu">
-                    <h5 onClick={() => { { this.navigate("internal", "/") } }}>Home</h5>
-                    <h5 onClick={() => { { this.navigate("internal", "/projects") } }}>{this.state.pageTitles.projects}</h5>
-                    <h5 onClick={() => { { this.navigate("internal", "/developers") } }}>{this.state.pageTitles.developers}</h5>
-                    <h5 onClick={() => { { this.navigate("internal", "/skills") } }}>{this.state.pageTitles.skills}</h5>
-                </div>
-                    : null}
 
                 <header>
-                    <div id="header" className="container">
-                        <h6 onClick={() => { { this.navigate("internal", "/") } }}>Lighterfluid</h6>
-                        <div className="navigation"
-                            onClick={() => { { this.toggleNavbar() } }}>
-                            <div className="menu-top"></div>
-                            <div className="menu-middle"></div>
-                            <div className="menu-bottom"></div>
-                        </div>
-                    </div>
+                    <h1 className={this.state.thisPage.titleColor}>Lighterfluid</h1>
+
+                    {this.state.thisPage.name !== "home" ? <div className="page-info">
+                        <h3>{this.state.thisPage.title}</h3>
+                    </div> : null}
                 </header>
 
+                <Route path="/" exact render={(props) => <Home
+                    setThisPage={this.setThisPage}
+                    sizes={this.state.sizes}
+                    thisPage={this.state.thisPage}
+                />} />
 
-                <Route
-                    path="/" exact
-                    render={(props) => <Home {...props}
-                        navigate={this.navigate}
-                        dimensions={this.state.dimensions}
-                        pageTitles={this.state.pageTitles}
-                    />} />
-
-                <Route
-                    path="/projects" exact
-                    render={(props) => <Projects {...props}
-                        dimensions={this.state.dimensions}
-                        navigate={this.navigate}
-                        pageTitles={this.state.pageTitles} />} />
-
-                <Route
-                    path="/developers" exact
-                    render={(props) => <Developers {...props}
-                        navigate={this.navigate}
-                        pageTitles={this.state.pageTitles} />} />
-
-                <Route
-                    path="/skills" exact
-                    render={(props) => <Skills {...props}
-                        navigate={this.navigate}
-                        pageTitles={this.state.pageTitles} />} />
+                <Route path="/developers" exact render={(props) => <Developers
+                    sizes={this.state.sizes}
+                />} />
 
                 <footer>
-                    <div id="footer" className="container">
-                        <p className="footer">designed and coded in sf and atl. <span className="sign-in"
-                            onClick={() => { { this.navigate('internal', '/signin') } }}>sign in.</span></p>
-                    </div>
+                    <p>designed and coded in San Francisco and Atlanta</p>
                 </footer>
+
             </Router>
         )
     }
