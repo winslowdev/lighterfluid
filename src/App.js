@@ -20,11 +20,12 @@ export default class App extends Component {
                 intro: ['We turn good concepts', <br />, 'into badass web apps.'],
                 title: '',
                 titleColor: 'text-deepocean50',
+                type: 'home'
             },
             sizes: {
                 currentWidth: '',
                 rectangleHeight: '',
-                squareHeight: '',
+                square: '',
                 appBlurWidth: ''
             }
         }
@@ -80,6 +81,8 @@ export default class App extends Component {
 
                 <header>
                     <h1 className={this.state.thisPage.titleColor}>Lighterfluid</h1>
+
+                    
 
                     {this.state.thisPage.pageType !== "home" ? <div className="page-info">
                         <h3>{this.state.thisPage.title}</h3>

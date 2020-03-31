@@ -4,7 +4,10 @@ export class Developers extends Component {
     render() {
         return (
             <React.Fragment>
-                <h3>Hello</h3>
+                <div className="hero">
+                    <h6>{this.props.thisPage.intro}</h6>
+                </div>
+
             </React.Fragment>
         )
     }
