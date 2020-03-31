@@ -17,5 +17,6 @@ export const stock = {
     fakeCyclist: require('../images/stock/fake-cyclist.jpg'),
     genericMale: require('../images/stock/male-hope.jpeg'),
     goldenGateBridge: require('../images/stock/goldengatebridge.jpg'),
+    hollywoodSign: require('../images/stock/hollywood-sign.jpg'),
     workspace: require('../images/stock/workspace.jpg'),
 }

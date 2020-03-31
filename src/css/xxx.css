@@ -130,17 +130,13 @@ body {
         z-index: 200;
     }
 
-    .blue-yellow {
-        background-image: linear-gradient(to bottom right, rgba(0, 36, 128, 0.589), rgba(250, 175, 83, 0.726));
-    }
+    
 
     .blue-red {
         background-image: linear-gradient(to bottom right, rgb(9, 95, 122, .72), rgba(214, 14, 0, 0.349));
     }
 
-    .blue-green {
-        background-image: linear-gradient(to bottom right, rgb(9, 95, 122, .72), rgba(98, 39, 207, 0.521));
-    }
+    
 }
 
 
@@ -169,28 +165,8 @@ h2 {
         padding: 25px 0;
     }
 
-h3 {
-    color: var(--white);
-    font-size: 1.3rem;
-    font-weight: 600;
-    letter-spacing: -0.03rem;
-    margin: 0;
-    margin-bottom: 10px;
-    margin-left: 5%;
-}
 
-    .rectangled h3 {
-        width: 50%;
-    }
-p {
-    color: var(--grey);
-    font-family: "Radnika Regular", Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: -0.03px;
-    line-height: 140%;
-    margin: 0;
-}
+
 
 #app-title:hover {
     color: var(--orange);
@@ -199,18 +175,6 @@ p {
 
 
 
-
-
-
-header {
-    align-items: center;
-    background-color: var(--black);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 15px 0;
-    width: 100%;
-}
 
 .nav-link {
     line-height: 110%;
@@ -231,30 +195,6 @@ header {
 
 
 
-
-#footer, footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-
-footer {
-    background-color: var(--black);
-    height: 30px;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-}
-
-#footer {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
 /* =========================== SIDEBAR MENU */
 /* =========================== SIDEBAR MENU */
@@ -347,26 +287,7 @@ footer {
     width: 100%;
 }
 
-.squared {
-    width: 50%;
-}
 
-.coverpiece {
-    align-items: flex-end;
-    -webkit-backdrop-filter: grayscale(100%);
-    backdrop-filter: grayscale(100%);
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    justify-content: flex-start;
-    position: relative;
-    z-index: 10;
-}
-
-.coverpiece:hover {
-    -webkit-backdrop-filter: grayscale(0%);
-    backdrop-filter: grayscale(0%);
-}
 
 .grad1 {
     background-image: linear-gradient(to bottom right, #000000a4, #000000ce);

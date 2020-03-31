@@ -11,29 +11,34 @@ export class Home extends Component {
             <React.Fragment>
 
                 <div className="hero">
-                    <h6>We turn good concepts <br />into badass web apps.</h6>
+                    <h6>{this.props.thisPage.intro}</h6>
                 </div>
 
                 <nav>
                     <SquareTile
-                        address="/developers"
-                        captain="Get to know us"
+                        setThisPage={this.props.setThisPage}
+                        address="developers"
+                        captain="Developers"
+                        gradientColor="blue--red"
                         image={stock.elCapitan}
                         sizes={this.props.sizes} />
                     <SquareTile
                         address="/projects"
-                        captain="See our projects"
-                        image={stock.elCapitan}
+                        captain="Projects"
+                        gradientColor="blue--yellow"
+                        image={stock.goldenGateBridge}
                         sizes={this.props.sizes} />
-                        <SquareTile
+                    <SquareTile
                         address="/services"
-                        captain="See our projects"
-                        image={stock.elCapitan}
+                        captain="Services"
+                        gradientColor="orange-teal-blue"
+                        image={stock.hollywoodSign}
                         sizes={this.props.sizes} />
-                        <SquareTile
+                    <SquareTile
                         address="/contact"
-                        captain="See our projects"
-                        image={stock.elCapitan}
+                        captain="Contact"
+                        gradientColor="blue--green"
+                        image={stock.bixbyCreekBridge}
                         sizes={this.props.sizes} />
                 </nav>
 

@@ -1,8 +1,8 @@
 /* ============================== IMPORTS, VARIABLES, BODY */
 /* ============================== IMPORTS, VARIABLES, BODY */
 
-@import url('normalize.css');
 @import url('xxx.css');
+@import url('normalize.css');
 
 @font-face {
 	font-family: 'GhostType';
@@ -19,6 +19,7 @@
 :root {
     --basegrey: #e0e0e0;
     --deepocean: #111925;
+    --deepocean7: #d2d2d3;
     --deepocean50: #898d94;
 }
 
@@ -27,19 +28,44 @@ body {
     margin: 0;
 }
 
-/* ============================== HEADER */
-/* ============================== HEADER */
+header, footer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
 header {
-    position: relative;
-    z-index: -100;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: clip;
+    width: 100%;
 }
+
+footer {
+    padding: 10px 0;
+    width: 100%;
+}
+
+
+/* ============================== HEADER */
+/* ============================== HEADER */
 
 .hero {
     width: 90%;
     margin: 0 auto;
-    margin-bottom: 40px;
+    padding: 20px 0 40px 0;
 }
+.page-info {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -10px;
+    position: absolute;
+    z-index: 100;
+}
+
 
 /* ============================== HOME */
 /* ============================== HOME */
@@ -52,33 +78,102 @@ nav {
     flex-wrap: wrap;
 }
 
+.square-tile {
+    width: 50%;
+}
+
+.tile-cover {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+}
+
+
 /* ============================== TEXT */
 /* ============================== TEXT */
 
 h1 {
-    color: var(--deepocean50);
     font-family: "GhostType", serif;
-    font-size: 7.1875rem;
+    font-size: 6.85rem;
     font-weight: 300;
-    margin: 0;
+    margin: 0 auto;
+}
+
+h3, h5, h6, p {
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+}
+
+h3 {
+    color: var(--deepocean);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -3%;
+    line-height: 80%;
+    margin: 0 auto;
+    text-align: center;
+    width: 80%;
 }
 
 h5 {
     color: var(--basegrey);
-    font-family: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
-    font-size: 1.6875rem;
-    font-weight: 700;
+    font-size: 1.6rem;
+    font-weight: 600;
     letter-spacing: -3%;
-    line-height: 80%;
-    text-align: left;
+    line-height: 90%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 h6 {
     color: var(--deepocean);
-    font-family: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
     font-size: 1.125rem;
     font-weight: 700;
     margin: 0 auto;
     text-align: center;
     width: 100%;
+}
+
+p {
+    color: var(--grey);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: -0.03px;
+    line-height: 140%;
+    margin: 0;
+}
+
+footer p {
+    color: var(--deepocean50);
+    font-size: 0.625rem;
+    font-weight: 500;
+}
+
+
+/* ============================== COLORS & GRADIENTS */
+/* ============================== COLORS & GRADIENTS */
+
+.blue--red {
+    background-image: linear-gradient(to bottom right, rgb(9, 95, 122, .72), rgb(255, 0, 0, .15));
+}
+
+.blue--green {
+    background-image: linear-gradient(to bottom right, rgba(16, 90, 201, 0.788), rgba(22, 177, 74, 0.397));
+}
+
+.blue--yellow {
+    background-image: linear-gradient(to bottom right, rgba(0, 36, 128, 0.589), rgba(250, 175, 83, 0.726));
+}
+
+.orange-teal-blue {
+    background-image: linear-gradient(to bottom right, rgba(214, 50, 0, 0.438), rgba(37, 108, 132, 0.644), rgba(0, 76, 190, 0.555));
+}
+
+.text-deepocean7 {
+    color: var(--deepocean7);
+}
+
+.text-deepocean50 {
+    color: var(--deepocean50);
 }
