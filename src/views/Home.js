@@ -1,7 +1,7 @@
 // ============================== IMPORTS
 
 import React, { Component } from 'react';
-import { highlightPunctuation } from '../universals/Functions'
+import { highlightPunctuation, navigate } from '../universals/Functions'
 import { RectangleTile, SquareTile } from '../universals/Snacks'
 import { stock } from '../universals/Images'
 
@@ -48,14 +48,17 @@ export class HomeLarge extends Component {
             <React.Fragment>
                 <div className="navigation container">
                     <h1 className="navigation-link anchorspoof"
+                        onClick={() => { navigate(null, "/projects") }}
                         onMouseEnter={() => { this.props.setAppStyle("work") }}
-                        onMouseLeave={() => { this.props.setAppStyle() }}>Work</h1>
+                        onMouseLeave={() => { this.props.setAppStyle() }}>Projects</h1>
 
-                    <h1 className="navigation-link anchorspoof"
+                    <br /><h1 className="navigation-link anchorspoof"
+                        onClick={() => { navigate(null, "/developers") }}
                         onMouseEnter={() => { this.props.setAppStyle("developers") }}
                         onMouseLeave={() => { this.props.setAppStyle() }}>Developers</h1>
 
-                    <h1 className="navigation-link anchorspoof"
+                    <br /><h1 className="navigation-link anchorspoof"
+                        onClick={() => { navigate(null, "/contact") }}
                         onMouseEnter={() => { this.props.setAppStyle("contact") }}
                         onMouseLeave={() => { this.props.setAppStyle() }}>Contact</h1>
                 </div>

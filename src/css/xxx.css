@@ -1,3 +1,311 @@
+/* ============================== IMPORTS, ROOT, BODY */
+/* ============================== IMPORTS, ROOT, BODY */
+
+
+
+body {
+    background-color: var(--black);
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+.anchorspoof {
+    cursor: pointer;
+}
+
+.anchorspoof.important:hover, .team-leader p:hover {
+    color: var(--grey);
+}
+
+
+/* ============================== SNACKS */
+/* ============================== SNACKS */
+
+/* ============== TEAM & TEAMLEADER */
+.team {
+    margin-bottom: 80px;
+    width: 50%;
+}
+
+.team :first-child {
+    color: var(--grey);
+}
+
+.team p {
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.team .anchorspoof:hover {
+    color: var(--blue);
+}
+
+.team-leader {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.team-leader p {
+    color: var(--white);
+    margin: 0 5px 5px 0;
+}
+
+.team-leader img {
+    height: 20px;
+    width: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navigation {
+    display: block;
+    margin-bottom: 50px;
+}
+
+.navigation-link {
+    color: var(--white);
+    -webkit-text-fill-color: #00000000;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: var(--white);
+    font-family: "Radnika Bold", Arial, Helvetica, sans-serif;
+    font-size: 9rem;
+    display: inline;
+    text-transform: uppercase;
+}
+
+.navigation-link:hover {
+    -webkit-text-fill-color: var(--white);
+}
+
+
+
+
+@media screen and (min-width: 2000px) {
+    .home-large {
+        
+        
+        overflow: hidden;
+    }
+
+    .gradient-cover {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        height: 100vh;
+        z-index: 200;
+    }
+
+    .blue-yellow {
+        background-image: linear-gradient(to bottom right, rgba(0, 36, 128, 0.589), rgba(250, 175, 83, 0.726));
+    }
+
+    .blue-red {
+        background-image: linear-gradient(to bottom right, rgb(9, 95, 122, .72), rgba(214, 14, 0, 0.349));
+    }
+
+    .blue-green {
+        background-image: linear-gradient(to bottom right, rgb(9, 95, 122, .72), rgba(98, 39, 207, 0.521));
+    }
+}
+
+
+
+
+
+/* h1 {
+    color: var(--white);
+    font-size: 1.9375rem;
+    font-weight: 700;
+    letter-spacing: -0.03px;
+    line-height: 100%;
+    margin: 0;
+} */
+
+h2 {
+    color: var(--grey);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.03rem;
+    line-height: 120%;
+    margin: 0;
+}
+
+    .hero h2 {
+        padding: 25px 0;
+    }
+
+h3 {
+    color: var(--white);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.03rem;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-left: 5%;
+}
+
+    .rectangled h3 {
+        width: 50%;
+    }
+
+h6 {
+    color: var(--white);
+    font-family: "Radnika Bold", Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+p {
+    color: var(--grey);
+    font-family: "Radnika Regular", Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: -0.03px;
+    line-height: 140%;
+    margin: 0;
+}
+
+#app-title:hover {
+    color: var(--orange);
+}
+
+@media screen and (min-width: 375px) {
+    h2 {
+        font-size: 2.1rem;
+    }
+
+        .hero h2 {
+            padding: 35px 0;
+        }
+    
+    h6 {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+
+    p {
+        color: var(--grey);
+        font-size: 1.1rem;
+        font-weight: 300;
+        letter-spacing: -0.03px;
+        line-height: 140%;
+        margin: 0;
+    }
+}
+
+
+@media screen and (min-width: 2000px) {
+
+
+    h6 {
+        font-size: 1.5625rem;
+    }
+
+    p {
+        color: white;
+        font-size: 1.25rem;
+        width: 25%;
+    }
+}
+
+
+
+
+
+header {
+    align-items: center;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.nav-link {
+    line-height: 110%;
+    margin-bottom: 30px;
+    margin-left: 0;
+}
+
+.nav-link:hover {
+    color: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+
+    header {
+        padding: 25px 0;
+    }
+    
+    #header {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-link {
+        color: var(--grey);
+    }
+}
+
+
+@media screen and (min-width: 2000px) {
+    #header {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 50px 0 20px 0;
+    }
+
+
+}
+
 
 
 /* =========================== BODY PARTS */
@@ -684,4 +992,56 @@ button {
 
 .active {
     color: var(--white);
+}
+
+
+
+
+/* ///////// PROJECT SHEETS (ex. lighterfluid.co/projects/example) */
+
+#project-sheet
+
+.sheet-title, .sheet-record {
+    width: 90%;
+}
+
+/* h1 */
+.sheet-title {
+    margin: 20px auto;
+}
+
+/* img */
+.sheet-image {
+    height: auto;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+/* developer & completed */
+.sheet-record {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.record-basics, .record-links {
+    margin-bottom: 40px;
+}
+
+.record-basics {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+    .record-basics :first-child {
+        margin-right: 50px;
+    }
+
+.record-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }

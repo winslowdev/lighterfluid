@@ -1,176 +1,47 @@
-/* ============================== IMPORTS, ROOT, BODY */
-/* ============================== IMPORTS, ROOT, BODY */
+/* ============================== IMPORTS, VARIABLES, BODY */
+/* ============================== IMPORTS, VARIABLES, BODY */
 
-@import url('organizing/normalize.css');
-@import url('organizing/text.css');
-@import url('organizing/projects.css');
-@import url('organizing/main.css');
-@import url('organizing/header.css');
+@import url('normalize.css');
+@import url('xxx.css');
 
-/* RADNIKA REGULAR */
 @font-face {
-    font-family: 'Radnika Regular';
-    src: url('fonts/radnika/radnika-regular.eot');
-    src: url('fonts/radnika/radnika-regular.eot?#iefix') format('embedded-opentype'),
-         url('fonts/radnika/radnika-regular.woff2') format('woff2'),
-         url('fonts/radnika/radnika-regular.woff') format('woff'),
-         url('fonts/radnika/radnika-regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* RADNIKA BOLD */
-@font-face {
-    font-family: 'Radnika Bold';
-    src: url('fonts/radnika/radnika-bold.eot');
-    src: url('fonts/radnika/radnika-bold.eot?#iefix') format('embedded-opentype'),
-         url('fonts/radnika/radnika-bold.woff2') format('woff2'),
-         url('fonts/radnika/radnika-bold.woff') format('woff'),
-         url('fonts/radnika/radnika-bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'GhostType';
+	src: url('fonts/ghost_type/ghost-type.eot');
+	src: url('fonts/ghost_type/ghost-type.eot?#iefix') format('embedded-opentype'),
+             url('fonts/ghost_type/ghost-type.woff2') format('woff2'),
+	     url('fonts/ghost_type/ghost-type.woff') format('woff'),
+	     url('fonts/ghost_type/ghost-type.ttf') format('truetype'),
+	     url('fonts/ghost_type/ghost-type.svg#youworkforthem') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 :root {
-    --black: #000000;
-    --blue: #2f80ed;
-    --grey: #535353;
-    --orange: #e87d00;
-    --slightblack: #101010;
-    --white: #ffffff;
+    --basegrey: #e0e0e0;
+    --deepocean: #111925;
+    --deepocean50: #898d94;
 }
 
 body {
-    background-color: var(--black);
+    background-color: var(--basegrey);
     margin: 0;
 }
 
-/* 
-* {
-    border: 1px solid red;
-} */
+/* ============================== HEADER */
+/* ============================== HEADER */
 
-.anchorspoof {
-    cursor: pointer;
+header {
+    position: relative;
+    z-index: -100;
 }
 
-.anchorspoof.important:hover, .team-leader p:hover {
-    color: var(--grey);
-}
+/* ============================== TEXT */
+/* ============================== TEXT */
 
-
-/* ============================== SNACKS */
-/* ============================== SNACKS */
-
-/* ============== TEAM & TEAMLEADER */
-.team {
-    margin-bottom: 80px;
-    width: 50%;
-}
-
-.team :first-child {
-    color: var(--grey);
-}
-
-.team p {
-    color: var(--white);
-    margin-bottom: 5px;
-}
-
-.team .anchorspoof:hover {
-    color: var(--blue);
-}
-
-.team-leader {
-    align-items: baseline;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.team-leader p {
-    color: var(--white);
-    margin: 0 5px 5px 0;
-}
-
-.team-leader img {
-    height: 20px;
-    width: 20px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.navigation {
-    display: block;
-    margin-bottom: 50px;
-}
-
-.navigation-link {
-    color: var(--white);
-    -webkit-text-fill-color: #00000000;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: var(--white);
-    font-family: "Radnika Bold", Arial, Helvetica, sans-serif;
-    font-size: 9rem;
-    text-transform: uppercase;
-}
-
-.navigation-link:hover {
-    -webkit-text-fill-color: var(--white);
-}
-
-
-
-
-@media screen and (min-width: 2000px) {
-    .home-large {
-        
-        
-        overflow: hidden;
-    }
-
-    .gradient-cover {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-        height: 100vh;
-        z-index: 200;
-    }
-
-    .blue-yellow {
-        background-image: linear-gradient(to bottom right, rgba(0, 36, 128, 0.589), rgba(250, 175, 83, 0.726));
-    }
-
-    .blue-red {
-        background-image: linear-gradient(to bottom right, rgb(9, 95, 122, .72), rgba(214, 14, 0, 0.349));
-    }
-
-    .blue-green {
-        background-image: linear-gradient(to bottom right, rgb(9, 95, 122, .72), rgba(98, 39, 207, 0.521));
-    }
+h1 {
+    color: var(--deepocean50);
+    font-family: "GhostType", serif;
+    font-size: 7.1875rem;
+    font-weight: 300;
+    margin: 0;
 }

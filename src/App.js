@@ -3,14 +3,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { highlightPunctuation, navigate } from './universals/Functions';
-
-import { Developers } from './views/Developers'
-import { Home, HomeLarge } from './views/Home'
-import { Profile, ProfileLarge } from './views/Profile'
-import { ProjectItem } from './views/ProjectItem'
-import { Projects } from './views/Projects'
-import { Skills } from './views/Skills'
 import { stock } from './universals/Images';
+
+import { Home, HomeLarge } from './views/Home'
+
 
 
 // ============================== COMPLETE APPLICATION
@@ -33,12 +29,6 @@ export default class App extends Component {
                 rectangleHeight: '',
                 squareHeight: '',
                 appBlurWidth: ''
-            },
-            statements: {
-                developers: 'Developers',
-                home: 'Captain Planet—he\'s our hero. Gonna take pollution down to zero.',
-                projects: ['Collaborative', <br />, 'projects'],
-                skills: ['Skills &', <br />, 'competencies']
             }
         }
         this.determineSizes = this.determineSizes.bind(this)
@@ -131,8 +121,19 @@ export default class App extends Component {
         return (
             <Router>
 
+                <header>
+                    <h1>Lighterfluid</h1>
+                </header>
+
+
+
+
+
+
+
+
                 {/* ========== LARGEST LAYOUT @ 2000 PX */}
-                {innerWidth >= 2000 ?
+                {/* {innerWidth >= 2000 ?
 
                     <div className="home-large" style={{
                         backgroundImage: `url(${appStyle.backgroundImage})`,
@@ -155,7 +156,7 @@ export default class App extends Component {
                         </div>
                     </div>
 
-                    : null}
+                    : null} */}
 
 
 
@@ -168,8 +169,8 @@ export default class App extends Component {
 
 
 
-                {this.state.isShowNavDrawer === true ? <div className="nav-on">
-                    <div className="bg-blur"
+                {/* {this.state.isShowNavDrawer === true ? <div className="nav-on"> */}
+                    {/* <div className="bg-blur"
                         onClick={() => { this.toggleNavDrawer() }}
                         style={{ width: this.state.sizes.appBlurWidth + 'px' }}></div>
                     <div className="nav-drawer"
@@ -178,9 +179,9 @@ export default class App extends Component {
                         <h3 className="nav-link anchorspoof" onClick={() => { navigate("/developers") }}>{highlightPunctuation(this.state.statements.developers)}</h3>
                         <h3 className="nav-link anchorspoof" onClick={() => { navigate("/skills") }}>{highlightPunctuation(this.state.statements.skills)}</h3>
                     </div>
-                </div> : null}
+                </div> : null} */}
 
-                {window.innerWidth < 1000 ? <header>
+                {/* {window.innerWidth < 1000 ? <header>
                     <h6 onClick={() => { navigate(null, "/") }} id="app-title">Lighterfluid</h6>
 
                     {<Route path="/" exact /> ? <div className="nav-icon" onClick={() => { this.toggleNavDrawer() }}>
@@ -200,54 +201,8 @@ export default class App extends Component {
                             <p className="nav-link anchorspoof">{this.state.statements.skills}</p>
                         </nav>
                     </div>
-                </header> : null}
+                </header> : null} */}
 
-
-
-
-                {innerWidth < 2000 ?
-                    <main>
-                        <Route
-                            path="/" exact
-                            render={(props) => <Home {...props}
-                                sizes={this.state.sizes}
-                                statements={this.state.statements}
-                            />} />
-
-                        <Route
-                            path="/projects" exact
-                            render={(props) => <Projects {...props}
-                                sizes={this.state.sizes}
-                                statements={this.state.statements} />} />
-
-                        <Route
-                            path="/projects/john-q" exact
-                            render={(props) => <ProjectItem {...props}
-                                sizes={this.state.sizes}
-                                statements={this.state.statements} />} />
-
-                        <Route
-                            path="/developers" exact
-                            render={(props) => <Developers {...props}
-                                sizes={this.state.sizes}
-                                statements={this.state.statements} />} />
-
-                        {window.innerWidth < 2000 ? <Route
-                            path="/profiles/jack" exact
-                            render={(props) => <Profile {...props}
-                                sizes={this.state.sizes}
-                                statements={this.state.statements} />} /> : <Route
-                                path="/profiles/jack" exact
-                                render={(props) => <ProfileLarge {...props}
-                                    sizes={this.state.sizes}
-                                    statements={this.state.statements} />} />}
-
-                        <Route
-                            path="/skills" exact
-                            render={(props) => <Skills {...props}
-                                statements={this.state.statements} />} />
-
-                    </main> : null}
             </Router>
         )
     }
