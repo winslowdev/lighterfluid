@@ -182,15 +182,6 @@ h3 {
     .rectangled h3 {
         width: 50%;
     }
-
-h6 {
-    color: var(--white);
-    font-family: "Radnika Bold", Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    margin: 0;
-    text-transform: uppercase;
-}
-
 p {
     color: var(--grey);
     font-family: "Radnika Regular", Arial, Helvetica, sans-serif;
@@ -205,44 +196,7 @@ p {
     color: var(--orange);
 }
 
-@media screen and (min-width: 375px) {
-    h2 {
-        font-size: 2.1rem;
-    }
 
-        .hero h2 {
-            padding: 35px 0;
-        }
-    
-    h6 {
-        font-size: 1.1rem;
-        margin-bottom: 30px;
-    }
-
-    p {
-        color: var(--grey);
-        font-size: 1.1rem;
-        font-weight: 300;
-        letter-spacing: -0.03px;
-        line-height: 140%;
-        margin: 0;
-    }
-}
-
-
-@media screen and (min-width: 2000px) {
-
-
-    h6 {
-        font-size: 1.5625rem;
-    }
-
-    p {
-        color: white;
-        font-size: 1.25rem;
-        width: 25%;
-    }
-}
 
 
 
@@ -266,44 +220,6 @@ header {
 
 .nav-link:hover {
     color: var(--white);
-}
-
-@media screen and (min-width: 768px) {
-
-    header {
-        padding: 25px 0;
-    }
-    
-    #header {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    nav {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .nav-link {
-        color: var(--grey);
-    }
-}
-
-
-@media screen and (min-width: 2000px) {
-    #header {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 50px 0 20px 0;
-    }
-
-
 }
 
 

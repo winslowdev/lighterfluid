@@ -35,6 +35,23 @@ header {
     z-index: -100;
 }
 
+.hero {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+/* ============================== HOME */
+/* ============================== HOME */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
 /* ============================== TEXT */
 /* ============================== TEXT */
 
@@ -44,4 +61,24 @@ h1 {
     font-size: 7.1875rem;
     font-weight: 300;
     margin: 0;
+}
+
+h5 {
+    color: var(--basegrey);
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+    font-size: 1.6875rem;
+    font-weight: 700;
+    letter-spacing: -3%;
+    line-height: 80%;
+    text-align: left;
+}
+
+h6 {
+    color: var(--deepocean);
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
 }

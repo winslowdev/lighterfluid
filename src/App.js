@@ -91,7 +91,6 @@ export default class App extends Component {
                 currentWidth: window.innerWidth,
                 rectangleHeight: window.innerWidth * 0.4,
                 squareHeight: window.innerWidth * 0.5,
-                // appBlurWidth: Math.round(window.innerWidth * 0.05 + document.getElementById('app-title').offsetWidth + 50)
             }
         })
     }
@@ -121,87 +120,11 @@ export default class App extends Component {
         return (
             <Router>
 
-                <header>
-                    <h1>Lighterfluid</h1>
-                </header>
+                <header> <h1>Lighterfluid</h1> </header>
+
+                <Route path="/" exact render={(props) => <Home sizes={this.state.sizes} />} />
 
 
-
-
-
-
-
-
-                {/* ========== LARGEST LAYOUT @ 2000 PX */}
-                {/* {innerWidth >= 2000 ?
-
-                    <div className="home-large" style={{
-                        backgroundImage: `url(${appStyle.backgroundImage})`,
-                        backgroundSize: appStyle.backgroundSize,
-                        backgroundPositionY: appStyle.backgroundPositionY
-                    }}>
-                        <div className={`gradient-cover ${appStyle.gradientStyle}`}>
-
-                            <div className="container" id="header">
-                                <h6 onClick={() => { navigate(null, "/") }} id="app-title" className="anchorspoof">Lighterfluid</h6>
-                                <p>{this.state.introStatement}</p>
-                            </div>
-
-                            <Route
-                                path="/" exact
-                                render={(props) => <HomeLarge {...props}
-                                    setAppStyle={this.setAppStyle}
-                                    setHoverState={this.setHoverState}
-                                />} />
-                        </div>
-                    </div>
-
-                    : null} */}
-
-
-
-
-
-
-
-
-
-
-
-
-                {/* {this.state.isShowNavDrawer === true ? <div className="nav-on"> */}
-                    {/* <div className="bg-blur"
-                        onClick={() => { this.toggleNavDrawer() }}
-                        style={{ width: this.state.sizes.appBlurWidth + 'px' }}></div>
-                    <div className="nav-drawer"
-                        style={{ width: this.state.sizes.currentWidth - this.state.sizes.appBlurWidth + 'px' }}>
-                        <h3 className="nav-link anchorspoof" onClick={() => { navigate("/projects") }}>{highlightPunctuation(this.state.statements.projects)}</h3>
-                        <h3 className="nav-link anchorspoof" onClick={() => { navigate("/developers") }}>{highlightPunctuation(this.state.statements.developers)}</h3>
-                        <h3 className="nav-link anchorspoof" onClick={() => { navigate("/skills") }}>{highlightPunctuation(this.state.statements.skills)}</h3>
-                    </div>
-                </div> : null} */}
-
-                {/* {window.innerWidth < 1000 ? <header>
-                    <h6 onClick={() => { navigate(null, "/") }} id="app-title">Lighterfluid</h6>
-
-                    {<Route path="/" exact /> ? <div className="nav-icon" onClick={() => { this.toggleNavDrawer() }}>
-                        <div className="nav-icon-top"></div>
-                        <div className="nav-icon-mid"></div>
-                        <div className="nav-icon-btm"></div>
-                    </div> : null}
-                </header> : null}
-
-                {window.innerWidth < 2000 ? <header>
-                    <div className="container" id="header">
-                        <h6 onClick={() => { navigate(null, "/") }} id="app-title" className="anchorspoof">Lighterfluid</h6>
-
-                        <nav>
-                            <p className="nav-link anchorspoof">{this.state.statements.developers}</p>
-                            <p className="nav-link anchorspoof">{this.state.statements.projects}</p>
-                            <p className="nav-link anchorspoof">{this.state.statements.skills}</p>
-                        </nav>
-                    </div>
-                </header> : null} */}
 
             </Router>
         )

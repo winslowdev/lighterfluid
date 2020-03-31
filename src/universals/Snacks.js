@@ -94,7 +94,7 @@ export class SquareTile extends Component {
                 }}
                 onClick={() => { navigate(this.props.address) }}>
                 <div className={`coverpiece ${this.props.gradientStyle}`}>
-                    <h3>{this.props.captain}</h3>
+                    <h5>{this.props.captain}</h5>
                 </div>
             </div>
         )
