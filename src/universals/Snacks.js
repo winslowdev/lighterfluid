@@ -85,16 +85,19 @@ export class SquareTile extends Component {
     render() {
         return (
             <div
-                className="squared anchorspoof"
+                className="square-tile anchorspoof"
                 style={{
                     backgroundImage: `url(${this.props.image})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    height: this.props.sizes.squareHeight + 'px',
+                    height: this.props.sizes.square + 'px'
                 }}
-                onClick={() => { navigate(this.props.address) }}>
-                <div className={`coverpiece ${this.props.gradientStyle}`}>
-                    <h3>{this.props.captain}</h3>
+                onClick={() => {
+                    // navigate("/" + this.props.address)
+                    this.props.renderStyling(this.props.address)
+                }}>
+                <div className={`tile-cover ${this.props.gradientColor}`}>
+                    <h5>{this.props.captain}</h5>
                 </div>
             </div>
         )
