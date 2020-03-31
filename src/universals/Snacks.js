@@ -93,8 +93,8 @@ export class SquareTile extends Component {
                     height: this.props.sizes.square + 'px'
                 }}
                 onClick={() => {
-                    this.props.setThisPage(this.props.address)
-                    navigate("/" + this.props.address)
+                    // navigate("/" + this.props.address)
+                    this.props.renderStyling(this.props.address)
                 }}>
                 <div className={`tile-cover ${this.props.gradientColor}`}>
                     <h5>{this.props.captain}</h5>

@@ -16,12 +16,8 @@ export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentHoverState: '',
-            introStatement: '',
-            isShowNavDrawer: false,
             thisPage: {
                 intro: ['We turn good concepts', <br />, 'into badass web apps.'],
-                name: 'home',
                 title: '',
                 titleColor: 'text-deepocean50',
             },
@@ -34,7 +30,6 @@ export default class App extends Component {
         }
         this.determineSizes = this.determineSizes.bind(this)
         this.renderStyling = this.renderStyling.bind(this)
-        this.setThisPage = this.setThisPage.bind(this)
     }
 
     determineSizes() {
@@ -48,36 +43,27 @@ export default class App extends Component {
         })
     }
 
-    renderStyling(name) {
-        if (name === "home") {
+    renderStyling(pageType) {
+        if (pageType === "home") {
             this.setState({
                 thisPage: {
                     ...this.state.thisPage,
                     intro: ['We turn good concepts', <br />, 'into badass web apps.'],
-                    titleColor: 'text-deepocean50'
+                    titleColor: 'text-deepocean50',
+                    type: pageType
                 }
             })
-        } else if (name === "developers") {
+        } else if (pageType === "developers") {
             this.setState({
                 thisPage: {
                     ...this.state.thisPage,
                     intro: ['We\'re freelance developers located throughout the United States—from sea to shining C#.'],
                     title: 'Developers & designers',
-                    titleColor: 'text-deepocean7'
+                    titleColor: 'text-deepocean7',
+                    type: pageType
                 }
             })
         }
-    }
-
-    setThisPage(pageName) {
-        this.setState({
-            thisPage: {
-                ...this.state.thisPage,
-                name: pageName
-            }
-        })
-
-        this.renderStyling(name)
     }
 
     componentDidMount() {
@@ -95,13 +81,13 @@ export default class App extends Component {
                 <header>
                     <h1 className={this.state.thisPage.titleColor}>Lighterfluid</h1>
 
-                    {this.state.thisPage.name !== "home" ? <div className="page-info">
+                    {this.state.thisPage.pageType !== "home" ? <div className="page-info">
                         <h3>{this.state.thisPage.title}</h3>
                     </div> : null}
                 </header>
 
                 <Route path="/" exact render={(props) => <Home
-                    setThisPage={this.setThisPage}
+                    renderStyling={this.renderStyling}
                     sizes={this.state.sizes}
                     thisPage={this.state.thisPage}
                 />} />

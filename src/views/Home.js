@@ -16,7 +16,7 @@ export class Home extends Component {
 
                 <nav>
                     <SquareTile
-                        setThisPage={this.props.setThisPage}
+                        renderStyling={this.props.renderStyling}
                         address="developers"
                         captain="Developers"
                         gradientColor="blue--red"
