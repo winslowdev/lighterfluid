@@ -1,6 +1,7 @@
 // ============================== IMPORTS
 
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { determineFate, highlightPunctuation, navigate } from './Functions'
 import { icons } from './Images'
 
@@ -22,20 +23,6 @@ export class DirectDownload extends Component {
     render() {
         return (
             <p className="anchorspoof important" onClick={() => { navigate(null, this.props.address) }}>{this.props.captain}</p>
-        )
-    }
-}
-
-
-// ============================== DIRECT LINK TO EXTERNAL SITES
-
-export class TeamLeader extends Component {
-    render() {
-        return (
-            <div className="team-leader anchorspoof" onClick={() => { navigate(null, this.props.address) }}>
-                <p>{this.props.captain}</p>
-                <img src={icons.externalClick} />
-            </div>
         )
     }
 }
@@ -84,22 +71,18 @@ export class RectangleTile extends Component {
 export class SquareTile extends Component {
     render() {
         return (
-            <div
-                className="square-tile anchorspoof"
+            <Link
+                to={`${this.props.address}`}
+                onClick={() => { this.props.renderMessages(this.props.address) }}
+                className="square-tile"
                 style={{
                     backgroundImage: `url(${this.props.image})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
                     height: this.props.sizes.square + 'px'
-                }}
-                onClick={() => {
-                    // navigate("/" + this.props.address)
-                    this.props.renderStyling(this.props.address)
                 }}>
                 <div className={`tile-cover ${this.props.gradientColor}`}>
-                    <h5>{this.props.captain}</h5>
+                    <h5 className={this.props.style.tileText}>{this.props.captain}</h5>
                 </div>
-            </div>
+            </Link>
         )
     }
 }
@@ -132,6 +115,20 @@ export class Team extends Component {
             <div className="team" onClick={() => { navigate(this.determineMethod(), this.props.player) }}>
                 <p>{this.props.captain}</p>
                 <p className={this.determineIfLink() ? 'anchorspoof' : null} >{determineFate(this.props.captain, this.props.player)} </p>
+            </div>
+        )
+    }
+}
+
+
+// ============================== DIRECT LINK TO EXTERNAL SITES
+
+export class TeamLeader extends Component {
+    render() {
+        return (
+            <div className="team-leader anchorspoof" onClick={() => { navigate(null, this.props.address) }}>
+                <p>{this.props.captain}</p>
+                <img src={icons.externalClick} alt="external arrow" />
             </div>
         )
     }
