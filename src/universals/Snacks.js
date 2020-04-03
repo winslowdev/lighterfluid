@@ -50,11 +50,11 @@ export class RectangleTile extends Component {
     render() {
         return (
             <div className="rectangled anchorspoof"
-                style={{
+                theme={{
                     backgroundImage: `url(${this.props.image})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    height: this.props.sizes.rectangleHeight + 'px',
+                    height: this.props.dimensions.rectangleHeight + 'px',
                 }}
                 onClick={() => { navigate(this.props.address) }}>
                 <div className={`coverpiece ${this.props.gradientStyle}`}>
@@ -73,14 +73,14 @@ export class SquareTile extends Component {
         return (
             <Link
                 to={`${this.props.address}`}
-                onClick={() => { this.props.renderMessages(this.props.address) }}
+                onClick={() => { this.props.provideInformation(this.props.address) }}
                 className="square-tile"
-                style={{
+                theme={{
                     backgroundImage: `url(${this.props.image})`,
-                    height: this.props.sizes.square + 'px'
+                    height: this.props.dimensions.squareHeight + 'px'
                 }}>
                 <div className={`tile-cover ${this.props.gradientColor}`}>
-                    <h5 className={this.props.style.tileText}>{this.props.captain}</h5>
+                    <h5 className={this.props.theme.tileText}>{this.props.captain}</h5>
                 </div>
             </Link>
         )

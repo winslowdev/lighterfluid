@@ -1,5 +1,13 @@
 import React from 'react'
 
+export const addThemeDescription = () => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
+    } else {
+        return 'lighter'
+    }
+}
+
 export const determineFate = (title, caption) => {
     if (title === "LinkedIn") {
         return "in/" + caption
@@ -58,10 +66,3 @@ export const navigate = (destination) => {
     // }
 }
 
-export const addThemeDescription = () => {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark'
-    } else {
-        return 'lighter'
-    }
-}

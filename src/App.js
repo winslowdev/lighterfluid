@@ -3,10 +3,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
+// general
 import { Home } from './views/Home'
 import { Developers } from './views/Developers'
 import { Members } from './views/Members';
 
+// secure
+import { Dashboard } from './views/secure/Dashboard'
 
 
 // ============================== COMPLETE APPLICATION
@@ -15,16 +18,12 @@ export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            current: {
-                date: '',
-                time: ''
-            },
-            sizes: {
-                currentWidth: '',
+            dimensions: {
+                innerWidth: '',
                 rectangleHeight: '',
-                square: '',
+                squareHeight: '',
             },
-            style: {
+            theme: {
                 background: '',
                 importantText: '',
                 passiveText: '',
@@ -32,111 +31,21 @@ export default class App extends Component {
                 tileText: ''
             },
             thisPage: {
-                intro: ['We turn good concepts', <br />, 'into badass web apps.'],
                 title: '',
                 type: 'home'
             },
         }
-        this.determineSizes = this.determineSizes.bind(this)
-        this.formatDate = this.formatDate.bind(this)
-        this.formatHour = this.formatHour.bind(this)
-        this.renderMessages = this.renderMessages.bind(this)
-        this.renderStyle = this.renderStyle.bind(this)
-        this.setCurrent = this.setCurrent.bind(this)
+        this.adaptTheme = this.adaptTheme.bind(this)
+        this.calculateDimensions = this.calculateDimensions.bind(this)
+        this.provideInformation = this.provideInformation.bind(this)
     }
 
-    determineSizes() {
-        this.setState({
-            sizes: {
-                ...this.state.sizes,
-                currentWidth: window.innerWidth,
-                rectangleHeight: window.innerWidth * 0.4,
-                square: window.innerWidth * 0.5,
-            }
-        })
-    }
-
-    formatDate(day, month, date, year) {
-        if (this.state.isMinus800 === true) {
-            return day.slice(0, 3) + ', ' + month.slice(0, 3) + ' ' + date
-        } else {
-            return day + ', ' + month + ' ' + date
-        }
-    }
-
-    formatHour(hour) {
-        if (hour === 0) {
-            return 12
-        } else if (hour > 12) {
-            return hour - 12
-        } else {
-            return hour
-        }
-    }
-
-    renderMessages(pageType) {
-        if (pageType === "contact") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: ['Call us, beep us, if you wanna reach us.', <br />, 'But if you wanna page us, that\'s not okay.'],
-                    title: 'Contact',
-                    type: pageType
-                }
-            })
-        } else if (pageType === "developers") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: ['We\'re freelance developers located throughout the United States—from sea to shining C#.'],
-                    title: ['Developers &', <br />, 'designers'],
-                    type: pageType
-                }
-            })
-        } else if (pageType === "home") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: ['We turn good concepts', <br />, 'into badass web apps.'],
-                    type: pageType
-                }
-            })
-        } else if (pageType === "members") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: '',
-                    title: ['Welcome to', <br />, 'the secret lair.'],
-                    type: pageType
-                }
-            })
-        } else if (pageType === "projects") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: ['We\'re freelance developers located throughout the United States—from sea to shining C#.'],
-                    title: 'Collaborative projects',
-                    type: pageType
-                }
-            })
-        } else if (pageType === "services") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: ['Whether you need a need a basic website or a web app that renders data from multiple third-party APIs, we gotchu'],
-                    title: 'How we can help',
-                    type: pageType
-                }
-            })
-        }
-    }
-
-    // CHANGE STYLE BASED ON DARK OR LIGHT MODE
-    renderStyle() {
+    // DARK OR LIGHT MODE
+    adaptTheme() {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             this.setState({
-                style: {
-                    ...this.state.style,
+                theme: {
+                    ...this.state.theme,
                     background: 'bg-deepocean',
                     importantText: 'text-deepocean7',
                     passiveText: 'text-basegrey',
@@ -146,8 +55,8 @@ export default class App extends Component {
             })
         } else {
             this.setState({
-                style: {
-                    ...this.state.style,
+                theme: {
+                    ...this.state.theme,
                     background: 'bg-basegrey',
                     importantText: 'text-deepocean',
                     passiveText: 'text-deepocean50',
@@ -158,64 +67,120 @@ export default class App extends Component {
         }
     }
 
-    // TIME AND DATE
-    setCurrent() {
-        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-        const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-        const clock = new Date();
-
-        let day = week[clock.getDay()]
-        let month = months[clock.getMonth()]
-        let date = clock.getDate()
-        let year = clock.getFullYear()
-
-        let hour = clock.getHours()
-        let minute = (clock.getMinutes() >= 10) ? clock.getMinutes() : '0' + clock.getMinutes();
-        let period = (hour >= 12) ? 'PM' : 'AM';
-
-        let rightNow = this.formatHour(hour) + ':' + minute + ' ' + period
-
-        this.renderStyle()
-
+    calculateDimensions() {
         this.setState({
-            current: {
-                ...this.state.current,
-                date: this.formatDate(day, month, date, year),
-                time: rightNow
+            dimensions: {
+                ...this.state.dimensions,
+                innerWidth: window.innerWidth,
+                rectangleHeight: window.innerWidth * 0.4,
+                squareHeight: window.innerWidth * 0.5,
             }
         })
-        console.log(this.state.current.date)
     }
 
+    // PROVIDE PAGE INFORMATION
+    provideInformation(pageType) {
+        switch (pageType) {
+            case "contact":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        intro: ['Call us, beep us, if you wanna reach us.', <br />, 'But if you wanna page us, that\'s not okay.'],
+                        title: 'Contact',
+                        type: pageType
+                    }
+                })
+                break;
+            case "dashboard":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        title: 'What\'s up?',
+                        type: pageType
+                    }
+                })
+                break;
+            case "developers":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        title: ['Developers &', <br />, 'designers'],
+                        type: pageType
+                    }
+                })
+                break;
+                break;
+            case "members":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        intro: '',
+                        title: ['Welcome to', <br />, 'the secret lair.'],
+                        type: pageType
+                    }
+                })
+                break;
+            case "projects":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        intro: ['We\'re freelance developers located throughout the United States—from sea to shining C#.'],
+                        title: 'Collaborative projects',
+                        type: pageType
+                    }
+                })
+                break;
+            case "services":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        intro: ['Whether you need a need a basic website or a web app that renders data from multiple third-party APIs, we gotchu'],
+                        title: 'How we can help',
+                        type: pageType
+                    }
+                })
+                break;
+            default:
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        intro: ['We turn good concepts', <br />, 'into badass web apps.'],
+                        type: pageType
+                    }
+                })
+        }
+    }
+
+
+
     componentDidMount() {
-        this.determineSizes()
-        this.renderStyle("home")
-        this.setCurrent()
+        this.calculateDimensions()
+        this.adaptTheme()
 
         let that = this
         setInterval(function () {
-            that.setCurrent()
+            that.adaptTheme()
         }, 1000)
 
         window.addEventListener("resize", () => {
-            this.determineSizes()
+            this.calculateDimensions()
         })
-
     }
 
     render() {
+        const theme = this.state.theme
+        const thisPage = this.state.thisPage
+
         return (
             <Router>
-                <div className={`app ${this.state.style.background}`} style={{ height: '100vh' }}>
+                <div className={`app ${theme.background}`} theme={{ height: '100vh' }}>
 
                     <header>
                         <h1
-                            className={this.state.thisPage.pageType === "home" ? this.state.style.passiveText : this.state.style.passiveTitle}>Lighterfluid</h1>
+                            className={thisPage.pageType === "home" ? theme.passiveText : theme.passiveTitle}>Lighterfluid</h1>
 
-
-
-                        {this.state.thisPage.pageType !== "home" ? <div className="page-info">
-                            <h3 className={this.state.style.importantText}>{this.state.thisPage.title}</h3>
+                        {thisPage.pageType !== "home" ? <div className="page-info">
+                            <h3 className={theme.importantText}>{thisPage.title}</h3>
                         </div> : null}
                     </header>
 
@@ -223,30 +188,36 @@ export default class App extends Component {
 
                         <Route exact path="/">
                             <Home
-                                renderMessages={this.renderMessages}
-                                sizes={this.state.sizes}
-                                style={this.state.style}
+                                dimensions={this.state.dimensions}
+                                theme={this.state.theme}
                                 thisPage={this.state.thisPage} />
                         </Route>
 
                         <Route exact path="/developers">
                             <Developers
-                                renderMessages={this.renderMessages}
-                                sizes={this.state.sizes}
-                                style={this.state.style}
+                                provideInformation={this.provideInformation}
+                                dimensions={this.state.dimensions}
+                                theme={this.state.theme}
                                 thisPage={this.state.thisPage} />
                         </Route>
 
                         <Route exact path="/members">
-                            <Members style={this.state.style} thisPage={this.state.thisPage} />
+                            <Members theme={this.state.theme} thisPage={this.state.thisPage} provideInformation={this.provideInformation} />
+                        </Route>
+
+                        <Route exact path="/members/dashboard">
+                            <Dashboard
+                                provideInformation={this.provideInformation}
+                                theme={this.state.theme}
+                                thisPage={this.state.thisPage} />
                         </Route>
                     </Switch>
 
                     <footer>
                         <Link
                             to="/members"
-                            onClick={() => { this.renderMessages("members") }}
-                            className={this.state.style.passiveText}>
+                            onClick={() => { this.provideInformation("members") }}
+                            className={this.state.theme.passiveText}>
                             <p>designed and coded in San Francisco and Atlanta</p>
                         </Link>
                     </footer>
