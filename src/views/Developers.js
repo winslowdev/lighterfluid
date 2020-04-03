@@ -5,7 +5,7 @@ export class Developers extends Component {
         return (
             <React.Fragment>
                 <div className="hero">
-                    <h6>{this.props.thisPage.intro}</h6>
+                    <h6 className={this.props.style.importantText}>{this.props.thisPage.intro}</h6>
                 </div>
 
             </React.Fragment>

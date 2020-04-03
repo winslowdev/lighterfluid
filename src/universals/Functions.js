@@ -57,3 +57,11 @@ export const navigate = (destination) => {
         window.location.href = destination
     // }
 }
+
+export const addThemeDescription = () => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
+    } else {
+        return 'lighter'
+    }
+}
