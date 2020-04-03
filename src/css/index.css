@@ -21,11 +21,16 @@
     --deepocean: #111925;
     --deepocean7: #d2d2d3;
     --deepocean50: #898d94;
+    --hotcoralpink: #eb5757;
 }
 
 body {
     background-color: var(--basegrey);
     margin: 0;
+}
+
+.app {
+    padding-top: 10px;
 }
 
 header, footer {
@@ -37,16 +42,18 @@ header, footer {
 
 header {
     margin: 0;
+    margin-top: 10px;
     overflow: hidden;
     text-overflow: clip;
     width: 100%;
 }
 
 footer {
+bottom: 0;
     padding: 10px 0;
+    position: fixed;
     width: 100%;
 }
-
 
 /* ============================== HEADER */
 /* ============================== HEADER */
@@ -56,6 +63,7 @@ footer {
     margin: 0 auto;
     padding: 20px 0 40px 0;
 }
+
 .page-info {
     align-items: center;
     display: flex;
@@ -80,6 +88,8 @@ nav {
 }
 
 .square-tile {
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 50%;
 }
 
@@ -97,7 +107,7 @@ nav {
 
 h1 {
     font-family: "GhostType", serif;
-    font-size: 6.85rem;
+    font-size: 5.625rem;
     font-weight: 300;
     margin: 0 auto;
 }
@@ -107,18 +117,16 @@ h3, h5, h6, p {
 }
 
 h3 {
-    color: var(--deepocean);
     font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: -3%;
-    line-height: 80%;
+    line-height: 90%;
     margin: 0 auto;
     text-align: center;
-    width: 80%;
+    width: 100%;
 }
 
 h5 {
-    color: var(--basegrey);
     font-size: 1.6rem;
     font-weight: 600;
     letter-spacing: -3%;
@@ -128,16 +136,19 @@ h5 {
 }
 
 h6 {
-    color: var(--deepocean);
     font-size: 1.125rem;
-    font-weight: 700;
+    font-weight: 500;
     margin: 0 auto;
     text-align: center;
     width: 100%;
 }
 
-p {
+a {
     color: var(--grey);
+    text-decoration: none;
+}
+
+p {
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: -0.03px;
@@ -145,12 +156,102 @@ p {
     margin: 0;
 }
 
+#join-form p, #login-form p {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
 footer p {
-    color: var(--deepocean50);
     font-size: 0.625rem;
     font-weight: 500;
 }
 
+
+/* ============================== FORMS & INPUTS */
+/* ============================== FORMS & INPUTS */
+
+form {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 auto;
+    width: 90%;
+}
+
+input {
+    background-color: #3f454e;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    height: 45px;
+    outline: none;
+    padding: 0 10px;
+    width: 80%;
+}
+
+input::placeholder {
+    opacity: 1
+}
+
+#login-form {
+    margin-bottom: 30px;
+}
+
+.input-bundle, .lastinput-submit {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.input-bundle {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 90%;
+}
+
+.input-bundle:last-of-type {
+    margin-bottom: 0;
+}
+
+.label {
+    align-items: center;
+    background-color: #3f454e;
+    border-radius: 3px 0 0 3px;
+    display: flex;
+    flex-direction: row;
+    height: 45px;
+    justify-content: center;
+    width: 40px;
+}
+
+.label img {
+    height: 20px;
+    filter: opacity(60%);
+    width: 20px;
+}
+
+.lastinput-submit {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.lastinput-submit input[type="text"] {
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    background-color: var(--hotcoralpink);
+    border-radius: 3px;
+    margin: 0 auto;
+    width: 60px;
+}
 
 /* ============================== COLORS & GRADIENTS */
 /* ============================== COLORS & GRADIENTS */
@@ -171,10 +272,34 @@ footer p {
     background-image: linear-gradient(to bottom right, rgba(214, 50, 0, 0.438), rgba(37, 108, 132, 0.644), rgba(0, 76, 190, 0.555));
 }
 
+.text-basegrey {
+    color: var(--basegrey);
+}
+
 .text-deepocean7 {
     color: var(--deepocean7);
 }
 
 .text-deepocean50 {
     color: var(--deepocean50);
+}
+
+.text-hotcoralpink {
+    color: var(--hotcoralpink);
+}
+
+.bg-deepocean {
+    background-color: var(--deepocean);
+}
+
+.text-deepocean {
+    color: var(--deepocean);
+}
+
+.bg-basegrey {
+    background-color: var(--basegrey);
+}
+
+.text-white {
+    color: white;
 }
