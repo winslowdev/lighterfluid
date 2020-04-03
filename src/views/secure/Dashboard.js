@@ -11,7 +11,7 @@ export class Dashboard extends Component {
         return (
             <React.Fragment>
                 <div className="hero">
-                    <h6 className={this.props.style.importantText}>Here's your dashboard. <br />Try not to get dashbored.</h6>
+                    <h6 className={this.props.theme.importantText}>Here's your dashboard. <br />Try not to get dashbored.</h6>
                 </div>
             </React.Fragment>
         )

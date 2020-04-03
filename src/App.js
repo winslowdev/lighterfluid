@@ -3,12 +3,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
+// general
 import { Home } from './views/Home'
 import { Developers } from './views/Developers'
 import { Members } from './views/Members';
 
+// secure
 import { Dashboard } from './views/secure/Dashboard'
-
 
 
 // ============================== COMPLETE APPLICATION
@@ -17,12 +18,12 @@ export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            sizes: {
-                currentWidth: '',
+            dimensions: {
+                innerWidth: '',
                 rectangleHeight: '',
-                square: '',
+                squareHeight: '',
             },
-            style: {
+            theme: {
                 background: '',
                 importantText: '',
                 passiveText: '',
@@ -30,24 +31,49 @@ export default class App extends Component {
                 tileText: ''
             },
             thisPage: {
-                intro: ['We turn good concepts', <br />, 'into badass web apps.'],
                 title: '',
                 type: 'home'
             },
         }
-        this.determineSizes = this.determineSizes.bind(this)
+        this.adaptTheme = this.adaptTheme.bind(this)
+        this.calculateDimensions = this.calculateDimensions.bind(this)
         this.provideInformation = this.provideInformation.bind(this)
-        this.renderStyle = this.renderStyle.bind(this)
-        // this.runClock = this.runClock.bind(this)
     }
 
-    determineSizes() {
+    // DARK OR LIGHT MODE
+    adaptTheme() {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            this.setState({
+                theme: {
+                    ...this.state.theme,
+                    background: 'bg-deepocean',
+                    importantText: 'text-deepocean7',
+                    passiveText: 'text-basegrey',
+                    passiveTitle: 'text-deepocean50',
+                    tileText: 'text-white'
+                }
+            })
+        } else {
+            this.setState({
+                theme: {
+                    ...this.state.theme,
+                    background: 'bg-basegrey',
+                    importantText: 'text-deepocean',
+                    passiveText: 'text-deepocean50',
+                    passiveTitle: 'text-deepocean7',
+                    tileText: 'text-white'
+                }
+            })
+        }
+    }
+
+    calculateDimensions() {
         this.setState({
-            sizes: {
-                ...this.state.sizes,
-                currentWidth: window.innerWidth,
+            dimensions: {
+                ...this.state.dimensions,
+                innerWidth: window.innerWidth,
                 rectangleHeight: window.innerWidth * 0.4,
-                square: window.innerWidth * 0.5,
+                squareHeight: window.innerWidth * 0.5,
             }
         })
     }
@@ -125,60 +151,36 @@ export default class App extends Component {
         }
     }
 
-    // CHANGE STYLE BASED ON DARK OR LIGHT MODE
-    renderStyle() {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            this.setState({
-                style: {
-                    ...this.state.style,
-                    background: 'bg-deepocean',
-                    importantText: 'text-deepocean7',
-                    passiveText: 'text-basegrey',
-                    passiveTitle: 'text-deepocean50',
-                    tileText: 'text-white'
-                }
-            })
-        } else {
-            this.setState({
-                style: {
-                    ...this.state.style,
-                    background: 'bg-basegrey',
-                    importantText: 'text-deepocean',
-                    passiveText: 'text-deepocean50',
-                    passiveTitle: 'text-deepocean7',
-                    tileText: 'text-white'
-                }
-            })
-        }
-    }
+
 
     componentDidMount() {
-        this.determineSizes()
-        this.renderStyle()
+        this.calculateDimensions()
+        this.adaptTheme()
 
         let that = this
         setInterval(function () {
-            that.renderStyle()
+            that.adaptTheme()
         }, 1000)
 
         window.addEventListener("resize", () => {
-            this.determineSizes()
+            this.calculateDimensions()
         })
     }
 
     render() {
+        const theme = this.state.theme
+        const thisPage = this.state.thisPage
+
         return (
             <Router>
-                <div className={`app ${this.state.style.background}`} style={{ height: '100vh' }}>
+                <div className={`app ${theme.background}`} theme={{ height: '100vh' }}>
 
                     <header>
                         <h1
-                            className={this.state.thisPage.pageType === "home" ? this.state.style.passiveText : this.state.style.passiveTitle}>Lighterfluid</h1>
+                            className={thisPage.pageType === "home" ? theme.passiveText : theme.passiveTitle}>Lighterfluid</h1>
 
-
-
-                        {this.state.thisPage.pageType !== "home" ? <div className="page-info">
-                            <h3 className={this.state.style.importantText}>{this.state.thisPage.title}</h3>
+                        {thisPage.pageType !== "home" ? <div className="page-info">
+                            <h3 className={theme.importantText}>{thisPage.title}</h3>
                         </div> : null}
                     </header>
 
@@ -186,28 +188,27 @@ export default class App extends Component {
 
                         <Route exact path="/">
                             <Home
-                                provideInformation={this.provideInformation}
-                                sizes={this.state.sizes}
-                                style={this.state.style}
+                                dimensions={this.state.dimensions}
+                                theme={this.state.theme}
                                 thisPage={this.state.thisPage} />
                         </Route>
 
                         <Route exact path="/developers">
                             <Developers
                                 provideInformation={this.provideInformation}
-                                sizes={this.state.sizes}
-                                style={this.state.style}
+                                dimensions={this.state.dimensions}
+                                theme={this.state.theme}
                                 thisPage={this.state.thisPage} />
                         </Route>
 
                         <Route exact path="/members">
-                            <Members style={this.state.style} thisPage={this.state.thisPage} provideInformation={this.provideInformation} />
+                            <Members theme={this.state.theme} thisPage={this.state.thisPage} provideInformation={this.provideInformation} />
                         </Route>
 
                         <Route exact path="/members/dashboard">
                             <Dashboard
                                 provideInformation={this.provideInformation}
-                                style={this.state.style}
+                                theme={this.state.theme}
                                 thisPage={this.state.thisPage} />
                         </Route>
                     </Switch>
@@ -216,7 +217,7 @@ export default class App extends Component {
                         <Link
                             to="/members"
                             onClick={() => { this.provideInformation("members") }}
-                            className={this.state.style.passiveText}>
+                            className={this.state.theme.passiveText}>
                             <p>designed and coded in San Francisco and Atlanta</p>
                         </Link>
                     </footer>

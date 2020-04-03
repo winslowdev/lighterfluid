@@ -23,11 +23,11 @@ export class Members extends Component {
         return (
             <React.Fragment>
                 <div className="hero">
-                    <h6 className={this.props.style.importantText}> {!this.state.isLoginOn ? ['Members only. Sorry.'] : [`Join the ${addThemeDescription()} side.`, <br />, `But only with an invite code.`]}</h6>
+                    <h6 className={this.props.theme.importantText}> {!this.state.isLoginOn ? ['Members only. Sorry.'] : [`Join the ${addThemeDescription()} side.`, <br />, `But only with an invite code.`]}</h6>
                 </div>
 
                 {this.state.isLoginOn ? <form id="join-form">
-                    <p onClick={() => { this.toggleFormType() }} className={this.props.style.passiveText}>Already have an account?</p>
+                    <p onClick={() => { this.toggleFormType() }} className={this.props.theme.passiveText}>Already have an account?</p>
                     <div className="input-bundle">
                         <div className="label"><img src={icons.email} alt="email icon" /></div>
                         <input type="email" placeholder="email address" />
@@ -50,7 +50,7 @@ export class Members extends Component {
 
                     : <form id="login-form">
                         <p onClick={() => { this.toggleFormType() }}
-                            className={this.props.style.passiveText}>Joining with an invite code?</p>
+                            className={this.props.theme.passiveText}>Joining with an invite code?</p>
                         <div className="input-bundle">
                             <div className="label"><img src={icons.email} alt="email icon" /></div>
                             <input type="email" placeholder="email address" />
