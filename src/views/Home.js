@@ -10,7 +10,7 @@ export class Home extends Component {
             <React.Fragment>
 
                 <div className="hero">
-                    <h6 className={this.props.style.importantText}>{this.props.thisPage.intro}</h6>
+                    <h6 className={this.props.theme.importantText}>We turn good concepts <br />into badass web apps.</h6>
                 </div>
 
                 <nav>
@@ -19,33 +19,29 @@ export class Home extends Component {
                         captain="Developers"
                         gradientColor="blue--red"
                         image={stock.elCapitan}
-                        renderMessages={this.props.renderMessages}
-                        sizes={this.props.sizes}
-                        style={this.props.style} />
+                        dimensions={this.props.dimensions}
+                        theme={this.props.theme} />
                     <SquareTile
                         address="projects"
                         captain="Projects"
                         gradientColor="blue--yellow"
                         image={stock.goldenGate}
-                        renderMessages={this.props.renderMessages}
-                        sizes={this.props.sizes}
-                        style={this.props.style} />
+                        dimensions={this.props.dimensions}
+                        theme={this.props.theme} />
                     <SquareTile
                         address="services"
                         captain="Services"
                         gradientColor="orange-teal-blue"
                         image={stock.hollywoodSign}
-                        renderMessages={this.props.renderMessages}
-                        sizes={this.props.sizes}
-                        style={this.props.style} />
+                        dimensions={this.props.dimensions}
+                        theme={this.props.theme} />
                     <SquareTile
                         address="contact"
                         captain="Contact"
                         gradientColor="blue--green"
                         image={stock.bixbyBridge}
-                        renderMessages={this.props.renderMessages}
-                        sizes={this.props.sizes}
-                        style={this.props.style} />
+                        dimensions={this.props.dimensions}
+                        theme={this.props.theme} />
                 </nav>
 
             </React.Fragment>

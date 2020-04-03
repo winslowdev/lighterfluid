@@ -82,11 +82,12 @@ export class Members extends Component {
         return (
             <React.Fragment>
                 <div className="hero">
-                    <h6 className={this.props.style.importantText}> {!this.state.isLoginOn ? ['Members only. Sorry.'] : [`Join the ${addThemeDescription()} side.`, <br />, `But only with an invite code.`]}</h6>
+                    <h6 className={this.props.theme.importantText}> {!this.state.isLoginOn ? ['Members only. Sorry.'] : [`Join the ${addThemeDescription()} side.`, <br />, `But only with an invite code.`]}</h6>
                 </div>
 
                 {this.state.isLoginOn ? <form id="join-form" onSubmit={this.createAccount}>
                     <p onClick={() => { this.toggleFormType() }} className={this.props.style.passiveText}>Already have an account?</p>
+
                     <div className="input-bundle">
                         <div className="label"><img src={icons.email} alt="email icon" /></div>
                         <input type="email" placeholder="email address" value={this.state.email} onChange={this.onChangeEmail} />
@@ -103,13 +104,13 @@ export class Members extends Component {
                             <input type="text" placeholder="code" />
                         </div>
 
-                        <input type="submit" className="go-button" value="Go" />
+                        <input type="submit" className="go-button" value="Go" onClick={() => {this.props.provideInformation("dashboard")}} />
                     </div>
                 </form>
 
                     : <form id="login-form" onSubmit={this.login}>
                         <p onClick={() => { this.toggleFormType() }}
-                            className={this.props.style.passiveText}>Joining with an invite code?</p>
+                            className={this.props.theme.passiveText}>Joining with an invite code?</p>
                         <div className="input-bundle">
                             <div className="label"><img src={icons.email} alt="email icon" /></div>
                             <input type="email" placeholder="email address" value={this.state.email} onChange={this.onChangeEmail} />
@@ -121,7 +122,7 @@ export class Members extends Component {
                                 <input type="password" placeholder="password" value={this.state.password} onChange={this.onChangePassword} />
                             </div>
 
-                            <input type="submit" className="go-button" value="Go" />
+                            <input type="submit" className="go-button" value="Go" onClick={() => {this.props.provideInformation("dashboard")}} />
                         </div>
                     </form> }
             </React.Fragment>
