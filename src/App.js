@@ -7,6 +7,8 @@ import { Home } from './views/Home'
 import { Developers } from './views/Developers'
 import { Members } from './views/Members';
 
+import { Dashboard } from './views/secure/Dashboard'
+
 
 
 // ============================== COMPLETE APPLICATION
@@ -15,10 +17,6 @@ export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            current: {
-                date: '',
-                time: ''
-            },
             sizes: {
                 currentWidth: '',
                 rectangleHeight: '',
@@ -38,11 +36,9 @@ export default class App extends Component {
             },
         }
         this.determineSizes = this.determineSizes.bind(this)
-        this.formatDate = this.formatDate.bind(this)
-        this.formatHour = this.formatHour.bind(this)
-        this.renderMessages = this.renderMessages.bind(this)
+        this.provideInformation = this.provideInformation.bind(this)
         this.renderStyle = this.renderStyle.bind(this)
-        this.setCurrent = this.setCurrent.bind(this)
+        // this.runClock = this.runClock.bind(this)
     }
 
     determineSizes() {
@@ -56,78 +52,76 @@ export default class App extends Component {
         })
     }
 
-    formatDate(day, month, date, year) {
-        if (this.state.isMinus800 === true) {
-            return day.slice(0, 3) + ', ' + month.slice(0, 3) + ' ' + date
-        } else {
-            return day + ', ' + month + ' ' + date
-        }
-    }
-
-    formatHour(hour) {
-        if (hour === 0) {
-            return 12
-        } else if (hour > 12) {
-            return hour - 12
-        } else {
-            return hour
-        }
-    }
-
-    renderMessages(pageType) {
-        if (pageType === "contact") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: ['Call us, beep us, if you wanna reach us.', <br />, 'But if you wanna page us, that\'s not okay.'],
-                    title: 'Contact',
-                    type: pageType
-                }
-            })
-        } else if (pageType === "developers") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: ['We\'re freelance developers located throughout the United States—from sea to shining C#.'],
-                    title: ['Developers &', <br />, 'designers'],
-                    type: pageType
-                }
-            })
-        } else if (pageType === "home") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: ['We turn good concepts', <br />, 'into badass web apps.'],
-                    type: pageType
-                }
-            })
-        } else if (pageType === "members") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: '',
-                    title: ['Welcome to', <br />, 'the secret lair.'],
-                    type: pageType
-                }
-            })
-        } else if (pageType === "projects") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: ['We\'re freelance developers located throughout the United States—from sea to shining C#.'],
-                    title: 'Collaborative projects',
-                    type: pageType
-                }
-            })
-        } else if (pageType === "services") {
-            this.setState({
-                thisPage: {
-                    ...this.state.thisPage,
-                    intro: ['Whether you need a need a basic website or a web app that renders data from multiple third-party APIs, we gotchu'],
-                    title: 'How we can help',
-                    type: pageType
-                }
-            })
+    // PROVIDE PAGE INFORMATION
+    provideInformation(pageType) {
+        switch (pageType) {
+            case "contact":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        intro: ['Call us, beep us, if you wanna reach us.', <br />, 'But if you wanna page us, that\'s not okay.'],
+                        title: 'Contact',
+                        type: pageType
+                    }
+                })
+                break;
+            case "dashboard":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        title: 'What\'s up?',
+                        type: pageType
+                    }
+                })
+                break;
+            case "developers":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        title: ['Developers &', <br />, 'designers'],
+                        type: pageType
+                    }
+                })
+                break;
+                break;
+            case "members":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        intro: '',
+                        title: ['Welcome to', <br />, 'the secret lair.'],
+                        type: pageType
+                    }
+                })
+                break;
+            case "projects":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        intro: ['We\'re freelance developers located throughout the United States—from sea to shining C#.'],
+                        title: 'Collaborative projects',
+                        type: pageType
+                    }
+                })
+                break;
+            case "services":
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        intro: ['Whether you need a need a basic website or a web app that renders data from multiple third-party APIs, we gotchu'],
+                        title: 'How we can help',
+                        type: pageType
+                    }
+                })
+                break;
+            default:
+                this.setState({
+                    thisPage: {
+                        ...this.state.thisPage,
+                        intro: ['We turn good concepts', <br />, 'into badass web apps.'],
+                        type: pageType
+                    }
+                })
         }
     }
 
@@ -158,49 +152,18 @@ export default class App extends Component {
         }
     }
 
-    // TIME AND DATE
-    setCurrent() {
-        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-        const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-        const clock = new Date();
-
-        let day = week[clock.getDay()]
-        let month = months[clock.getMonth()]
-        let date = clock.getDate()
-        let year = clock.getFullYear()
-
-        let hour = clock.getHours()
-        let minute = (clock.getMinutes() >= 10) ? clock.getMinutes() : '0' + clock.getMinutes();
-        let period = (hour >= 12) ? 'PM' : 'AM';
-
-        let rightNow = this.formatHour(hour) + ':' + minute + ' ' + period
-
-        this.renderStyle()
-
-        this.setState({
-            current: {
-                ...this.state.current,
-                date: this.formatDate(day, month, date, year),
-                time: rightNow
-            }
-        })
-        console.log(this.state.current.date)
-    }
-
     componentDidMount() {
         this.determineSizes()
-        this.renderStyle("home")
-        this.setCurrent()
+        this.renderStyle()
 
         let that = this
         setInterval(function () {
-            that.setCurrent()
+            that.renderStyle()
         }, 1000)
 
         window.addEventListener("resize", () => {
             this.determineSizes()
         })
-
     }
 
     render() {
@@ -223,7 +186,7 @@ export default class App extends Component {
 
                         <Route exact path="/">
                             <Home
-                                renderMessages={this.renderMessages}
+                                provideInformation={this.provideInformation}
                                 sizes={this.state.sizes}
                                 style={this.state.style}
                                 thisPage={this.state.thisPage} />
@@ -231,21 +194,28 @@ export default class App extends Component {
 
                         <Route exact path="/developers">
                             <Developers
-                                renderMessages={this.renderMessages}
+                                provideInformation={this.provideInformation}
                                 sizes={this.state.sizes}
                                 style={this.state.style}
                                 thisPage={this.state.thisPage} />
                         </Route>
 
                         <Route exact path="/members">
-                            <Members style={this.state.style} thisPage={this.state.thisPage} />
+                            <Members style={this.state.style} thisPage={this.state.thisPage} provideInformation={this.provideInformation} />
+                        </Route>
+
+                        <Route exact path="/members/dashboard">
+                            <Dashboard
+                                provideInformation={this.provideInformation}
+                                style={this.state.style}
+                                thisPage={this.state.thisPage} />
                         </Route>
                     </Switch>
 
                     <footer>
                         <Link
                             to="/members"
-                            onClick={() => { this.renderMessages("members") }}
+                            onClick={() => { this.provideInformation("members") }}
                             className={this.state.style.passiveText}>
                             <p>designed and coded in San Francisco and Atlanta</p>
                         </Link>

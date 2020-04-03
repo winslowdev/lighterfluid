@@ -73,7 +73,7 @@ export class SquareTile extends Component {
         return (
             <Link
                 to={`${this.props.address}`}
-                onClick={() => { this.props.renderMessages(this.props.address) }}
+                onClick={() => { this.props.provideInformation(this.props.address) }}
                 className="square-tile"
                 style={{
                     backgroundImage: `url(${this.props.image})`,

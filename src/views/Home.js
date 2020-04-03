@@ -19,7 +19,7 @@ export class Home extends Component {
                         captain="Developers"
                         gradientColor="blue--red"
                         image={stock.elCapitan}
-                        renderMessages={this.props.renderMessages}
+                        provideInformation={this.props.provideInformation}
                         sizes={this.props.sizes}
                         style={this.props.style} />
                     <SquareTile
@@ -27,7 +27,7 @@ export class Home extends Component {
                         captain="Projects"
                         gradientColor="blue--yellow"
                         image={stock.goldenGate}
-                        renderMessages={this.props.renderMessages}
+                        provideInformation={this.props.provideInformation}
                         sizes={this.props.sizes}
                         style={this.props.style} />
                     <SquareTile
@@ -35,7 +35,7 @@ export class Home extends Component {
                         captain="Services"
                         gradientColor="orange-teal-blue"
                         image={stock.hollywoodSign}
-                        renderMessages={this.props.renderMessages}
+                        provideInformation={this.props.provideInformation}
                         sizes={this.props.sizes}
                         style={this.props.style} />
                     <SquareTile
@@ -43,7 +43,7 @@ export class Home extends Component {
                         captain="Contact"
                         gradientColor="blue--green"
                         image={stock.bixbyBridge}
-                        renderMessages={this.props.renderMessages}
+                        provideInformation={this.props.provideInformation}
                         sizes={this.props.sizes}
                         style={this.props.style} />
                 </nav>

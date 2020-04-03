@@ -44,7 +44,7 @@ export class Members extends Component {
                             <input type="text" placeholder="code" />
                         </div>
 
-                        <input type="submit" className="go-button" value="Go" />
+                        <input type="submit" className="go-button" value="Go" onClick={() => {this.props.provideInformation("dashboard")}} />
                     </div>
                 </form>
 
@@ -62,7 +62,7 @@ export class Members extends Component {
                                 <input type="password" placeholder="password" />
                             </div>
 
-                            <input type="submit" className="go-button" value="Go" />
+                            <input type="submit" className="go-button" value="Go" onClick={() => {this.props.provideInformation("dashboard")}} />
                         </div>
                     </form> }
             </React.Fragment>
