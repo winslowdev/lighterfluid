@@ -14,16 +14,25 @@ router.delete('/', (req, res) => {
 
 router.post('/', (req, res) => {
   User.findOne({email: req.body.email}, (err, foundUser) => {
-    if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-      req.session.currentUser = foundUser;
-      res.status(201).json({
-        status:201,
-        message: 'Session created.'
-      })
+    if (err) {
+      console.log(err);
+    }
+    else if (foundUser === null) {
+      res.status(401).json({
+          status: 401,
+          message: 'Username or password is incorrect.'
+       })
+    } else if(bcrypt.compareSync(req.body.password, foundUser.password)){
+        req.session.currentUser = foundUser;
+        res.status(201).json({
+           status: 201,
+           message: 'Session created.',
+           user: req.session.currentUser
+         })
     } else {
       res.status(401).json({
-        status: 401,
-        message: 'Login failed.'
+         status: 401,
+         message: 'Username or password is incorrect.'
       })
     }
   })

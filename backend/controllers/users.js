@@ -14,7 +14,10 @@ router.post('/', (req, res) => {
         })
       })
     } else {
-      res.json('Email already registered.')
+      res.status(401).json({
+        status: 401,
+        message: 'Email already registered.'
+      })
     }
   })
 })

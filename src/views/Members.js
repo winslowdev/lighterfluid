@@ -49,7 +49,8 @@ export class Members extends Component {
         };
 
         axios.post('http://localhost:4000/api/users', newUser)
-            .then(res => console.log(res.data));
+            .then(res => console.log(res.data))
+            .catch(err => err.response.data.status === 401 ? alert('Email already registered.') : console.log(err));
 
         this.setState({
             email: '',
@@ -68,14 +69,15 @@ export class Members extends Component {
       };
 
       axios.post('http://localhost:4000/api/sessions', user)
-          .then(res => console.log(res.data));
+          .then(res => res.data.status === 201 ? alert('congratulations') : alert('incorrect username or password'))
+          .catch(err => err.response.data.status === 401 ? alert('Invalid username or password.') : console.log(err));
 
       this.setState({
           email: '',
           password: ''
       })
 
-      
+
     }
 
     render() {
@@ -86,7 +88,7 @@ export class Members extends Component {
                 </div>
 
                 {this.state.isLoginOn ? <form id="join-form" onSubmit={this.createAccount}>
-                    <p onClick={() => { this.toggleFormType() }} className={this.props.style.passiveText}>Already have an account?</p>
+                    <p onClick={() => { this.toggleFormType() }} className={this.props.theme.passiveText}>Already have an account?</p>
 
                     <div className="input-bundle">
                         <div className="label"><img src={icons.email} alt="email icon" /></div>
