@@ -90,7 +90,7 @@ export class RectangleProfileTile extends Component {
                 to={`profiles/${this.props.address}`}
                 className={`rectangle-tile ${this.props.bgColor}`}
                 style={{
-                    height: this.props.metrics.squareHeight + 'px',
+                    height: this.props.metrics.rectangleHeight + 'px',
                 }}>
                 {/* <h1 className={`yuge ${this.props.theme.backgroundText}`}>{this.props.address</h1> */}
 

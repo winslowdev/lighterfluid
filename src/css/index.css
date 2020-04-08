@@ -29,11 +29,27 @@
     body {
         background-color: var(--basegrey);
     }
+
+    header h1 {
+        color: var(--ocean50);
+    }
+
+    .hero h6 {
+        color: var(--ocean);
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     body {
         background-color: var(--ocean);
+    }
+
+    header h1 {
+        color: var(--basegrey);
+    }
+
+    .hero h6 {
+        color: var(--ocean7);
     }
 }
 
@@ -301,7 +317,8 @@ nav {
 h1 {
     font-family: "GhostType", serif;
     font-size: 5.625rem;
-    font-weight: 300;
+    font-weight: 200;
+    letter-spacing: 1.5px;
     margin: 0 auto;
 }
 

@@ -82,11 +82,11 @@ export class Members extends Component {
         return (
             <React.Fragment>
                 <div className="hero">
-                    <h6 className={this.props.theme.importantText}> {!this.state.isLoginOn ? ['Members only. Sorry.'] : [`Join the ${addThemeDescription()} side.`, <br />, `But only with an invite code.`]}</h6>
+                    <h6 className={this.props.theme.importantText}> {!this.state.isLoginOn ? ['Members only. Sorry.'] : [`Join the ${addThemeDescription()} side.`, <br />, `Invitation only.`]}</h6>
                 </div>
 
                 {this.state.isLoginOn ? <form id="join-form" onSubmit={this.createAccount}>
-                    <p onClick={() => { this.toggleFormType() }} className={this.props.style.passiveText}>Already have an account?</p>
+                    <p onClick={() => { this.toggleFormType() }} className={this.props.theme.passiveText}>Already have an account?</p>
 
                     <div className="input-bundle">
                         <div className="label"><img src={icons.email} alt="email icon" /></div>
@@ -104,7 +104,7 @@ export class Members extends Component {
                             <input type="text" placeholder="code" />
                         </div>
 
-                        <input type="submit" className="go-button" value="Go" onClick={() => {this.props.provideInformation("dashboard")}} />
+                        <input type="submit" className="go-button" value="Go" />
                     </div>
                 </form>
 
@@ -122,7 +122,7 @@ export class Members extends Component {
                                 <input type="password" placeholder="password" value={this.state.password} onChange={this.onChangePassword} />
                             </div>
 
-                            <input type="submit" className="go-button" value="Go" onClick={() => {this.props.provideInformation("dashboard")}} />
+                            <input type="submit" className="go-button" value="Go" />
                         </div>
                     </form> }
             </React.Fragment>

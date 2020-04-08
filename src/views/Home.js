@@ -8,9 +8,8 @@ export class Home extends Component {
     render() {
         return (
             <React.Fragment>
-
                 <div className="hero">
-                    <h6 className={this.props.theme.importantText}>We turn good concepts <br />into badass web apps.</h6>
+                    <h6>We turn good concepts <br />into great web apps.</h6>
                 </div>
 
                 <nav>

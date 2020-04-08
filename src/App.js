@@ -40,7 +40,6 @@ export default class App extends Component {
         }
         this.adaptTheme = this.adaptTheme.bind(this)
         this.calculateMetrics = this.calculateMetrics.bind(this)
-        this.provideInformation = this.provideInformation.bind(this)
     }
 
     // DARK OR LIGHT MODE
@@ -78,86 +77,11 @@ export default class App extends Component {
             metrics: {
                 ...this.state.metrics,
                 innerWidth: window.innerWidth,
-                rectangleHeight: window.innerWidth * 0.5,
+                rectangleHeight: window.innerWidth < 375 ? window.innerWidth * 0.5 : window.innerWidth * 0.4,
                 squareHeight: window.innerWidth * 0.5,
             }
         })
     }
-
-    // PROVIDE PAGE INFORMATION
-    provideInformation(pageType) {
-        switch (pageType) {
-            case "contact":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        intro: ['Call us, beep us, if you wanna reach us.', <br />, 'But if you wanna page us, that\'s not okay.'],
-                        title: 'Contact',
-                        type: pageType
-                    }
-                })
-                break;
-            case "dashboard":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        title: 'What\'s up?',
-                        type: pageType
-                    }
-                })
-                break;
-            case "developers":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        title: ['Developers &', <br />, 'designers'],
-                        type: pageType
-                    }
-                })
-                break;
-                break;
-            case "members":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        intro: '',
-                        title: ['Welcome to', <br />, 'the secret lair.'],
-                        type: pageType
-                    }
-                })
-                break;
-            case "projects":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        intro: ['We\'re freelance developers located throughout the United States—from sea to shining C#.'],
-                        title: 'Collaborative projects',
-                        type: pageType
-                    }
-                })
-                break;
-            case "services":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        intro: ['Whether you need a need a basic website or a web app that renders data from multiple third-party APIs, we gotchu'],
-                        title: 'How we can help',
-                        type: pageType
-                    }
-                })
-                break;
-            default:
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        intro: ['We turn good concepts', <br />, 'into badass web apps.'],
-                        type: pageType
-                    }
-                })
-        }
-    }
-
-
 
     componentDidMount() {
         this.calculateMetrics()
@@ -179,60 +103,51 @@ export default class App extends Component {
 
         return (
             <Router>
-                    <header>
-                        <h1
-                            className={thisPage.pageType === "home" ? theme.passiveText : theme.passiveTitle}>Lighterfluid</h1>
+                <header>
+                    <h1>Lighterfluid</h1>
+                </header>
 
-                        {thisPage.pageType !== "home" ? <div className="page-info">
-                            <h3 className={theme.importantText}>{thisPage.title}</h3>
-                        </div> : null}
-                    </header>
+                <main>
+                    <Switch>
+                        <Route exact path="/">
+                            <Home
+                                metrics={this.state.metrics}
+                                theme={this.state.theme}
+                                thisPage={this.state.thisPage} />
+                        </Route>
 
-                    <main>
-                        <Switch>
-                            <Route exact path="/">
-                                <Home
-                                    metrics={this.state.metrics}
-                                    provideInformation={this.provideInformation}
-                                    theme={this.state.theme}
-                                    thisPage={this.state.thisPage} />
-                            </Route>
+                        <Route exact path="/developers">
+                            <Developers
+                                metrics={this.state.metrics}
+                                theme={this.state.theme}
+                                thisPage={this.state.thisPage} />
+                        </Route>
 
-                            <Route exact path="/developers">
-                                <Developers
-                                    provideInformation={this.provideInformation}
-                                    metrics={this.state.metrics}
-                                    theme={this.state.theme}
-                                    thisPage={this.state.thisPage} />
-                            </Route>
+                        <Route exact path="/profiles/jack">
+                            <Profile
+                                metrics={this.state.metrics}
+                                theme={theme} />
+                        </Route>
 
-                            <Route exact path="/profiles/jack">
-                                <Profile
-                                    metrics={this.state.metrics}
-                                    theme={theme} />
-                            </Route>
+                        <Route exact path="/members">
+                            <Members theme={this.state.theme} />
+                        </Route>
 
-                            <Route exact path="/members">
-                                <Members theme={this.state.theme} thisPage={this.state.thisPage} provideInformation={this.provideInformation} />
-                            </Route>
+                        <Route exact path="/members/dashboard">
+                            <Dashboard
+                                theme={this.state.theme}
+                                thisPage={this.state.thisPage} />
+                        </Route>
+                    </Switch>
+                </main>
 
-                            <Route exact path="/members/dashboard">
-                                <Dashboard
-                                    provideInformation={this.provideInformation}
-                                    theme={this.state.theme}
-                                    thisPage={this.state.thisPage} />
-                            </Route>
-                        </Switch>
-                    </main>
-
-                    <footer>
-                        <Link
-                            to="/members"
-                            onClick={() => { this.provideInformation("members") }}
-                            className={this.state.theme.passiveText}>
-                            <p>designed and coded in San Francisco and Atlanta</p>
-                        </Link>
-                    </footer>
+                <footer>
+                    <Link
+                        to="/members"
+                        className={this.state.theme.passiveText}>
+                        <p>designed and coded in San Francisco and Atlanta</p>
+                    </Link>
+                </footer>
             </Router>
         )
     }
