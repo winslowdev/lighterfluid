@@ -16,31 +16,27 @@ export class Home extends Component {
                 <nav>
                     <SquareTile
                         address="developers"
-                        captain="Developers"
-                        gradientColor="blue--red"
+                        label="Developers"
                         image={stock.elCapitan}
-                        dimensions={this.props.dimensions}
+                        metrics={this.props.metrics}
                         theme={this.props.theme} />
                     <SquareTile
                         address="projects"
-                        captain="Projects"
-                        gradientColor="blue--yellow"
+                        label="Projects"
                         image={stock.goldenGate}
-                        dimensions={this.props.dimensions}
+                        metrics={this.props.metrics}
                         theme={this.props.theme} />
                     <SquareTile
                         address="services"
-                        captain="Services"
-                        gradientColor="orange-teal-blue"
+                        label="Services"
                         image={stock.hollywoodSign}
-                        dimensions={this.props.dimensions}
+                        metrics={this.props.metrics}
                         theme={this.props.theme} />
                     <SquareTile
                         address="contact"
-                        captain="Contact"
-                        gradientColor="blue--green"
+                        label="Contact"
                         image={stock.bixbyBridge}
-                        dimensions={this.props.dimensions}
+                        metrics={this.props.metrics}
                         theme={this.props.theme} />
                 </nav>
 

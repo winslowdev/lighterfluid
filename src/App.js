@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 // general
 import { Home } from './views/Home'
 import { Developers } from './views/Developers'
-import { Members } from './views/Members';
+import { Members } from './views/Members'
+import { Profile } from './views/Profile'
 
 // secure
 import { Dashboard } from './views/secure/Dashboard'
@@ -18,13 +19,15 @@ export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            dimensions: {
+            metrics: {
                 innerWidth: '',
                 rectangleHeight: '',
                 squareHeight: '',
             },
             theme: {
                 background: '',
+                backgroundInverted: '',
+                backgroundText: '',
                 importantText: '',
                 passiveText: '',
                 passiveTitle: '',
@@ -36,7 +39,7 @@ export default class App extends Component {
             },
         }
         this.adaptTheme = this.adaptTheme.bind(this)
-        this.calculateDimensions = this.calculateDimensions.bind(this)
+        this.calculateMetrics = this.calculateMetrics.bind(this)
         this.provideInformation = this.provideInformation.bind(this)
     }
 
@@ -46,10 +49,11 @@ export default class App extends Component {
             this.setState({
                 theme: {
                     ...this.state.theme,
-                    background: 'bg-deepocean',
-                    importantText: 'text-deepocean7',
+                    background: 'bg-ocean',
+                    backgroundInverted: 'bg-ocean50',
+                    importantText: 'text-ocean7',
                     passiveText: 'text-basegrey',
-                    passiveTitle: 'text-deepocean50',
+                    passiveTitle: 'text-ocean50',
                     tileText: 'text-white'
                 }
             })
@@ -58,21 +62,23 @@ export default class App extends Component {
                 theme: {
                     ...this.state.theme,
                     background: 'bg-basegrey',
-                    importantText: 'text-deepocean',
-                    passiveText: 'text-deepocean50',
-                    passiveTitle: 'text-deepocean7',
-                    tileText: 'text-white'
+                    backgroundInverted: 'bg-ocean',
+                    backgroundText: 'text-ocean93',
+                    importantText: 'text-ocean',
+                    passiveText: 'text-ocean50',
+                    passiveTitle: 'text-ocean7',
+                    tileText: 'text-basegrey'
                 }
             })
         }
     }
 
-    calculateDimensions() {
+    calculateMetrics() {
         this.setState({
-            dimensions: {
-                ...this.state.dimensions,
+            metrics: {
+                ...this.state.metrics,
                 innerWidth: window.innerWidth,
-                rectangleHeight: window.innerWidth * 0.4,
+                rectangleHeight: window.innerWidth * 0.5,
                 squareHeight: window.innerWidth * 0.5,
             }
         })
@@ -154,7 +160,7 @@ export default class App extends Component {
 
 
     componentDidMount() {
-        this.calculateDimensions()
+        this.calculateMetrics()
         this.adaptTheme()
 
         let that = this
@@ -163,7 +169,7 @@ export default class App extends Component {
         }, 1000)
 
         window.addEventListener("resize", () => {
-            this.calculateDimensions()
+            this.calculateMetrics()
         })
     }
 
@@ -173,8 +179,6 @@ export default class App extends Component {
 
         return (
             <Router>
-                <div className={`app ${theme.background}`} theme={{ height: '100vh' }}>
-
                     <header>
                         <h1
                             className={thisPage.pageType === "home" ? theme.passiveText : theme.passiveTitle}>Lighterfluid</h1>
@@ -184,34 +188,42 @@ export default class App extends Component {
                         </div> : null}
                     </header>
 
-                    <Switch>
+                    <main>
+                        <Switch>
+                            <Route exact path="/">
+                                <Home
+                                    metrics={this.state.metrics}
+                                    provideInformation={this.provideInformation}
+                                    theme={this.state.theme}
+                                    thisPage={this.state.thisPage} />
+                            </Route>
 
-                        <Route exact path="/">
-                            <Home
-                                dimensions={this.state.dimensions}
-                                theme={this.state.theme}
-                                thisPage={this.state.thisPage} />
-                        </Route>
+                            <Route exact path="/developers">
+                                <Developers
+                                    provideInformation={this.provideInformation}
+                                    metrics={this.state.metrics}
+                                    theme={this.state.theme}
+                                    thisPage={this.state.thisPage} />
+                            </Route>
 
-                        <Route exact path="/developers">
-                            <Developers
-                                provideInformation={this.provideInformation}
-                                dimensions={this.state.dimensions}
-                                theme={this.state.theme}
-                                thisPage={this.state.thisPage} />
-                        </Route>
+                            <Route exact path="/profiles/jack">
+                                <Profile
+                                    metrics={this.state.metrics}
+                                    theme={theme} />
+                            </Route>
 
-                        <Route exact path="/members">
-                            <Members theme={this.state.theme} thisPage={this.state.thisPage} provideInformation={this.provideInformation} />
-                        </Route>
+                            <Route exact path="/members">
+                                <Members theme={this.state.theme} thisPage={this.state.thisPage} provideInformation={this.provideInformation} />
+                            </Route>
 
-                        <Route exact path="/members/dashboard">
-                            <Dashboard
-                                provideInformation={this.provideInformation}
-                                theme={this.state.theme}
-                                thisPage={this.state.thisPage} />
-                        </Route>
-                    </Switch>
+                            <Route exact path="/members/dashboard">
+                                <Dashboard
+                                    provideInformation={this.provideInformation}
+                                    theme={this.state.theme}
+                                    thisPage={this.state.thisPage} />
+                            </Route>
+                        </Switch>
+                    </main>
 
                     <footer>
                         <Link
@@ -221,7 +233,6 @@ export default class App extends Component {
                             <p>designed and coded in San Francisco and Atlanta</p>
                         </Link>
                     </footer>
-                </div>
             </Router>
         )
     }
