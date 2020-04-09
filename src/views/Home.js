@@ -1,7 +1,6 @@
 // ============================== IMPORTS
 
 import React, { Component } from 'react';
-import { highlightPunctuation, navigate } from '../universals/Functions'
 import { SquareTile } from '../universals/Snacks'
 import { stock } from '../universals/Images'
 
@@ -9,37 +8,35 @@ export class Home extends Component {
     render() {
         return (
             <React.Fragment>
-
                 <div className="hero">
-                    <h6>{this.props.thisPage.intro}</h6>
+                    <h6>We turn good concepts <br />into great web apps.</h6>
                 </div>
 
                 <nav>
                     <SquareTile
-                        setThisPage={this.props.setThisPage}
                         address="developers"
-                        captain="Developers"
-                        gradientColor="blue--red"
+                        label="Developers"
                         image={stock.elCapitan}
-                        sizes={this.props.sizes} />
+                        metrics={this.props.metrics}
+                        theme={this.props.theme} />
                     <SquareTile
-                        address="/projects"
-                        captain="Projects"
-                        gradientColor="blue--yellow"
-                        image={stock.goldenGateBridge}
-                        sizes={this.props.sizes} />
+                        address="projects"
+                        label="Projects"
+                        image={stock.goldenGate}
+                        metrics={this.props.metrics}
+                        theme={this.props.theme} />
                     <SquareTile
-                        address="/services"
-                        captain="Services"
-                        gradientColor="orange-teal-blue"
+                        address="services"
+                        label="Services"
                         image={stock.hollywoodSign}
-                        sizes={this.props.sizes} />
+                        metrics={this.props.metrics}
+                        theme={this.props.theme} />
                     <SquareTile
-                        address="/contact"
-                        captain="Contact"
-                        gradientColor="blue--green"
-                        image={stock.bixbyCreekBridge}
-                        sizes={this.props.sizes} />
+                        address="contact"
+                        label="Contact"
+                        image={stock.bixbyBridge}
+                        metrics={this.props.metrics}
+                        theme={this.props.theme} />
                 </nav>
 
             </React.Fragment>

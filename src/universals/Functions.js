@@ -1,12 +1,58 @@
 import React from 'react'
+import { stock } from './Images'
 
-export const determineFate = (title, caption) => {
-    if (title === "LinkedIn") {
-        return "in/" + caption
-    } else if (title === "GitHub" || title === "Twitter") {
-        return "@" + caption
+export const addThemeDescription = () => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
     } else {
-        return caption
+        return 'lighter'
+    }
+}
+
+export const determineGradient = (image) => {
+    switch (image) {
+        case stock.bixbyBridge:
+            return "blue--green"
+            break;
+        case stock.hollywoodSign:
+            return "orange-teal-blue"
+            break;
+        case stock.goldenGate:
+            return "blue--yellow"
+            break;
+            case stock.elCapitan:
+            return "blue--red"
+            break;
+        default:
+            return null
+    }
+}
+
+export const determineFate = (captain, player) => {
+    const newCaptain = captain.toLowerCase()
+
+    if (newCaptain === "linkedIn") {
+        return "in/" + player
+    } else if (newCaptain === "twitter" || newCaptain === "github") {
+        return "@" + player
+    } else {
+        return player
+    }
+}
+
+export const navigateTo = (captain, player) => {
+    const newCaptain = captain.toLowerCase()
+
+    if (newCaptain === "email") {
+        window.open("mailto:" + player)
+    } else if (newCaptain === "linkedin") {
+        window.open("https://linkedin.com/in/" + player)
+    } else if (newCaptain === "twitter" || newCaptain === "github") {
+        window.open("https://" + newCaptain + ".com/" + player)
+    } else if (newCaptain === "internal") {
+        window.location.href = player
+    } else {
+        window.open("https://" + player)
     }
 }
 
@@ -24,36 +70,4 @@ export const highlightPunctuation = (phrase) => {
     }
     highlightedPhrase.join('')
     return highlightedPhrase
-}
-
-// export const navigate = (method, destination) => {
-//     let operator = method != null ? method.toLowerCase() : null
-
-//     if (operator === "github" || operator === "twitter") {
-//         window.open("https://" + operator + ".com/" + destination)
-//     } else if (operator === "linkedin") {
-//         window.open("https://linkedin.com/in/" + destination)
-//     } else if (destination.includes("@") && destination.includes(".")) {
-//         window.open("mailto:" + destination)
-//     } else if (destination.slice(0, 4) === "http") {
-//         window.open(destination)
-//     } else {
-//         window.location.href = destination
-//     }
-// }
-
-export const navigate = (destination) => {
-    // let operator = method != null ? method.toLowerCase() : null
-
-    // if (operator === "github" || operator === "twitter") {
-    //     window.open("https://" + operator + ".com/" + destination)
-    // } else if (operator === "linkedin") {
-    //     window.open("https://linkedin.com/in/" + destination)
-    // } else if (destination.includes("@") && destination.includes(".")) {
-    //     window.open("mailto:" + destination)
-    // } else if (destination.slice(0, 4) === "http") {
-        // window.open(destination)
-    // } else {
-        window.location.href = destination
-    // }
 }
