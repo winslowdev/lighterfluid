@@ -8,39 +8,34 @@ export class Home extends Component {
     render() {
         return (
             <React.Fragment>
-
                 <div className="hero">
-                    <h6 className={this.props.theme.importantText}>We turn good concepts <br />into badass web apps.</h6>
+                    <h6>We turn good concepts <br />into great web apps.</h6>
                 </div>
 
                 <nav>
                     <SquareTile
                         address="developers"
-                        captain="Developers"
-                        gradientColor="blue--red"
+                        label="Developers"
                         image={stock.elCapitan}
-                        dimensions={this.props.dimensions}
+                        metrics={this.props.metrics}
                         theme={this.props.theme} />
                     <SquareTile
                         address="projects"
-                        captain="Projects"
-                        gradientColor="blue--yellow"
+                        label="Projects"
                         image={stock.goldenGate}
-                        dimensions={this.props.dimensions}
+                        metrics={this.props.metrics}
                         theme={this.props.theme} />
                     <SquareTile
                         address="services"
-                        captain="Services"
-                        gradientColor="orange-teal-blue"
+                        label="Services"
                         image={stock.hollywoodSign}
-                        dimensions={this.props.dimensions}
+                        metrics={this.props.metrics}
                         theme={this.props.theme} />
                     <SquareTile
                         address="contact"
-                        captain="Contact"
-                        gradientColor="blue--green"
+                        label="Contact"
                         image={stock.bixbyBridge}
-                        dimensions={this.props.dimensions}
+                        metrics={this.props.metrics}
                         theme={this.props.theme} />
                 </nav>
 

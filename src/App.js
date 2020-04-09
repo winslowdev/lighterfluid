@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 // general
 import { Home } from './views/Home'
 import { Developers } from './views/Developers'
-import { Members } from './views/Members';
+import { Members } from './views/Members'
+import { Profile } from './views/Profile'
 
 // secure
 import { Dashboard } from './views/secure/Dashboard'
@@ -18,13 +19,15 @@ export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            dimensions: {
+            metrics: {
                 innerWidth: '',
                 rectangleHeight: '',
                 squareHeight: '',
             },
             theme: {
                 background: '',
+                backgroundInverted: '',
+                backgroundText: '',
                 importantText: '',
                 passiveText: '',
                 passiveTitle: '',
@@ -36,8 +39,7 @@ export default class App extends Component {
             },
         }
         this.adaptTheme = this.adaptTheme.bind(this)
-        this.calculateDimensions = this.calculateDimensions.bind(this)
-        this.provideInformation = this.provideInformation.bind(this)
+        this.calculateMetrics = this.calculateMetrics.bind(this)
     }
 
     // DARK OR LIGHT MODE
@@ -46,10 +48,11 @@ export default class App extends Component {
             this.setState({
                 theme: {
                     ...this.state.theme,
-                    background: 'bg-deepocean',
-                    importantText: 'text-deepocean7',
+                    background: 'bg-ocean',
+                    backgroundInverted: 'bg-ocean50',
+                    importantText: 'text-ocean7',
                     passiveText: 'text-basegrey',
-                    passiveTitle: 'text-deepocean50',
+                    passiveTitle: 'text-ocean50',
                     tileText: 'text-white'
                 }
             })
@@ -58,103 +61,30 @@ export default class App extends Component {
                 theme: {
                     ...this.state.theme,
                     background: 'bg-basegrey',
-                    importantText: 'text-deepocean',
-                    passiveText: 'text-deepocean50',
-                    passiveTitle: 'text-deepocean7',
-                    tileText: 'text-white'
+                    backgroundInverted: 'bg-ocean',
+                    backgroundText: 'text-ocean93',
+                    importantText: 'text-ocean',
+                    passiveText: 'text-ocean50',
+                    passiveTitle: 'text-ocean7',
+                    tileText: 'text-basegrey'
                 }
             })
         }
     }
 
-    calculateDimensions() {
+    calculateMetrics() {
         this.setState({
-            dimensions: {
-                ...this.state.dimensions,
+            metrics: {
+                ...this.state.metrics,
                 innerWidth: window.innerWidth,
-                rectangleHeight: window.innerWidth * 0.4,
+                rectangleHeight: window.innerWidth < 375 ? window.innerWidth * 0.5 : window.innerWidth * 0.4,
                 squareHeight: window.innerWidth * 0.5,
             }
         })
     }
 
-    // PROVIDE PAGE INFORMATION
-    provideInformation(pageType) {
-        switch (pageType) {
-            case "contact":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        intro: ['Call us, beep us, if you wanna reach us.', <br />, 'But if you wanna page us, that\'s not okay.'],
-                        title: 'Contact',
-                        type: pageType
-                    }
-                })
-                break;
-            case "dashboard":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        title: 'What\'s up?',
-                        type: pageType
-                    }
-                })
-                break;
-            case "developers":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        title: ['Developers &', <br />, 'designers'],
-                        type: pageType
-                    }
-                })
-                break;
-                break;
-            case "members":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        intro: '',
-                        title: ['Welcome to', <br />, 'the secret lair.'],
-                        type: pageType
-                    }
-                })
-                break;
-            case "projects":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        intro: ['We\'re freelance developers located throughout the United States—from sea to shining C#.'],
-                        title: 'Collaborative projects',
-                        type: pageType
-                    }
-                })
-                break;
-            case "services":
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        intro: ['Whether you need a need a basic website or a web app that renders data from multiple third-party APIs, we gotchu'],
-                        title: 'How we can help',
-                        type: pageType
-                    }
-                })
-                break;
-            default:
-                this.setState({
-                    thisPage: {
-                        ...this.state.thisPage,
-                        intro: ['We turn good concepts', <br />, 'into badass web apps.'],
-                        type: pageType
-                    }
-                })
-        }
-    }
-
-
-
     componentDidMount() {
-        this.calculateDimensions()
+        this.calculateMetrics()
         this.adaptTheme()
 
         let that = this
@@ -163,7 +93,7 @@ export default class App extends Component {
         }, 1000)
 
         window.addEventListener("resize", () => {
-            this.calculateDimensions()
+            this.calculateMetrics()
         })
     }
 
@@ -173,55 +103,51 @@ export default class App extends Component {
 
         return (
             <Router>
-                <div className={`app ${theme.background}`} theme={{ height: '100vh' }}>
+                <header>
+                    <h1>Lighterfluid</h1>
+                </header>
 
-                    <header>
-                        <h1
-                            className={thisPage.pageType === "home" ? theme.passiveText : theme.passiveTitle}>Lighterfluid</h1>
-
-                        {thisPage.pageType !== "home" ? <div className="page-info">
-                            <h3 className={theme.importantText}>{thisPage.title}</h3>
-                        </div> : null}
-                    </header>
-
+                <main>
                     <Switch>
-
                         <Route exact path="/">
                             <Home
-                                dimensions={this.state.dimensions}
+                                metrics={this.state.metrics}
                                 theme={this.state.theme}
                                 thisPage={this.state.thisPage} />
                         </Route>
 
                         <Route exact path="/developers">
                             <Developers
-                                provideInformation={this.provideInformation}
-                                dimensions={this.state.dimensions}
+                                metrics={this.state.metrics}
                                 theme={this.state.theme}
                                 thisPage={this.state.thisPage} />
                         </Route>
 
+                        <Route exact path="/profiles/jack">
+                            <Profile
+                                metrics={this.state.metrics}
+                                theme={theme} />
+                        </Route>
+
                         <Route exact path="/members">
-                            <Members theme={this.state.theme} thisPage={this.state.thisPage} provideInformation={this.provideInformation} />
+                            <Members theme={this.state.theme} />
                         </Route>
 
                         <Route exact path="/members/dashboard">
                             <Dashboard
-                                provideInformation={this.provideInformation}
                                 theme={this.state.theme}
                                 thisPage={this.state.thisPage} />
                         </Route>
                     </Switch>
+                </main>
 
-                    <footer>
-                        <Link
-                            to="/members"
-                            onClick={() => { this.provideInformation("members") }}
-                            className={this.state.theme.passiveText}>
-                            <p>designed and coded in San Francisco and Atlanta</p>
-                        </Link>
-                    </footer>
-                </div>
+                <footer>
+                    <Link
+                        to="/members"
+                        className={this.state.theme.passiveText}>
+                        <p>designed and coded in San Francisco and Atlanta</p>
+                    </Link>
+                </footer>
             </Router>
         )
     }
