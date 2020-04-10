@@ -45,7 +45,7 @@
     }
 
     header h1 {
-        color: var(--basegrey);
+        color: var(--ocean7);
     }
 
     .hero h6 {
@@ -54,15 +54,16 @@
 }
 
 body {
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
     margin: 0;
 }
 
 .marginalized {
-    width: 93%;
+    width: 90%;
     margin: 0 auto;
 }
 
-header, footer {
+footer {
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -70,16 +71,16 @@ header, footer {
 }
 
 header {
-    margin: 0;
-    margin-top: 10px;
-    overflow: hidden;
-    text-overflow: clip;
-    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 90%;   
 }
 
-main {
-    margin-top: 30px;
-}
 
 footer {
     bottom: 0;
@@ -91,11 +92,15 @@ footer {
 /* ============================== HEADER */
 /* ============================== HEADER */
 
-.hero {
-    margin: 0 auto;
-    margin-bottom: 45px;
-    width: 90%;
+header img {
+    height: 25px;
+    width: 30px;
 }
+
+#hero {
+    margin: 0 auto 40px;
+}
+
 
 .page-info {
     align-items: center;
@@ -106,6 +111,35 @@ footer {
     margin-top: -10px;
     position: absolute;
     z-index: 100;
+}
+
+/* =========================== SIDEBAR MENU */
+/* =========================== SIDEBAR MENU */
+
+#nav-icon {
+    margin: 0;
+}
+
+.top, .middle, .bottom {
+    background-color: var(--hotcoralpink);
+    height: 4px;
+    margin-bottom: 4px;
+    position: relative;
+}
+
+.top {
+    width: 30px;
+}
+
+.middle {
+    right: -12px;
+    width: 24px;
+}
+
+.bottom {
+    margin-bottom: 0;
+    right: -6px;
+    width: 24px;
 }
 
 
@@ -188,7 +222,7 @@ nav {
     align-items: center;
 }
 
-#profile .header {
+#headspace {
     margin-bottom: 20px;
 }
 
@@ -196,25 +230,27 @@ nav {
     margin-bottom: 50px;
 }
 
-#profile .header, #profile .contacts {
+#headspace, #profile .contacts {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
 
-#profile .header img {
+#headspace img {
     border-radius: 50%;
     height: 100px;
     margin-bottom: 15px;
     width: 100px;
 }
 
-#profile .header h3 {
-    margin-bottom: 5px;
+#headspace h3 {
+    margin-bottom: 0;
 }
 
-#profile .header p {
+
+
+#headspace p {
     font-weight: 600;
     margin-bottom: 5px;
 }
@@ -268,6 +304,25 @@ nav {
     flex-wrap: wrap;
 }
 
+/* ============================== CONTACT */
+/* ============================== CONTACT */
+
+#contact {
+    margin: 0 auto 80px;
+}
+
+
+
+#contact p, #contact h4 {
+    color: var(--ocean50);
+    text-align: center;
+}
+
+#contact h4:last-of-type {
+    color: var(--ocean);
+    margin-top: 5px;
+}
+
 /* ============================== BUNDLED LINKS */
 /* ============================== BUNDLED LINKS */
 
@@ -314,12 +369,16 @@ nav {
 /* ============================== TEXT */
 /* ============================== TEXT */
 
+/* * {
+    border: 0.3px solid springgreen;
+} */
+
 h1 {
     font-family: "GhostType", serif;
-    font-size: 5.625rem;
+    font-size: 3rem;
     font-weight: 200;
     letter-spacing: 1.5px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .yuge {
@@ -332,9 +391,6 @@ h1 {
     z-index: 10;
 }
 
-h3, h4, h5, h6, p, .skill-grid li {
-    font-family: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
-}
 
 h3 {
     font-size: 1.6rem;
@@ -347,11 +403,20 @@ h3 {
 }
 
 h4 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 5px;
 }
+
+
+h4.centered {
+    margin: 0 auto;
+    margin-top: 60px;
+    text-align: center;
+    width: 100%;
+}
+
 
 h5 {
     font-size: 1.25rem;
@@ -381,7 +446,7 @@ a {
 
 p {
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 500;
     letter-spacing: -0.03px;
     line-height: 140%;
     margin: 0;
@@ -403,6 +468,10 @@ p {
 footer p {
     font-size: 0.625rem;
     font-weight: 500;
+}
+
+p {
+    text-align: center;
 }
 
 

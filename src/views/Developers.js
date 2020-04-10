@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { RectangleProfileTile } from '../universals/Snacks'
+import { Header, Hero, RectangleProfileTile } from '../universals/Snacks'
 import { stock } from '../universals/Images'
 
 export class Developers extends Component {
     render() {
+
         return (
             <React.Fragment>
-                <div className="hero">
-                    <h6 className={this.props.theme.importantText}>We're freelance developers around the United States.</h6>
-                </div>
+                <Header />
+                <Hero
+                    statement={[`We're freelance developers`, <br />, `around the United States.`]}
+                    theme={this.props.theme} />
 
                 <div className="profiles">
                     <RectangleProfileTile

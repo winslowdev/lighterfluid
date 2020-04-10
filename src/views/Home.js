@@ -1,16 +1,17 @@
 // ============================== IMPORTS
 
 import React, { Component } from 'react';
-import { SquareTile } from '../universals/Snacks'
+import { Header, Hero, SquareTile } from '../universals/Snacks'
 import { stock } from '../universals/Images'
 
 export class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="hero">
-                    <h6>We turn good concepts <br />into great web apps.</h6>
-                </div>
+                <Header home />
+                <Hero
+                    statement={[`We turn good concepts`, <br />, `into great web apps.`]}
+                    theme={this.props.theme} />
 
                 <nav>
                     <SquareTile

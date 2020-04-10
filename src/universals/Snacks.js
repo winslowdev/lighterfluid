@@ -1,9 +1,43 @@
 // ============================== IMPORTS
+// ============================== IMPORTS
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { determineGradient, determineFate, highlightPunctuation, navigate, navigateTo } from './Functions'
-import { icons, stock } from './Images'
+import { determineGradient, determineFate, highlightPunctuation, navigateTo } from './Functions'
+import { icons } from './Images'
+
+
+// ============================== HEADER
+
+export class Header extends Component {
+    render() {
+        return (
+            <header>
+                {!this.props.home ? <img src={icons.backArrow} alt="back arrow" /> : null}
+
+                <Link to="/"><h1>Lighterfluid</h1></Link>
+
+                {!this.props.home ? <div id="nav-icon">
+                    <div className="top"></div>
+                    <div className="middle"></div>
+                    <div className="bottom"></div>
+                </div> : null}
+            </header>
+        )
+    }
+}
+
+// ============================== HERO
+
+export class Hero extends Component {
+    render() {
+        return (
+            <div id="hero" className="marginalized">
+                <h6 className={this.props.theme.importantText}>{this.props.statement}</h6>
+            </div>
+        )
+    }
+}
 
 
 // ============================== INDIVIDUAL SKILLS
@@ -87,7 +121,7 @@ export class RectangleProfileTile extends Component {
     render() {
         return (
             <Link
-                to={`profiles/${this.props.address}`}
+                to={`${this.props.address}`}
                 className={`rectangle-tile ${this.props.bgColor}`}
                 style={{
                     height: this.props.metrics.rectangleHeight + 'px',
@@ -95,7 +129,7 @@ export class RectangleProfileTile extends Component {
                 {/* <h1 className={`yuge ${this.props.theme.backgroundText}`}>{this.props.address</h1> */}
 
                 <div className={`tile-cover`}>
-                    <img src={this.props.image} alt="profile image" />
+                    <img src={this.props.image} alt="profile" />
 
                     <div className="name-designation">
                         <h5 className={this.props.theme.tileText}>{this.props.name}</h5>

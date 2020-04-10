@@ -1,4 +1,5 @@
 export const icons = {
+    backArrow: require('../images/icons/back-arrow.png'),
     code: require('../images/icons/code.png'),
     email: require('../images/icons/email.png'),
     password: require('../images/icons/password.png')

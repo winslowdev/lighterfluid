@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 // general
 import { Home } from './views/Home'
+import { Contact } from './views/Contact'
 import { Developers } from './views/Developers'
 import { Members } from './views/Members'
 import { Profile } from './views/Profile'
@@ -65,7 +66,7 @@ export default class App extends Component {
                     backgroundText: 'text-ocean93',
                     importantText: 'text-ocean',
                     passiveText: 'text-ocean50',
-                    passiveTitle: 'text-ocean7',
+                    passiveTitle: 'text-ocean93',
                     tileText: 'text-basegrey'
                 }
             })
@@ -103,11 +104,6 @@ export default class App extends Component {
 
         return (
             <Router>
-                <header>
-                    <h1>Lighterfluid</h1>
-                </header>
-
-                <main>
                     <Switch>
                         <Route exact path="/">
                             <Home
@@ -123,7 +119,7 @@ export default class App extends Component {
                                 thisPage={this.state.thisPage} />
                         </Route>
 
-                        <Route exact path="/profiles/jack">
+                        <Route exact path="/developers/jack">
                             <Profile
                                 metrics={this.state.metrics}
                                 theme={theme} />
@@ -133,13 +129,16 @@ export default class App extends Component {
                             <Members theme={this.state.theme} />
                         </Route>
 
+                        <Route exact path="/contact">
+                            <Contact theme={this.state.theme} />
+                        </Route>
+
                         <Route exact path="/members/dashboard">
                             <Dashboard
                                 theme={this.state.theme}
                                 thisPage={this.state.thisPage} />
                         </Route>
                     </Switch>
-                </main>
 
                 <footer>
                     <Link

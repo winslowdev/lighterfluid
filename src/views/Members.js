@@ -1,22 +1,29 @@
+// ============================== IMPORTS
+// ============================== IMPORTS
+
 import React, { Component } from 'react'
+
+import { Header, Hero } from '../universals/Snacks'
 import { icons } from '../universals/Images'
 import { addThemeDescription } from '../universals/Functions'
+
 import axios from 'axios'
+
 
 export class Members extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            email: '',
             isInvitationOn: false,
             isLoginOn: true,
-            email: '',
-            password:''
+            password: ''
         }
-        this.toggleFormType = this.toggleFormType.bind(this)
-        this.onChangeEmail = this.onChangeEmail.bind(this)
-        this.onChangePassword = this.onChangePassword.bind(this)
         this.createAccount = this.createAccount.bind(this)
         this.login = this.login.bind(this)
+        this.onChangeEmail = this.onChangeEmail.bind(this)
+        this.onChangePassword = this.onChangePassword.bind(this)
+        this.toggleFormType = this.toggleFormType.bind(this)
     }
 
     toggleFormType() {
@@ -27,15 +34,15 @@ export class Members extends Component {
     }
 
     onChangeEmail(e) {
-      this.setState({
-        email: e.target.value
-      })
+        this.setState({
+            email: e.target.value
+        })
     }
 
     onChangePassword(e) {
-      this.setState({
-        password: e.target.value
-      })
+        this.setState({
+            password: e.target.value
+        })
     }
 
     createAccount(e) {
@@ -58,32 +65,33 @@ export class Members extends Component {
     }
 
     login(e) {
-      e.preventDefault();
+        e.preventDefault();
 
-      console.log(`Form submitted:`);
+        console.log(`Form submitted:`);
 
-      const user = {
-          email: this.state.email,
-          password: this.state.password
-      };
+        const user = {
+            email: this.state.email,
+            password: this.state.password
+        };
 
-      axios.post('http://localhost:4000/api/sessions', user)
-          .then(res => console.log(res.data));
+        axios.post('http://localhost:4000/api/sessions', user)
+            .then(res => console.log(res.data));
 
-      this.setState({
-          email: '',
-          password: ''
-      })
+        this.setState({
+            email: '',
+            password: ''
+        })
 
-      
+
     }
 
     render() {
         return (
             <React.Fragment>
-                <div className="hero">
-                    <h6 className={this.props.theme.importantText}> {!this.state.isLoginOn ? ['Members only. Sorry.'] : [`Join the ${addThemeDescription()} side.`, <br />, `Invitation only.`]}</h6>
-                </div>
+                <Header />
+                <Hero
+                    statement={!this.state.isLoginOn ? 'Members only. Sorry.' : [`Join the ${addThemeDescription()} side.`, <br />, `By invitation only.`]}
+                    theme={this.props.theme} />
 
                 {this.state.isLoginOn ? <form id="join-form" onSubmit={this.createAccount}>
                     <p onClick={() => { this.toggleFormType() }} className={this.props.theme.passiveText}>Already have an account?</p>
@@ -95,7 +103,7 @@ export class Members extends Component {
 
                     <div className="input-bundle">
                         <div className="label"><img src={icons.password} alt="email icon" /></div>
-                        <input type="password" placeholder="password"  value={this.state.password} onChange={this.onChangePassword}/>
+                        <input type="password" placeholder="password" value={this.state.password} onChange={this.onChangePassword} />
                     </div>
 
                     <div className="lastinput-submit">
@@ -124,7 +132,7 @@ export class Members extends Component {
 
                             <input type="submit" className="go-button" value="Go" />
                         </div>
-                    </form> }
+                    </form>}
             </React.Fragment>
         )
     }

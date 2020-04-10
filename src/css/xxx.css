@@ -1,14 +1,5 @@
 
 
-
-
-/* ============================== SNACKS */
-/* ============================== SNACKS */
-
-/* ============== TEAM & TEAMLEADER */
-
-
-
 .team-leader {
     align-items: baseline;
     display: flex;
@@ -46,34 +37,11 @@
 }
 
 
-/* =========================== SIDEBAR MENU */
-/* =========================== SIDEBAR MENU */
 
-.nav-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    height: 10px;
-}
 
-.nav-icon-top, .nav-icon-mid, .nav-icon-btm {
-    background-color: var(--white);
-    height: 2px;
-    margin: 0;
-}
 
-.nav-icon-top {
-    width: 20px;
-}
 
-.nav-icon-mid {
-    width: 14px;
-}
 
-.nav-icon-btm {
-    width: 17px;
-}
 
 .nav-drawer {
     background-color: var(--black);

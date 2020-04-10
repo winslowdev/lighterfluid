@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { stock } from '../universals/Images'
-import { SquareTile, Team } from '../universals/Snacks'
+import { Header, SquareTile, Team } from '../universals/Snacks'
 
 export class Profile extends Component {
     render() {
@@ -9,11 +9,13 @@ export class Profile extends Component {
         return (
             <div id="profile">
 
+                <Header />
+
                 {/* PROFILE IMAGE, NAME, DESIGNATION */}
-                <div className="header marginalized">
+                <div id="headspace" className="marginalized">
                     <img src={stock.hopeMan} alt="profile picture" />
-                    <h3 className={theme.passiveText}>J. Benjamin Nimble</h3>
-                    <p className={theme.passiveTitle}>Software Engineer</p>
+                    <h3 className={theme.passiveTitle}>J. Benjamin Nimble</h3>
+                    <h4 className={theme.passiveText}>Software Engineer</h4>
                 </div>
 
                 {/* BRAND STATEMENT */}
