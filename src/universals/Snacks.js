@@ -132,9 +132,7 @@ export class TileRectangle extends Component {
     }
 }
 
-// ============================== RECTANGULAR PROJECTS
-
-export class TileRectangleWork extends Component {
+export class RectangleLink extends Component {
     render() {
         return (
             <Link
@@ -142,11 +140,11 @@ export class TileRectangleWork extends Component {
                 className="rectangle-tile"
                 style={{
                     height: this.props.metrics.rectangleHeight + 'px',
-                    backgroundImage: `url(${dev.concepts})`,
+                    backgroundImage: `url(${this.props.previewImage})`,
                     backgroundSize: 'cover',
                     width: '100%'
                 }}>
-                <div className={`tile-cover generic-tile ${this.props.theme.genericTile}`}>
+                <div className={`tile-cover ${this.props.gradient} ${this.props.theme.genericTile}`}>
                     <h4>{this.props.name} <br />{this.props.designation}</h4>
                 </div>
             </Link>

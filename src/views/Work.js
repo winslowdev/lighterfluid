@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Header, Hero, TileRectangleWork } from '../universals/Snacks'
-import { stock } from '../universals/Images'
+import { Header, Hero, RectangleLink } from '../universals/Snacks'
+import { dev, stock } from '../universals/Images'
 
 export class Work extends Component {
     render() {
@@ -16,17 +16,21 @@ export class Work extends Component {
                     theme={this.props.theme} />
 
                 <main id="work">
-                    <TileRectangleWork
+                    <RectangleLink
                         address="johnqcitizen"
                         designation="portfolio redesign"
+                        gradient="gradient_orange-teal-blue"
                         metrics={this.props.metrics}
                         name="John Q. Citizen"
+                        previewImage={dev.johnQCitizen}
                         theme={this.props.theme} />
-                    <TileRectangleWork
+                    <RectangleLink
                         address="johnqcitizen"
                         designation="React Native app"
+                        gradient="gradient_blue-yellow"
                         metrics={this.props.metrics}
                         name="In His Dominion"
+                        previewImage={dev.concepts}
                         theme={this.props.theme} />
                 </main>
             </React.Fragment>

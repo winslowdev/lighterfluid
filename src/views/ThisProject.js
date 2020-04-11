@@ -20,7 +20,7 @@ export class ThisProject extends Component {
                     <div id="introduction">
                         <h2 className={`marginalized ${theme.headliner}`}>John Q. Citizen<br />portfolio redesign</h2>
 
-                        <img src={dev.sinWillFindYou} alt="project preview" />
+                        <img src={dev.johnQCitizen} alt="project preview" />
                     </div>
 
                     <div className="record-info marginalized">
@@ -49,9 +49,9 @@ export class ThisProject extends Component {
                     <p className={`headliner ${this.props.theme.hero}`}>Interdum mi molestie venenatis dignissim nibh. Penatibus nunc est condimentum vestibulum est a quam tellus. Ac blandit pharetra pulvinar sit odio. Quam lobortis tincidunt egestas eget lacus. Proin sit etiam urna sit magna auctor. Et donec.</p>
 
                     <div className="project-img-gallery">
-                        <img src={dev.sinWillFindYou} alt="imj gallery" />
-                        <img src={dev.sinWillFindYou} alt="imj gallery" />
-                        <img src={dev.sinWillFindYou} alt="imj gallery" />
+                        <img src={dev.johnQCitizen} alt="imj gallery" />
+                        <img src={dev.johnQCitizen} alt="imj gallery" />
+                        <img src={dev.johnQCitizen} alt="imj gallery" />
                     </div>
                 </main>
 
