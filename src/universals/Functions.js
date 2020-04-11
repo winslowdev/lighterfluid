@@ -12,17 +12,13 @@ export const addThemeDescription = () => {
 export const determineGradient = (image) => {
     switch (image) {
         case stock.bixbyBridge:
-            return "blue--green"
-            break;
+            return "gradient_blue-green"
         case stock.hollywoodSign:
-            return "orange-teal-blue"
-            break;
+            return "gradient_orange-teal-blue"
         case stock.goldenGate:
-            return "blue--yellow"
-            break;
-            case stock.elCapitan:
-            return "blue--red"
-            break;
+            return "gradient_blue-yellow"
+        case stock.elCapitan:
+            return "gradient_blue-red"
         default:
             return null
     }
@@ -71,3 +67,4 @@ export const highlightPunctuation = (phrase) => {
     highlightedPhrase.join('')
     return highlightedPhrase
 }
+

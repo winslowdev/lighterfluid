@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Header, Hero } from '../universals/Snacks'
 import { navigateTo } from '../universals/Functions'
-import { stock } from '../universals/Images'
 
 export class Contact extends Component {
     render() {

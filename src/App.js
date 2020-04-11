@@ -30,6 +30,7 @@ export default class App extends Component {
                 backgroundInverted: '',
                 backgroundText: '',
                 importantText: '',
+                noteworthy: '',
                 passiveText: '',
                 passiveTitle: '',
                 tileText: ''
@@ -49,9 +50,9 @@ export default class App extends Component {
             this.setState({
                 theme: {
                     ...this.state.theme,
-                    background: 'bg-ocean',
                     backgroundInverted: 'bg-ocean50',
-                    importantText: 'text-ocean7',
+                    backgroundText: 'background-text',
+                    importantText: 'important-text',
                     passiveText: 'text-basegrey',
                     passiveTitle: 'text-ocean50',
                     tileText: 'text-white'
@@ -61,10 +62,10 @@ export default class App extends Component {
             this.setState({
                 theme: {
                     ...this.state.theme,
-                    background: 'bg-basegrey',
                     backgroundInverted: 'bg-ocean',
-                    backgroundText: 'text-ocean93',
-                    importantText: 'text-ocean',
+                    backgroundText: 'background-text',
+                    importantText: 'important-text',
+                    noteworthy: 'noteworthy-text',
                     passiveText: 'text-ocean50',
                     passiveTitle: 'text-ocean93',
                     tileText: 'text-basegrey'
@@ -99,8 +100,6 @@ export default class App extends Component {
     }
 
     render() {
-        const theme = this.state.theme
-        const thisPage = this.state.thisPage
 
         return (
             <Router>
@@ -122,7 +121,7 @@ export default class App extends Component {
                         <Route exact path="/developers/jack">
                             <Profile
                                 metrics={this.state.metrics}
-                                theme={theme} />
+                                theme={this.state.theme} />
                         </Route>
 
                         <Route exact path="/members">

@@ -81,58 +81,80 @@ export class Members extends Component {
             email: '',
             password: ''
         })
-
-
     }
 
     render() {
+        const renderFormMessage = () => {
+            if (this.state.isLoginOn) {
+                return "Already have an account?"
+            } else {
+                return "Joining with an invite code?"
+            }
+        }
+
+        const renderHero = () => {
+            if (this.state.isInvitationOn) {
+                return "Members only. Sorry."
+            } else {
+                return [`Join the ${addThemeDescription()} side.`, <br />, `By invitation only.`]
+            }
+        }
+
         return (
             <React.Fragment>
-                <Header />
+                <Header
+                    first
+                    theme={this.props.theme}
+                    thisPageTitle={[`Welcome to the`, <br />, `secret lair.`]} />
                 <Hero
-                    statement={!this.state.isLoginOn ? 'Members only. Sorry.' : [`Join the ${addThemeDescription()} side.`, <br />, `By invitation only.`]}
+                    statement={renderHero()}
                     theme={this.props.theme} />
 
-                {this.state.isLoginOn ? <form id="join-form" onSubmit={this.createAccount}>
-                    <p onClick={() => { this.toggleFormType() }} className={this.props.theme.passiveText}>Already have an account?</p>
+                <main id="registration">
+                    <p onClick={() => { this.toggleFormType() }} className={this.props.theme.passiveText}>{renderFormMessage()}</p>
 
-                    <div className="input-bundle">
-                        <div className="label"><img src={icons.email} alt="email icon" /></div>
-                        <input type="email" placeholder="email address" value={this.state.email} onChange={this.onChangeEmail} />
-                    </div>
+                    {this.state.isLoginOn ? <form id="join-form" onSubmit={this.createAccount}>
 
-                    <div className="input-bundle">
-                        <div className="label"><img src={icons.password} alt="email icon" /></div>
-                        <input type="password" placeholder="password" value={this.state.password} onChange={this.onChangePassword} />
-                    </div>
-
-                    <div className="lastinput-submit">
-                        <div className="input-bundle">
-                            <div className="label"><img src={icons.code} alt="email icon" /></div>
-                            <input type="text" placeholder="code" />
-                        </div>
-
-                        <input type="submit" className="go-button" value="Go" />
-                    </div>
-                </form>
-
-                    : <form id="login-form" onSubmit={this.login}>
-                        <p onClick={() => { this.toggleFormType() }}
-                            className={this.props.theme.passiveText}>Joining with an invite code?</p>
-                        <div className="input-bundle">
-                            <div className="label"><img src={icons.email} alt="email icon" /></div>
+                        <div className="input-row">
+                            <label for="email" hidden>Email</label>
+                            <div className="sticker"><img src={icons.email} alt="email icon" /></div>
                             <input type="email" placeholder="email address" value={this.state.email} onChange={this.onChangeEmail} />
                         </div>
 
-                        <div className="lastinput-submit">
-                            <div className="input-bundle">
-                                <div className="label"><img src={icons.password} alt="email icon" /></div>
-                                <input type="password" placeholder="password" value={this.state.password} onChange={this.onChangePassword} />
+                        <div className="input-row">
+                            <label for="password" hidden>Password</label>
+                            <div className="sticker"><img src={icons.password} alt="email icon" /></div>
+                            <input type="password" placeholder="password" value={this.state.password} onChange={this.onChangePassword} />
+                        </div>
+
+
+                        <div className="submit-row">
+                            <div className="input-row">
+                                <label for="code" hidden>Invite code</label>
+                                <div className="sticker"><img src={icons.code} alt="code icon" /></div>
+                                <input type="text" placeholder="code" />
                             </div>
 
                             <input type="submit" className="go-button" value="Go" />
                         </div>
-                    </form>}
+                    </form>
+
+                        : <form id="login-form" onSubmit={this.login}>
+                            <div className="input-row">
+                                <div className="sticker"><img src={icons.email} alt="email icon" /></div>
+                                <input type="email" placeholder="email address" value={this.state.email} onChange={this.onChangeEmail} />
+                            </div>
+
+                            <div className="submit-row">
+                                <div className="input-row">
+                                    <div className="sticker"><img src={icons.password} alt="email icon" /></div>
+                                    <input type="password" placeholder="password" value={this.state.password} onChange={this.onChangePassword} />
+                                </div>
+
+                                <input type="submit" className="go-button" value="Go" />
+                            </div>
+                        </form>}
+                </main>
             </React.Fragment>
         )
     }

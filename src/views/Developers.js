@@ -7,12 +7,15 @@ export class Developers extends Component {
 
         return (
             <React.Fragment>
-                <Header />
+                <Header
+                    first
+                    theme={this.props.theme}
+                    thisPageTitle="Developers" />
                 <Hero
                     statement={[`We're freelance developers`, <br />, `around the United States.`]}
                     theme={this.props.theme} />
 
-                <div className="profiles">
+                <main id="developers">
                     <RectangleProfileTile
                         address="jack"
                         bgColor="bg-ocean"
@@ -31,7 +34,8 @@ export class Developers extends Component {
                         metrics={this.props.metrics}
                         name="Daniel Walraven"
                         theme={this.props.theme} />
-                </div>
+
+                </main>
 
             </React.Fragment>
         )

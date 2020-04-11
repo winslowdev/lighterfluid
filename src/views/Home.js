@@ -8,7 +8,7 @@ export class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <Header home />
+                <Header home theme={this.props.theme} />
                 <Hero
                     statement={[`We turn good concepts`, <br />, `into great web apps.`]}
                     theme={this.props.theme} />

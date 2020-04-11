@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { determineGradient, determineFate, highlightPunctuation, navigateTo } from './Functions'
+import { adaptTheme, determineGradient, determineFate, highlightPunctuation, navigateTo } from './Functions'
 import { icons } from './Images'
 
 
@@ -11,17 +11,30 @@ import { icons } from './Images'
 
 export class Header extends Component {
     render() {
+        const theme = this.props.theme
+
+        // APP TITLE
+        const styleAppTitle = () => {
+            if (this.props.home) {
+                return [`important-text ${theme.importantText}`]
+            } else {
+                return [`background-text ${theme.backgroundText}`]
+            }
+        }
+
+        // PAGE TITLE
+        const stylePageTitle = () => {
+            if (this.props.first) {
+                return theme.passiveTitle
+            } else if (this.props.second) {
+                return theme.passiveText
+            }
+        }
+
         return (
             <header>
-                {!this.props.home ? <img src={icons.backArrow} alt="back arrow" /> : null}
-
-                <Link to="/"><h1>Lighterfluid</h1></Link>
-
-                {!this.props.home ? <div id="nav-icon">
-                    <div className="top"></div>
-                    <div className="middle"></div>
-                    <div className="bottom"></div>
-                </div> : null}
+                <h1 className={styleAppTitle()}>lighterfluid</h1>
+                {this.props.thisPageTitle ? <h3 className={stylePageTitle()}>{this.props.thisPageTitle}</h3> : null}
             </header>
         )
     }
@@ -32,9 +45,9 @@ export class Header extends Component {
 export class Hero extends Component {
     render() {
         return (
-            <div id="hero" className="marginalized">
-                <h6 className={this.props.theme.importantText}>{this.props.statement}</h6>
-            </div>
+            <aside>
+                <h6 className={`noteworthy-text ${this.props.theme.noteworthy}`}>{this.props.statement}</h6>
+            </aside>
         )
     }
 }
@@ -94,46 +107,24 @@ export class PageInformation extends Component {
 }
 
 
-// ============================== RECTANGULAR TILE
-
-export class RectangleTile extends Component {
-    render() {
-        return (
-            <div className="rectangled anchorspoof"
-                style={{
-                    backgroundImage: `url(${this.props.image})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    height: this.props.metrics.rectangleHeight + 'px',
-                }}
-                onClick={() => { navigateTo(this.props.address) }}>
-                <div className={`coverpiece ${this.props.gradientStyle}`}>
-                    <h3>{this.props.captain}</h3>
-                </div>
-            </div>
-        )
-    }
-}
-
 // ============================== RECTANGULAR PROFILE LINK
 
 export class RectangleProfileTile extends Component {
     render() {
         return (
             <Link
-                to={`${this.props.address}`}
+                to={`developers/${this.props.address}`}
                 className={`rectangle-tile ${this.props.bgColor}`}
                 style={{
                     height: this.props.metrics.rectangleHeight + 'px',
                 }}>
-                {/* <h1 className={`yuge ${this.props.theme.backgroundText}`}>{this.props.address</h1> */}
 
                 <div className={`tile-cover`}>
                     <img src={this.props.image} alt="profile" />
 
                     <div className="name-designation">
-                        <h5 className={this.props.theme.tileText}>{this.props.name}</h5>
-                        <p className={this.props.color}>{this.props.designation}</p>
+                        <h4 className={this.props.theme.tileText}>{this.props.name}</h4>
+                        <h6 className={this.props.color}>{this.props.designation}</h6>
                     </div>
                 </div>
             </Link>
