@@ -1,21 +1,6 @@
 
 
-.team-leader {
-    align-items: baseline;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
 
-.team-leader p {
-    color: var(--white);
-    margin: 0 5px 5px 0;
-}
-
-.team-leader img {
-    height: 20px;
-    width: 20px;
-}
 
 @media screen and (min-width: 375px) {
     .team-leader {

@@ -9,9 +9,11 @@ import { Contact } from './views/Contact'
 import { Developers } from './views/Developers'
 import { Members } from './views/Members'
 import { Profile } from './views/Profile'
+import { Work } from './views/Work'
 
 // secure
 import { Dashboard } from './views/secure/Dashboard'
+import { ThisProject } from './views/ThisProject';
 
 
 // ============================== COMPLETE APPLICATION
@@ -26,14 +28,11 @@ export default class App extends Component {
                 squareHeight: '',
             },
             theme: {
-                background: '',
-                backgroundInverted: '',
-                backgroundText: '',
-                importantText: '',
-                noteworthy: '',
-                passiveText: '',
-                passiveTitle: '',
-                tileText: ''
+                genericTile: '',
+                headliner: '',
+                headlinerFade: '',
+                hero: '',
+                unimportant: '',
             },
             thisPage: {
                 title: '',
@@ -50,25 +49,24 @@ export default class App extends Component {
             this.setState({
                 theme: {
                     ...this.state.theme,
-                    backgroundInverted: 'bg-ocean50',
-                    backgroundText: 'background-text',
-                    importantText: 'important-text',
-                    passiveText: 'text-basegrey',
-                    passiveTitle: 'text-ocean50',
-                    tileText: 'text-white'
+                    // bg: '',
+                    // backgroundInverted: 'bg-ocean50',
+                    // backgroundText: 'background-text',
+                    // importantText: 'important-text',
+                    // unimportant: 'darkwhite',
+                    // passiveTitle: 'text-ocean50',
                 }
             })
         } else {
             this.setState({
                 theme: {
                     ...this.state.theme,
-                    backgroundInverted: 'bg-ocean',
-                    backgroundText: 'background-text',
-                    importantText: 'important-text',
-                    noteworthy: 'noteworthy-text',
-                    passiveText: 'text-ocean50',
-                    passiveTitle: 'text-ocean93',
-                    tileText: 'text-basegrey'
+                    genericTile: 'oceandark-bg',
+                    headliner: 'stormywaters',
+                    headlinerFade: 'mist',
+                    hero: 'oceandark',
+                    invertedBg: 'oceandark-bg',
+                    unimportant: 'rainclouds',
                 }
             })
         }
@@ -95,7 +93,7 @@ export default class App extends Component {
         }, 1000)
 
         window.addEventListener("resize", () => {
-            this.calculateMetrics()
+            that.calculateMetrics()
         })
     }
 
@@ -116,6 +114,18 @@ export default class App extends Component {
                                 metrics={this.state.metrics}
                                 theme={this.state.theme}
                                 thisPage={this.state.thisPage} />
+                        </Route>
+
+                        <Route exact path="/work">
+                            <Work
+                                metrics={this.state.metrics}
+                                theme={this.state.theme} />
+                        </Route>
+
+                        <Route exact path="/work/johnqcitizen">
+                            <ThisProject
+                                metrics={this.state.metrics}
+                                theme={this.state.theme} />
                         </Route>
 
                         <Route exact path="/developers/jack">
@@ -142,8 +152,8 @@ export default class App extends Component {
                 <footer>
                     <Link
                         to="/members"
-                        className={this.state.theme.passiveText}>
-                        <p>designed and coded in San Francisco and Atlanta</p>
+                        className={this.state.theme.unimportant}>
+                        <p className={`${this.state.theme.unimportant}`}>designed and coded in San Francisco and Atlanta</p>
                     </Link>
                 </footer>
             </Router>

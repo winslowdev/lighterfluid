@@ -1,5 +1,10 @@
+export const dev = {
+    concepts: require('../images/dev/concepts.png'),
+    sinWillFindYou: require('../images/dev/sinwillfindyou.png'),
+}
+
 export const icons = {
-    backArrow: require('../images/icons/back-arrow.png'),
+    externalArrow: require('../images/icons/external-arrow.png'),
     code: require('../images/icons/code.png'),
     email: require('../images/icons/email.png'),
     password: require('../images/icons/password.png')
@@ -13,3 +18,4 @@ export const stock = {
     hollywoodSign: require('../images/stock/hollywood-sign.jpg'),
     hopeMan: require('../images/stock/hope-man.jpeg'),
 }
+

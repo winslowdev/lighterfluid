@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Hero, RectangleProfileTile } from '../universals/Snacks'
+import { Header, Hero, TileRectangle } from '../universals/Snacks'
 import { stock } from '../universals/Images'
 
 export class Developers extends Component {
@@ -10,25 +10,25 @@ export class Developers extends Component {
                 <Header
                     first
                     theme={this.props.theme}
-                    thisPageTitle="Developers" />
+                    pageHeader="Developers" />
                 <Hero
                     statement={[`We're freelance developers`, <br />, `around the United States.`]}
                     theme={this.props.theme} />
 
                 <main id="developers">
-                    <RectangleProfileTile
+                    <TileRectangle
                         address="jack"
-                        bgColor="bg-ocean"
-                        color="text-greenmint"
+                        tileColor="oceandark-bg"
+                        textColor="accentgreen"
                         designation="Software Engineer"
                         image={stock.hopeMan}
                         metrics={this.props.metrics}
                         name="J. Benjamin Nimble"
                         theme={this.props.theme} />
-                    <RectangleProfileTile
+                    <TileRectangle
                         address="jack"
-                        bgColor="bg-greenmint"
-                        color="text-golden"
+                        tileColor="accentpurple-bg"
+                        textColor="accentgold"
                         designation="Front-End Developer"
                         image={stock.gazingMan}
                         metrics={this.props.metrics}

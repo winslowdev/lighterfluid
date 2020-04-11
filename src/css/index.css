@@ -17,13 +17,16 @@
 }
 
 :root {
-    --basegrey: #e0e0e0;
+    --darkwhite: #e0e0e0;
+    --mist: #d2d2d3;
+    --rainclouds: #898d94;
     --foggybottom: #3f454e;
-    --hotcoralpink: #eb5757;
-    --ocean: #111925;
-    --ocean93: #2c3f57;
-    --ocean7: #d2d2d3;
-    --ocean50: #898d94;
+    --stormywaters: #2c3f57;
+    --oceandark: #111925;
+    --accentpink: #eb5757;
+    --accentgold: #ffba00;
+    --accentgreen: #35b883;
+    --accentpurple: #460096;
 }
 
 body {
@@ -103,6 +106,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 1.5px;
     width: 100%;
 }
 
@@ -121,6 +125,23 @@ nav {
     flex-direction: row;
     justify-content: center;
 }
+
+.tile-cover h4, .tile-cover p {
+    color: var(--darkwhite);
+}
+
+.tile-cover > h4 {
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+}
+
+#work .tile-cover {
+    height: 100%;
+    opacity: 0.9;
+    width: 100%;
+}
+
 
 /* ============================== DEVELOPERS */
 /* ============================== DEVELOPERS */
@@ -153,6 +174,98 @@ nav {
 }
 
 
+
+/* ============================== SPECIFIC PROJECT */
+/* ============================== SPECIFIC PROJECT */
+
+#project-profile {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+
+#project-profile .team :first-child {
+    width: 50%;
+}
+
+#introduction {
+    margin-bottom: 20px;
+}
+
+#introduction h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#introduction img {
+    width: 100%;
+}
+
+.record-info {
+    margin-bottom: 30px;
+}
+
+#project-profile > p {
+    margin-bottom: 30px;
+}
+
+
+
+.sheet-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.sheet-data div:first-of-type {
+    width: 60%;
+}
+
+.sheet-data div:last-of-type {
+    width: 30%;
+}
+
+.external-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.project-img-gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.project-img-gallery img {
+    margin: 0 2px;
+    height: auto;
+    width: 85%;
+}
+
+.team-leader {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.team-leader p {
+    color: var(--white);
+    margin: 0 5px 5px 0;
+}
+
+.team-leader img {
+    height: 11px;
+    width: 11px;
+}
 
 /* ============================== PROFILE */
 /* ============================== PROFILE */
@@ -195,7 +308,6 @@ nav {
 }
 
 
-
 #headspace p {
     font-weight: 600;
     margin-bottom: 5px;
@@ -230,7 +342,7 @@ nav {
 }
 
 #skills li:hover {
-    background-color: var(--hotcoralpink);
+    background-color: var(--accentpink);
 }
 
 /* DEV PROFILE PROJECTS */
@@ -266,23 +378,6 @@ nav {
     margin-top: 5px;
 }
 
-/* ============================== BUNDLED LINKS */
-/* ============================== BUNDLED LINKS */
-
-.team {
-    display: flex;
-    flex-direction: row;
-}
-
-.team :first-child {
-    color: var(--hotcoralpink);
-    font-weight: 500;
-    margin-right: 7px;
-}
-
-.team > p {
-    margin-bottom: 5px;
-}
 
 @media screen and (min-width: 375px) {
     #profile .contacts {
@@ -305,6 +400,7 @@ nav {
 
     .team p {
         margin-bottom: 0;
+        text-align: left;
         width: 100%;
     }
 }
@@ -380,6 +476,7 @@ p {
     }
 
 a {
+    display: inline-block;
     text-decoration: none;
 }
 
@@ -488,84 +585,109 @@ input {
     background-image: linear-gradient(to bottom right, rgba(214, 50, 0, 0.438), rgba(37, 108, 132, 0.644), rgba(0, 76, 190, 0.555));
 }
 
-.text-basegrey {
-    color: var(--basegrey);
+/* ============================== LIGHT V DARK */
+
+.accentpink {
+    color: var(--accentpink);
 }
 
-.text-ocean7 {
-    color: var(--ocean7);
+.accentpurple {
+    color: var(--accentpurple);
 }
 
-.text-ocean50 {
-    color: var(--ocean50);
+.accentgreen {
+    color: var(--accentgreen);
 }
 
-.text-ocean93 {
-    color: var(--ocean93);
+.accentgold {
+    color: var(--accentgold);
 }
 
-.text-hotcoralpink {
-    color: var(--hotcoralpink);
+.accentpurple-bg {
+    background-color: var(--accentpurple);
 }
 
-
-.bg-ocean50 {
-    background-color: var(--ocean50);
+.darkwhite {
+    color: var(--darkwhite);
 }
 
-.text-ocean {
-    color: var(--ocean);
+.mist {
+    color: var(--mist);
 }
 
-
-.text-white {
-    color: white;
+.oceandark {
+    color: var(--oceandark);
 }
 
-.text-greenmint {
-    color: #54967d;
+.oceandark-bg {
+    background-color: var(--oceandark);
 }
 
-.bg-greenmint {
-    background-color: #54967d;
+.rainclouds {
+    color: var(--rainclouds);
 }
 
-.text-golden {
-    color: #F2C94C;
+.stormywaters {
+    color: var(--stormywaters);
 }
 
 @media (prefers-color-scheme: light) {
     body {
-        background-color: var(--basegrey);
+        background-color: var(--darkwhite);
     }
 
-    .important-text {
-        color: var(--ocean50);
+    .generic-tile {
+        background-color: var(--oceandark);
     }
 
-    .background-text {
-        color: var(--ocean7);
+    .headliner {
+        color: var(--stormywaters);
     }
 
-    .noteworthy {
-        color: var(--ocean);
+    .headliner-fade {
+        color: var(--mist);
+    }
+
+    .hero {
+        color: var(--oceandark);
+    }
+
+    .unimportant {
+        color: var(--rainclouds);
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: var(--ocean);
-    }
 
-    .important-text {
-        color: var(--ocean50);
-    }
+/* ============================== BUNDLED LINKS */
+/* ============================== BUNDLED LINKS */
 
-    .background-text {
-        color: var(--ocean93);
-    }
 
-    .noteworthy-text {
-        color: var(--ocean7);
-    }
+
+.team p {
+    margin: 0;
+    text-align: left;
+}
+
+#prof-contact {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+#prof-contact .team:first-of-type {
+    margin-bottom: 30px;
+}
+
+#prof-contact .team {
+    width: 45%;
+}
+
+.team {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }

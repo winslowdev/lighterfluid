@@ -105,13 +105,13 @@ export class Members extends Component {
                 <Header
                     first
                     theme={this.props.theme}
-                    thisPageTitle={[`Welcome to the`, <br />, `secret lair.`]} />
+                    pageHeader={[`Welcome to the`, <br />, `secret lair.`]} />
                 <Hero
                     statement={renderHero()}
                     theme={this.props.theme} />
 
                 <main id="registration">
-                    <p onClick={() => { this.toggleFormType() }} className={this.props.theme.passiveText}>{renderFormMessage()}</p>
+                    <p onClick={() => { this.toggleFormType() }} className={this.props.theme.unimportant}>{renderFormMessage()}</p>
 
                     {this.state.isLoginOn ? <form id="join-form" onSubmit={this.createAccount}>
 

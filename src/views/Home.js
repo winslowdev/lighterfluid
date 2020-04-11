@@ -21,7 +21,7 @@ export class Home extends Component {
                         metrics={this.props.metrics}
                         theme={this.props.theme} />
                     <SquareTile
-                        address="projects"
+                        address="work"
                         label="Projects"
                         image={stock.goldenGate}
                         metrics={this.props.metrics}

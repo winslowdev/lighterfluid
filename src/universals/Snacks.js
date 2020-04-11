@@ -3,8 +3,8 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { adaptTheme, determineGradient, determineFate, highlightPunctuation, navigateTo } from './Functions'
-import { icons } from './Images'
+import { determineGradient, determineFate, highlightPunctuation, navigateTo } from './Functions'
+import { icons, dev } from './Images'
 
 
 // ============================== HEADER
@@ -14,27 +14,27 @@ export class Header extends Component {
         const theme = this.props.theme
 
         // APP TITLE
-        const styleAppTitle = () => {
+        const styleheadliner = () => {
             if (this.props.home) {
-                return [`important-text ${theme.importantText}`]
+                return [`headliner ${theme.headliner}`]
             } else {
-                return [`background-text ${theme.backgroundText}`]
+                return [`headliner-fade ${theme.headlinerFade}`]
             }
         }
 
         // PAGE TITLE
         const stylePageTitle = () => {
             if (this.props.first) {
-                return theme.passiveTitle
+                return theme.hero
             } else if (this.props.second) {
-                return theme.passiveText
+                return theme.unimportant
             }
         }
 
         return (
-            <header>
-                <h1 className={styleAppTitle()}>lighterfluid</h1>
-                {this.props.thisPageTitle ? <h3 className={stylePageTitle()}>{this.props.thisPageTitle}</h3> : null}
+            <header onClick={() => {navigateTo("internal", "/")}}>
+                <h1 className={styleheadliner()}>lighterfluid</h1>
+                {this.props.pageHeader ? <h3 className={stylePageTitle()}>{this.props.pageHeader}</h3> : null}
             </header>
         )
     }
@@ -46,7 +46,7 @@ export class Hero extends Component {
     render() {
         return (
             <aside>
-                <h6 className={`noteworthy-text ${this.props.theme.noteworthy}`}>{this.props.statement}</h6>
+                <h6 className={`hero ${this.props.theme.hero}`}>{this.props.statement}</h6>
             </aside>
         )
     }
@@ -72,7 +72,7 @@ export class ContactBullet extends Component {
 
         return (
             <div className="pseudolink contact" onClick={() => { navigateTo(captain, player) }}>
-                <p className="text-hotcoralpink">{captain}</p>
+                <p className="accentpink">{captain}</p>
                 <p className={this.props.theme}>{determineFate(captain, player)}</p>
             </div>
         )
@@ -109,12 +109,12 @@ export class PageInformation extends Component {
 
 // ============================== RECTANGULAR PROFILE LINK
 
-export class RectangleProfileTile extends Component {
+export class TileRectangle extends Component {
     render() {
         return (
             <Link
                 to={`developers/${this.props.address}`}
-                className={`rectangle-tile ${this.props.bgColor}`}
+                className={`rectangle-tile ${this.props.tileColor}`}
                 style={{
                     height: this.props.metrics.rectangleHeight + 'px',
                 }}>
@@ -123,14 +123,37 @@ export class RectangleProfileTile extends Component {
                     <img src={this.props.image} alt="profile" />
 
                     <div className="name-designation">
-                        <h4 className={this.props.theme.tileText}>{this.props.name}</h4>
-                        <h6 className={this.props.color}>{this.props.designation}</h6>
+                        <h4>{this.props.name}</h4>
+                        <h6 className={this.props.textColor}>{this.props.designation}</h6>
                     </div>
                 </div>
             </Link>
         )
     }
 }
+
+// ============================== RECTANGULAR PROJECTS
+
+export class TileRectangleWork extends Component {
+    render() {
+        return (
+            <Link
+                to={`work/${this.props.address}`}
+                className="rectangle-tile"
+                style={{
+                    height: this.props.metrics.rectangleHeight + 'px',
+                    backgroundImage: `url(${dev.concepts})`,
+                    backgroundSize: 'cover',
+                    width: '100%'
+                }}>
+                <div className={`tile-cover generic-tile ${this.props.theme.genericTile}`}>
+                    <h4>{this.props.name} <br />{this.props.designation}</h4>
+                </div>
+            </Link>
+        )
+    }
+}
+
 
 
 // ============================== SQUARE TILE
@@ -149,8 +172,8 @@ export class SquareTile extends Component {
                     height: this.props.metrics.squareHeight + 'px'
                 }}>
                 <div className={`tile-cover ${determineGradient(image)}`}>
-                    <h5 className={theme.tileText}>{this.props.label}</h5>
-                    {this.props.year ? <p className={theme.tileText}>{this.props.year}</p> : null}
+                    <h4>{this.props.label}</h4>
+                    {this.props.year ? <p>{this.props.year}</p> : null}
                 </div>
             </Link>
         )
@@ -161,24 +184,25 @@ export class SquareTile extends Component {
 // ============================== TOPIC & STATEMENT // METHOD & ADDRESS
 
 export class Team extends Component {
-    determineIfLink() {
-        const operator = this.props.captain.toLowerCase()
-
-        if (operator === "email" || "github" || "linkedin" || "twitter") {
-            return true
+    determineHref(method, address) {
+        if (method === "email") {
+            return "mailto:" + address
+        } else if (method === "github" || "twitter") {
+            return "https://" + method + ".com/" + address
+        } else if (method === "linkedin") {
+            return "https://linkedin.com/in/" + address
         }
     }
 
     render() {
         return (
-            <div className="team"
-                onClick={() => {
-                    if (this.determineIfLink() === true) {
-                        navigateTo(this.props.captain, this.props.player)
-                    }
-                }}>
-                <p>{this.props.captain}</p>
-                <p className={`${this.props.theme.passiveText} ${this.determineIfLink() ? 'pseudolink' : null}`} >{determineFate(this.props.captain, this.props.player)} </p>
+            <div className="team">
+                <p className={`unimportant ${this.props.theme.unimportant}`}>{this.props.captain}</p>
+
+                {this.props.captain === ["email" || "github" || "linkedin" || "twitter"] ?
+                    <a href={this.determineHref(this.props.captain, this.props.player)}>
+                        <p className={`hero ${this.props.theme.hero}`}>{this.props.player}</p>
+                    </a> : <p className={`hero ${this.props.theme.hero}`}>{this.props.player}</p>}
             </div>
         )
     }
@@ -192,7 +216,7 @@ export class TeamLeader extends Component {
         return (
             <div className="team-leader anchorspoof" onClick={() => { navigateTo(null, this.props.address) }}>
                 <p>{this.props.captain}</p>
-                <img src={icons.externalClick} alt="external arrow" />
+                <img src={icons.externalArrow} alt="external arrow" />
             </div>
         )
     }

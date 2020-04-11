@@ -12,22 +12,29 @@ export class Profile extends Component {
                 <Header
                     second
                     theme={this.props.theme}
-                    thisPageTitle="Developers" />
+                    pageHeader="Developers" />
 
                 <main id="dev-profile">
 
                     {/* PROFILE IMAGE, NAME, DESIGNATION */}
                     <div id="headspace" className="marginalized">
                         <img src={stock.hopeMan} alt="j. benjamin nimble" />
-                        <h2 className={theme.passiveTitle}>J. Benjamin Nimble</h2>
-                        <h4 className={theme.passiveText}>Software Engineer</h4>
+                        <h2 className={theme.headliner}>J. Benjamin Nimble</h2>
+                        <h4 className={theme.unimportant}>Software Engineer</h4>
                     </div>
 
                     {/* BRAND STATEMENT */}
-                    <p className={`marginalized ${theme.passiveText}`}>Enim sed montes, maecenas ut sem vivamus quis. Sed eleifend metus a erat elementum eu egestas magna. Magnis non, egestas lectus sed. Ante leo sapien euismod lorem.</p>
+                    <p className={`marginalized rainclouds ${theme.unimportant}`}>Enim sed montes, maecenas ut sem vivamus quis. Sed eleifend metus a erat elementum eu egestas magna. Magnis non, egestas lectus sed. Ante leo sapien euismod lorem.</p>
+
+                    <div id="prof-contact" className="marginalized">
+                        <Team captain="Email" player="jack@lighterfluid.co" theme={theme} />
+                        <Team captain="GitHub" player="@jackbnimble" theme={theme} />
+                        <Team captain="LinkedIn" player="in/jackbnimble" theme={theme} />
+                        <Team captain="Twitter" player="@jackbnimble" theme={theme} />
+                    </div>
 
                     {/* CONTACT INFORMATION */}
-                    <div className="contacts marginalized">
+                    {/* <div className="contacts marginalized">
                         <Team
                             captain="Email"
                             player="jack@lighterfluid.co"
@@ -47,33 +54,33 @@ export class Profile extends Component {
                             captain="Portfolio"
                             player="jackbnimble.co"
                             theme={theme} />
-                    </div>
+                    </div> */}
 
                     {/* SKILLS */}
                     <div id="skills" className="section">
-                        <h3 className={theme.passiveTitle}>Stacks, languages & frameworks</h3>
+                        <h3 className={theme.unimportant}>Stacks, languages & frameworks</h3>
                         <ul>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>HTML5</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>CSS3</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>Ruby on Rails</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>React</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>Figma</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>Microsoft Visual Studio Code</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>GitHub</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>BCrypt</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>MEAN stack</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>MongoDB</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>Version control systems</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>JavaScript</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>React Native</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>NERDS stack</li>
-                            <li className={`text-ocean7 ${theme.backgroundInverted}`}>Git</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>HTML5</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>CSS3</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>Ruby on Rails</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>React</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>Figma</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>Microsoft Visual Studio Code</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>GitHub</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>BCrypt</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>MEAN stack</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>MongoDB</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>Version control systems</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>JavaScript</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>React Native</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>NERDS stack</li>
+                            <li className={`darkwhite ${theme.invertedBg}`}>Git</li>
                         </ul>
                     </div>
 
                     {/* PROJECTS */}
                     <div id="projects" className="section projects">
-                        <h3 className={`marginalized ${theme.passiveTitle}`}>Personal projects & client work</h3>
+                        <h3 className={`marginalized ${theme.unimportant}`}>Personal projects & client work</h3>
                         <div className="project-grid">
                             <SquareTile
                                 address="projects/project-ex"
