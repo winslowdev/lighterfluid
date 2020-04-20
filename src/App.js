@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 // general
-import { Home } from './views/Home'
+import { Home, Home2000 } from './views/Home'
 import { Contact } from './views/Contact'
 import { Developers } from './views/Developers'
 import { Members } from './views/Members'
@@ -101,53 +101,59 @@ export default class App extends Component {
 
         return (
             <Router>
-                    <Switch>
-                        <Route exact path="/">
-                            <Home
+                <Switch>
+                    <Route exact path="/">
+
+                        {window.innerWidth > 2000 ?
+                            <Home2000
                                 metrics={this.state.metrics}
                                 theme={this.state.theme}
                                 thisPage={this.state.thisPage} />
-                        </Route>
-
-                        <Route exact path="/developers">
-                            <Developers
+                            : <Home
                                 metrics={this.state.metrics}
                                 theme={this.state.theme}
-                                thisPage={this.state.thisPage} />
-                        </Route>
+                                thisPage={this.state.thisPage} />}
+                    </Route>
 
-                        <Route exact path="/work">
-                            <Work
-                                metrics={this.state.metrics}
-                                theme={this.state.theme} />
-                        </Route>
+                    <Route exact path="/developers">
+                        <Developers
+                            metrics={this.state.metrics}
+                            theme={this.state.theme}
+                            thisPage={this.state.thisPage} />
+                    </Route>
 
-                        <Route exact path="/work/johnqcitizen">
-                            <ThisProject
-                                metrics={this.state.metrics}
-                                theme={this.state.theme} />
-                        </Route>
+                    <Route exact path="/work">
+                        <Work
+                            metrics={this.state.metrics}
+                            theme={this.state.theme} />
+                    </Route>
 
-                        <Route exact path="/developers/jack">
-                            <Profile
-                                metrics={this.state.metrics}
-                                theme={this.state.theme} />
-                        </Route>
+                    <Route exact path="/work/johnqcitizen">
+                        <ThisProject
+                            metrics={this.state.metrics}
+                            theme={this.state.theme} />
+                    </Route>
 
-                        <Route exact path="/members">
-                            <Members theme={this.state.theme} />
-                        </Route>
+                    <Route exact path="/developers/jack">
+                        <Profile
+                            metrics={this.state.metrics}
+                            theme={this.state.theme} />
+                    </Route>
 
-                        <Route exact path="/contact">
-                            <Contact theme={this.state.theme} />
-                        </Route>
+                    <Route exact path="/members">
+                        <Members theme={this.state.theme} />
+                    </Route>
 
-                        <Route exact path="/members/dashboard">
-                            <Dashboard
-                                theme={this.state.theme}
-                                thisPage={this.state.thisPage} />
-                        </Route>
-                    </Switch>
+                    <Route exact path="/contact">
+                        <Contact theme={this.state.theme} />
+                    </Route>
+
+                    <Route exact path="/members/dashboard">
+                        <Dashboard
+                            theme={this.state.theme}
+                            thisPage={this.state.thisPage} />
+                    </Route>
+                </Switch>
 
                 <footer>
                     <Link

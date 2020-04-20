@@ -46,7 +46,7 @@ export class Hero extends Component {
     render() {
         return (
             <aside>
-                <h6 className={`hero ${this.props.theme.hero}`}>{this.props.statement}</h6>
+                <h6 className={`hero ${this.props.theme.hero}`}>{highlightPunctuation(this.props.statement)}</h6>
             </aside>
         )
     }
