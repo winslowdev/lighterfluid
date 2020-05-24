@@ -1,6 +1,6 @@
 export const dev = {
     concepts: require('../images/dev/concepts.png'),
-    johnQCitizen: require('../images/dev/johnQ.png'),
+    // johnQCitizen: require('../images/dev/johnQ.png'),
     sinWillFindYou: require('../images/dev/sinwillfindyou.png'),
 }
 

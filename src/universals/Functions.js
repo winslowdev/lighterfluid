@@ -67,4 +67,3 @@ export const highlightPunctuation = (phrase) => {
     highlightedPhrase.join('')
     return highlightedPhrase
 }
-

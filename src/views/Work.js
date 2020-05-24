@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Header, Hero, RectangleLink } from '../universals/Snacks'
-import { dev, stock } from '../universals/Images'
+import { dev } from '../universals/Images'
 
 export class Work extends Component {
     render() {
