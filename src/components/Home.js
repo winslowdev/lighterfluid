@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { highlightPunctuation } from '../Functions'
+import { highlightPunctuation, randomize } from '../Functions'
 import { concepts, humans } from '../Images'
 
 
@@ -11,7 +11,7 @@ import { concepts, humans } from '../Images'
 // ============================== HOMEPAGE
 
 export function Home() {
-    let coral = "#eb5757"
+    let coral = "#F5154F"
     let driftwoodpurple = "#460096"
     let goldensun = "#ffa800"
     let mojito = "#35b883"
@@ -24,23 +24,6 @@ export function Home() {
 
     function determineSkillSquareHeight() {
         setSkillSquareHeight(window.innerWidth / 3)
-    }
-
-    function randomize(array) {
-        let currentIndex = array.length
-        let temporaryValue;
-        let randomIndex;
-
-        while (0 !== currentIndex) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-        }
-
-        return array[randomIndex]
     }
 
     useEffect(() => {

@@ -31,7 +31,7 @@
 
     /* COLORS */
     --beachfoam: #797d83;
-    --coral: #eb5757;
+    --coral: #F5154F;
     --goldensun: #ffa800;
     --mojito: #35b883;
     --oceandark: #111925;
@@ -96,7 +96,6 @@ header {
 
 .project-spotlight {
     height: 330px;
-    margin-bottom: 45px;
     width: 100%;
     z-index: 100;
 }
@@ -129,7 +128,7 @@ header {
 /* ============================== HOME — ABOUT US */
 
 .about-us {
-    margin-bottom: 45px;
+    margin: 60px auto;
 }
 
 .about-us h6 {
