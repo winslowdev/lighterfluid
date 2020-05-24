@@ -31,7 +31,7 @@
 
     /* COLORS */
     --beachfoam: #797d83;
-    --coral: #F5154F;
+    --coral: #EB5757;
     --goldensun: #ffa800;
     --mojito: #35b883;
     --oceandark: #111925;
@@ -62,6 +62,19 @@ body {
 
 .punctuation {
     color: var(--coral);
+}
+
+button {
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 15px 20px;
+}
+
+.on-oceandark {
+    background-color: var(--coral);
+    color: var(--white);
 }
 
 /* ============================== HEADER */
@@ -187,6 +200,38 @@ header {
     text-align: center;
     width: 80%;
 }
+
+
+/* ============================== HOME — FOR HIRE */
+/* ============================== HOME — FOR HIRE */
+
+.for-hire {
+    background-color: var(--oceandark);
+    margin-top: 0;
+    padding: 60px 0 80px;
+}
+
+.for-hire h4 {
+    color: var(--white);
+    margin: 0 auto;
+    text-align: center;
+    width: 80%;
+}
+
+.for-hire p {
+    color: var(--white);
+    margin: 70px auto 50px;
+    text-align: center;
+    width: 92%;
+}
+
+.hire-information {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 
 /* ============================== TEXT & FONT */
 /* ============================== TEXT & FONT */

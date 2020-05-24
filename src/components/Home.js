@@ -18,9 +18,9 @@ export function Home() {
     let skyblue = "#3a85f4"
 
     const [introduction, setIntroduction] = useState("We turn good concepts into great web apps.")
-    const [skills, setSkills] = useState(["AngularJS", "Atlas", "Bootstrap", "BCrypt", "CSS3", "Express", "Express Session", "Figma", "Git", "GitHub", "Heroku", "HTML5", "JavaScript", "jQuery", "LESS", "Materialize", "MEAN stack", "MERN stack", "Microsoft Visual Studio Code", "MongoDB", "Mongoose", "Object Oriented Programming", "NERDS stack", "NodeJS", "PostgreSQL", "Postman", "React", "React Native", "RESTful APIs", "Ruby", "Ruby on Rails", "SASS", "Shopify", "Terminal", "Weebly", "Wordpress"])
-    const [skillBackgroundColors, setskillBackgroundColors] = useState([coral, driftwoodpurple, goldensun, mojito, skyblue])
     const [skillSquareHeight, setSkillSquareHeight] = useState(null)
+    const [skillBackgroundColors, setskillBackgroundColors] = useState([coral, driftwoodpurple, goldensun, mojito, skyblue])
+    const [skills, setSkills] = useState(["AngularJS", "Atlas", "Bootstrap", "BCrypt", "CSS3", "Express", "Express Session", "Figma", "Git", "GitHub", "Heroku", "HTML5", "JavaScript", "jQuery", "LESS", "Materialize", "MEAN stack", "MERN stack", "Microsoft Visual Studio Code", "MongoDB", "Mongoose", "Object Oriented Programming", "NERDS stack", "NodeJS", "PostgreSQL", "Postman", "React", "React Native", "RESTful APIs", "Ruby", "Ruby on Rails", "SASS", "Shopify", "Terminal", "Weebly", "Wordpress"])
 
     function determineSkillSquareHeight() {
         setSkillSquareHeight(window.innerWidth / 3)
@@ -81,6 +81,17 @@ export function Home() {
                         </div>
                     )
                 })}
+            </div>
+
+            <div className="for-hire">
+                <div class="hire-information margined">
+                    <h4>{highlightPunctuation("Let's work together.")}</h4>
+
+                    <p>Whether you wanna rework an existing project or code something from the root up, we can help find the right solution for you.</p>
+                    <Link to="/">
+                        <button class="on-oceandark">Send us an email</button>
+                    </Link>
+                </div>
             </div>
         </div>
     )
