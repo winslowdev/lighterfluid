@@ -3,6 +3,7 @@
 
 @import url('normalize.css');
 
+/* INTEGRAL CF DEMIBOLD */
 @font-face {
     font-family: 'Integral CF Demibold';
     src: url('fonts/integral-cf/integral-cf-demibold.eot');
@@ -14,6 +15,19 @@
     font-style: normal;
 }
 
+/* INTEGRAL CF DEMIBOLD OBLIQUE*/
+@font-face {
+    font-family: 'Integral CF Demibold';
+    src: url('fonts/integral-cf/integral-cf-demibold-oblique.eot');
+    src: url('fonts/integral-cf/integral-cf-demibold-oblique.eot?#iefix') format('embedded-opentype'),
+        url('fonts/integral-cf/integral-cf-demibold-oblique.woff2') format('woff2'),
+        url('fonts/integral-cf/integral-cf-demibold-oblique.woff') format('woff'),
+        url('fonts/integral-cf/integral-cf-demibold-oblique.otf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* INTEGRAL CF BOLD */
 @font-face {
     font-family: 'Integral CF Bold';
     src: url('fonts/integral-cf/integral-cf-bold.eot');
@@ -36,8 +50,21 @@
     --mojito: #35b883;
     --oceandark: #111925;
     --skyblue: #3a85f4;
-    --driftwoodpurple: #460096;
+    --darkshellpurple: #460096;
     --white: #eaeaea;
+}
+
+.on-oceandark {
+    background-color: var(--coral);
+    color: var(--white);
+}
+
+.beachfoam {
+    color: var(--beachfoam);
+}
+
+.coral {
+    color: var(--coral);
 }
 
 * {
@@ -64,6 +91,14 @@ body {
     color: var(--coral);
 }
 
+.location .punctuation {
+    color: var(--oceandark);
+}
+
+
+/* ============================== BUTTONS */
+/* ============================== BUTTONS */
+
 button {
     border: none;
     border-radius: 3px;
@@ -72,10 +107,96 @@ button {
     padding: 15px 20px;
 }
 
-.on-oceandark {
+.link-underline {
     background-color: var(--coral);
-    color: var(--white);
+    border-radius: 10px;
+    height: 4px;
+    margin-top: 5px;
+    width: 100px;    
 }
+
+.faux-button p {
+    display: inline;
+}
+
+
+/* ============================== FORMS & INPUT */
+/* ============================== FORMS & INPUT */
+
+form {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+input {
+    background-color: #3f454e;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    height: 45px;
+    outline: none;
+    padding: 0 10px;
+    width: 100%;
+}
+
+input::placeholder {
+    opacity: 1
+}
+
+.input-row, .submit-row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.input-row {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 90%;
+}
+
+.input-row:last-of-type {
+    margin-bottom: 0;
+}
+
+.sticker {
+    align-items: center;
+    background-color: #3f454e;
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    flex-direction: row;
+    height: 45px;
+    justify-content: center;
+    width: 45px;
+}
+
+.sticker img {
+    height: 20px;
+    filter: opacity(60%);
+    width: 20px;
+}
+
+.submit-row {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.submit-row input[type="submit"] {
+    margin-left: 10px;
+}
+
+input[type="submit"] {
+    background-color: var(--coral);
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 75px;
+}
+
 
 /* ============================== HEADER */
 /* ============================== HEADER */
@@ -89,6 +210,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 9999;
 }
 
     header a {
@@ -96,10 +218,31 @@ header {
     }
 
 
+/* ============================== FOOTER */
+/* ============================== FOOTER */
+
+footer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 45px;
+    justify-content: center;
+}
+
+    footer h6 {
+        font-size: 0.75rem !important;
+        letter-spacing: -0.17px;
+    }
+
+    footer a {
+        color: var(--oceandark);
+    }
+
+
 /* ============================== HOME — HERO */
 /* ============================== HOME — HERO */
 
-#hero {
+.hero {
     margin-bottom: 40px;
 }
 
@@ -123,7 +266,6 @@ header {
     opacity: 0.97;
     position: relative;
     width: 100%;
-    z-index: 9999;
 }
 
     .spotlight-cover h4 {
@@ -233,6 +375,99 @@ header {
 }
 
 
+/* ============================== CHECKPOINT */
+/* ============================== CHECKPOINT */
+
+#registration {
+    margin-bottom: 100px;
+}
+
+.faux-button {
+    margin-bottom: 75px;
+}
+
+#login-form {
+    margin-bottom: 30px;   
+}
+
+#join-form, #login-form {
+    margin-right: auto;
+}
+
+#join-form p, #login-form p {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* ============================== USER PROFILE */
+/* ============================== USER PROFILE */
+
+#user-profile {
+    margin-bottom: 800px;
+}
+
+.profile-header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 65px;
+}
+
+    .profile-header > img {
+        border-radius: 50%;
+        height: 100px;
+        margin-bottom: 20px;
+        width: 100px;
+    }
+
+    .profile-header h5 {
+        margin-bottom: 5px;
+    }
+
+    .contacts {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 15px;
+        width: 25%;
+    }
+
+    .contact-icon {
+        filter: invert(100%);
+        height: 18px;
+        width: auto;
+    }
+
+.bio h6 {
+    color: var(--beachfoam);
+    text-align: center;
+}
+
+.location {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 170px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.location h4 {
+    display: inline-block;
+    font-family: 'Integral CF Demibold';
+    font-style: oblique;
+    max-width: 300px;
+}
+
+
+
+
 /* ============================== TEXT & FONT */
 /* ============================== TEXT & FONT */
 
@@ -277,6 +512,7 @@ h5 {
 h6, p {
     font-family: var(--default);
     font-size: 1rem;
+    line-height: 1.4;
 }
 
 h6 {
@@ -285,8 +521,14 @@ h6 {
 
 p {
     font-weight: 400;
-    line-height: 1.4;
 }
+
+    @media screen and (min-width: 413px) {
+        h6, p {
+            font-family: var(--default);
+            font-size: 1.125rem;
+        }
+    }
 
 .outline_coral {
     -webkit-text-stroke-color: var(--coral);

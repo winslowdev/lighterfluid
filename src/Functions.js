@@ -12,7 +12,7 @@ export const highlightPunctuation = (phrase) => {
     let i;
 
     for (i = 0; i < splitPhrase.length; i++) {
-        if (splitPhrase[i].match(/[!@#$%`~^&*(|)?/"'>.<,_—]/g)) {
+        if (splitPhrase[i].match(/[!@#$%`~^&*(|)?/"'->.<,_—]/g)) {
             highlightedPhrase.push(<span className="punctuation">{splitPhrase[i]}</span>)
         } else {
             highlightedPhrase.push(splitPhrase[i])

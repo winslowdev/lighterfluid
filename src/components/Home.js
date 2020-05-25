@@ -5,36 +5,38 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { highlightPunctuation, randomize } from '../Functions'
 import { concepts, humans } from '../Images'
-
+import { Hero } from '../universals/Snacks'
 
 // ============================== HOMEPAGE
 // ============================== HOMEPAGE
 
 export function Home() {
     let coral = "#F5154F"
-    let driftwoodpurple = "#460096"
+    let darkshellpurple = "#460096"
     let goldensun = "#ffa800"
     let mojito = "#35b883"
     let skyblue = "#3a85f4"
 
     const [introduction, setIntroduction] = useState("We turn good concepts into great web apps.")
-    const [skillSquareHeight, setSkillSquareHeight] = useState(null)
-    const [skillBackgroundColors, setskillBackgroundColors] = useState([coral, driftwoodpurple, goldensun, mojito, skyblue])
+    const [skillSide, setskillSide] = useState(null)
+    const [skillBackgroundColors, setskillBackgroundColors] = useState([coral, darkshellpurple, goldensun, mojito, skyblue])
     const [skills, setSkills] = useState(["AngularJS", "Atlas", "Bootstrap", "BCrypt", "CSS3", "Express", "Express Session", "Figma", "Git", "GitHub", "Heroku", "HTML5", "JavaScript", "jQuery", "LESS", "Materialize", "MEAN stack", "MERN stack", "Microsoft Visual Studio Code", "MongoDB", "Mongoose", "Object Oriented Programming", "NERDS stack", "NodeJS", "PostgreSQL", "Postman", "React", "React Native", "RESTful APIs", "Ruby", "Ruby on Rails", "SASS", "Shopify", "Terminal", "Weebly", "Wordpress"])
 
-    function determineSkillSquareHeight() {
-        setSkillSquareHeight(window.innerWidth / 3)
+    function measureSkillHeight() {
+        setskillSide(window.innerWidth / 3)
     }
 
     useEffect(() => {
-        determineSkillSquareHeight()
+        measureSkillHeight()
+
+        window.addEventListener("resize", () => {
+            measureSkillHeight()
+        })
     })
 
     return (
         <div className="container">
-            <div id="hero" className="margined">
-                <h1>{highlightPunctuation(`${introduction}`)}</h1>
-            </div>
+            <Hero boldStatement={introduction} />
 
             <div className="project-spotlight" style={{
                 backgroundImage: `url(${concepts.johnQCitizen})`,
@@ -74,8 +76,8 @@ export function Home() {
                     return (
                         <div key={_key} className="skillblock" style={{
                             backgroundColor: `${randomize(skillBackgroundColors)}`,
-                            height: `${skillSquareHeight}` + 'px',
-                            width: `${skillSquareHeight}` + 'px',
+                            height: `${skillSide}` + 'px',
+                            width: `${skillSide}` + 'px',
                         }}>
                             <h6>{skill}</h6>
                         </div>
@@ -84,12 +86,12 @@ export function Home() {
             </div>
 
             <div className="for-hire">
-                <div class="hire-information margined">
+                <div className="hire-information margined">
                     <h4>{highlightPunctuation("Let's work together.")}</h4>
 
                     <p>Whether you wanna rework an existing project or code something from the root up, we can help find the right solution for you.</p>
                     <Link to="/">
-                        <button class="on-oceandark">Send us an email</button>
+                        <button className="on-oceandark">Send us an email</button>
                     </Link>
                 </div>
             </div>
