@@ -1,135 +1,235 @@
 // ============================== IMPORTS
+// ============================== IMPORTS
 
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { determineFate, highlightPunctuation, navigate } from './Functions'
-import { icons } from './Images'
+import React from 'react'
+import { highlightPunctuation } from '../Functions'
 
 
-// ============================== INDIVIDUAL SKILLS
+// ============================== HERO
+// ============================== HERO
 
-export class Bullet extends Component {
-    render() {
-        return (
-            <div className="skill-point">{this.props.skill}</div>
-        )
-    }
+export function Hero(props) {
+    return (
+        <div className="hero margined">
+            <h1>{highlightPunctuation(`${props.boldStatement}`)}</h1>
+        </div>
+    )
 }
 
 
-// ============================== DIRECT DOWNLOAD
+// import { Link } from 'react-router-dom'
+// import { determineGradient, determineFate, navigateTo } from './Functions'
+// import { icons, dev } from './Images'
 
-export class DirectDownload extends Component {
-    render() {
-        return (
-            <p className="anchorspoof important" onClick={() => { navigate(null, this.props.address) }}>{this.props.captain}</p>
-        )
-    }
-}
+// // ============================== HEADER
 
+// export class Header extends Component {
+//     render() {
+//         const theme = this.props.theme
 
-// ============================== PAGE TITLE & DESCRIPTION
+//         // APP TITLE
+//         const styleheadliner = () => {
+//             if (this.props.home) {
+//                 return [`headliner ${theme.headliner}`]
+//             } else {
+//                 return [`headliner-fade ${theme.headlinerFade}`]
+//             }
+//         }
 
-export class PageInformation extends Component {
-    render() {
-        return (
-            <aside className="page-hero">
-                <div className="container" id="developers">
-                    <h1>{highlightPunctuation(this.props.pageTitle)}</h1>
-                    <p className="page-description">{this.props.pageDescription}</p>
-                </div>
-            </aside>
-        )
-    }
-}
+//         // PAGE TITLE
+//         const stylePageTitle = () => {
+//             if (this.props.first) {
+//                 return theme.hero
+//             } else if (this.props.second) {
+//                 return theme.unimportant
+//             }
+//         }
 
+//         return (
+//             <header onClick={() => { navigateTo("internal", "/") }}>
+//                 <h1 className={styleheadliner()}>lighterfluid</h1>
+//                 {this.props.pageHeader ? <h3 className={stylePageTitle()}>{this.props.pageHeader}</h3> : null}
+//             </header>
+//         )
+//     }
+// }
 
-// ============================== RECTANGULAR TILE
+// // ============================== HERO
 
-export class RectangleTile extends Component {
-    render() {
-        return (
-            <div className="rectangled anchorspoof"
-                theme={{
-                    backgroundImage: `url(${this.props.image})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    height: this.props.dimensions.rectangleHeight + 'px',
-                }}
-                onClick={() => { navigate(this.props.address) }}>
-                <div className={`coverpiece ${this.props.gradientStyle}`}>
-                    <h3>{this.props.captain}</h3>
-                </div>
-            </div>
-        )
-    }
-}
-
-
-// ============================== SQUARE TILE
-
-export class SquareTile extends Component {
-    render() {
-        return (
-            <Link
-                to={`${this.props.address}`}
-                onClick={() => { this.props.provideInformation(this.props.address) }}
-                className="square-tile"
-                theme={{
-                    backgroundImage: `url(${this.props.image})`,
-                    height: this.props.dimensions.squareHeight + 'px'
-                }}>
-                <div className={`tile-cover ${this.props.gradientColor}`}>
-                    <h5 className={this.props.theme.tileText}>{this.props.captain}</h5>
-                </div>
-            </Link>
-        )
-    }
-}
+// // export class Hero extends Component {
+// //     render() {
+// //         return (
+// //             <aside>
+// //                 <h6 className={`hero ${this.props.theme.hero}`}>{highlightPunctuation(this.props.statement)}</h6>
+// //             </aside>
+// //         )
+// //     }
+// // }
 
 
-// ============================== TOPIC & STATEMENT // METHOD & ADDRESS
+// // ============================== INDIVIDUAL SKILLS
 
-export class Team extends Component {
+// export class Bullet extends Component {
+//     render() {
+//         return (
+//             <div className="skill-point">{this.props.skill}</div>
+//         )
+//     }
+// }
 
-    determineIfLink() {
-        const operator = this.props.captain.toLowerCase()
+// // ============================== INDIVIDUAL SKILLS
 
-        if (operator === "email" || "github" || "linkedin" || "twitter") {
-            return true
-        }
-    }
+// export class ContactBullet extends Component {
+//     render() {
+//         const captain = this.props.captain
+//         const player = this.props.player
 
-    determineMethod() {
-        const operator = this.props.captain.toLowerCase()
-
-        if (operator === "github" || "linkedin" || "twitter") {
-            return operator
-        } else {
-            return null
-        }
-    }
-
-    render() {
-        return (
-            <div className="team" onClick={() => { navigate(this.determineMethod(), this.props.player) }}>
-                <p>{this.props.captain}</p>
-                <p className={this.determineIfLink() ? 'anchorspoof' : null} >{determineFate(this.props.captain, this.props.player)} </p>
-            </div>
-        )
-    }
-}
+//         return (
+//             <div className="pseudolink contact" onClick={() => { navigateTo(captain, player) }}>
+//                 <p className="accentpink">{captain}</p>
+//                 <p className={this.props.theme}>{determineFate(captain, player)}</p>
+//             </div>
+//         )
+//     }
+// }
 
 
-// ============================== DIRECT LINK TO EXTERNAL SITES
+// // ============================== DIRECT DOWNLOAD
 
-export class TeamLeader extends Component {
-    render() {
-        return (
-            <div className="team-leader anchorspoof" onClick={() => { navigate(null, this.props.address) }}>
-                <p>{this.props.captain}</p>
-                <img src={icons.externalClick} alt="external arrow" />
-            </div>
-        )
-    }
-}
+// export class DirectDownload extends Component {
+//     render() {
+//         return (
+//             <p className="pseudolink important" onClick={() => { navigateTo(null, this.props.address) }}>{this.props.captain}</p>
+//         )
+//     }
+// }
+
+
+// // ============================== PAGE TITLE & DESCRIPTION
+
+// export class PageInformation extends Component {
+//     render() {
+//         return (
+//             <aside className="page-hero">
+//                 <div className="container" id="developers">
+//                     <h1>{highlightPunctuation(this.props.pageTitle)}</h1>
+//                     <p className="page-description">{this.props.pageDescription}</p>
+//                 </div>
+//             </aside>
+//         )
+//     }
+// }
+
+
+// // ============================== RECTANGULAR PROFILE LINK
+
+// export class TileRectangle extends Component {
+//     render() {
+//         return (
+//             <Link
+//                 to={`developers/${this.props.address}`}
+//                 className={`rectangle-tile ${this.props.tileColor}`}
+//                 style={{
+//                     height: this.props.metrics.rectangleHeight + 'px',
+//                 }}>
+
+//                 <div className={`tile-cover`}>
+//                     <img src={this.props.image} alt="profile" />
+
+//                     <div className="name-designation">
+//                         <h4>{this.props.name}</h4>
+//                         <h6 className={this.props.textColor}>{this.props.designation}</h6>
+//                     </div>
+//                 </div>
+//             </Link>
+//         )
+//     }
+// }
+
+// export class RectangleLink extends Component {
+//     render() {
+//         return (
+//             <Link
+//                 to={`work/${this.props.address}`}
+//                 className="rectangle-tile"
+//                 style={{
+//                     height: this.props.metrics.rectangleHeight + 'px',
+//                     backgroundImage: `url(${this.props.previewImage})`,
+//                     backgroundSize: 'cover',
+//                     width: '100%'
+//                 }}>
+//                 <div className={`tile-cover ${this.props.gradient} ${this.props.theme.genericTile}`}>
+//                     <h4>{this.props.name} <br />{this.props.designation}</h4>
+//                 </div>
+//             </Link>
+//         )
+//     }
+// }
+
+
+
+// // ============================== SQUARE TILE
+
+// export class SquareTile extends Component {
+//     render() {
+//         const image = this.props.image
+//         const theme = this.props.theme
+
+//         return (
+//             <Link
+//                 to={`${this.props.address}`}
+//                 className="square-tile"
+//                 style={{
+//                     backgroundImage: `url(${image})`,
+//                     height: this.props.metrics.squareHeight + 'px'
+//                 }}>
+//                 <div className={`tile-cover ${determineGradient(image)}`}>
+//                     <h4>{this.props.label}</h4>
+//                     {this.props.year ? <p>{this.props.year}</p> : null}
+//                 </div>
+//             </Link>
+//         )
+//     }
+// }
+
+
+// // ============================== TOPIC & STATEMENT // METHOD & ADDRESS
+
+// export class Team extends Component {
+//     determineHref(method, address) {
+//         if (method === "email") {
+//             return "mailto:" + address
+//         } else if (method === "github" || "twitter") {
+//             return "https://" + method + ".com/" + address
+//         } else if (method === "linkedin") {
+//             return "https://linkedin.com/in/" + address
+//         }
+//     }
+
+//     render() {
+//         return (
+//             <div className="team">
+//                 <p className={`unimportant ${this.props.theme.unimportant}`}>{this.props.captain}</p>
+
+//                 {this.props.captain === ["email" || "github" || "linkedin" || "twitter"] ?
+//                     <a href={this.determineHref(this.props.captain, this.props.player)}>
+//                         <p className={`hero ${this.props.theme.hero}`}>{this.props.player}</p>
+//                     </a> : <p className={`hero ${this.props.theme.hero}`}>{this.props.player}</p>}
+//             </div>
+//         )
+//     }
+// }
+
+
+// // ============================== DIRECT LINK TO EXTERNAL SITES
+
+// export class TeamLeader extends Component {
+//     render() {
+//         return (
+//             <div className="team-leader anchorspoof" onClick={() => { navigateTo(null, this.props.address) }}>
+//                 <p>{this.props.captain}</p>
+//                 <img src={icons.externalArrow} alt="external arrow" />
+//             </div>
+//         )
+//     }
+// }
