@@ -119,6 +119,26 @@ button {
     display: inline;
 }
 
+.btn-circle {
+    align-items: center;
+    background-color: var(--oceandark);
+    border: 3px solid var(--coral);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: center;
+    width: 50px;
+    
+}
+
+#home-latest-project {
+    margin: 0 5% 0 auto;
+    position: relative;
+    top: -25px;
+}
+
+
 
 /* ============================== FORMS & INPUT */
 /* ============================== FORMS & INPUT */

@@ -3,6 +3,8 @@
 
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { IconContext } from 'react-icons'
+import { IoMdArrowForward } from 'react-icons/io'
 
 import { Hero } from '../supplements/Snacks'
 
@@ -20,6 +22,7 @@ export function Home() {
     let goldensun = "#ffa800"
     let mojito = "#35b883"
     let skyblue = "#3a85f4"
+    let white = "#eaeaea"
 
     const backgroundColors = [coral, darkshellpurple, goldensun, mojito, skyblue]
     const introduction = "We turn good concepts into great web apps."
@@ -50,11 +53,13 @@ export function Home() {
                     <div className="margined">
                         <h4>Latest Project</h4>
                         <h3 className="outline_coral">John Q. Citizen portfolio redesign</h3>
-
-                        <Link to="/">
-                            <h6>Check it out.</h6>
-                        </Link>
                     </div>
+                </div>
+
+                <div id="home-latest-project" className="btn-circle">
+                    <IconContext.Provider value={{ color: white, size: "2.25rem" }}>
+                        <IoMdArrowForward />
+                    </IconContext.Provider>
                 </div>
             </div>
 
