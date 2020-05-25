@@ -3,10 +3,11 @@
 
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Hero } from '../universals/Snacks'
 import { IconContext } from 'react-icons'
 import { IoMdMail } from 'react-icons/io'
 import { RiLockPasswordLine, RiSpyLine } from 'react-icons/ri'
+
+import { Hero } from '../supplements/Snacks'
 
 
 // ============================== CHECKPOINT: LOGIN & SIGNUP
@@ -73,7 +74,7 @@ export function Checkpoint() {
     return (
         <div className="container">
             <Hero
-                boldStatement={isInvitation ? "For members only. Log in with email and password." : "Join the lighter side. By invitation only."} />
+                hero={isInvitation ? "For members only. Log in with email and password." : "Join the lighter side. By invitation only."} />
 
             <div id="registration" className="margined">
                 <div className="faux-button">

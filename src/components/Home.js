@@ -3,24 +3,27 @@
 
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { highlightPunctuation, randomize } from '../Functions'
-import { concepts, humans } from '../Images'
-import { Hero } from '../universals/Snacks'
+
+import { Hero } from '../supplements/Snacks'
+
+import { highlightPunctuation, randomize } from '../supplements/Functions'
+import { concepts, humans } from '../supplements/Images'
 
 // ============================== HOMEPAGE
 // ============================== HOMEPAGE
 
 export function Home() {
+    const [skillSide, setskillSide] = useState(null)
+
     let coral = "#F5154F"
     let darkshellpurple = "#460096"
     let goldensun = "#ffa800"
     let mojito = "#35b883"
     let skyblue = "#3a85f4"
 
-    const [introduction, setIntroduction] = useState("We turn good concepts into great web apps.")
-    const [skillSide, setskillSide] = useState(null)
-    const [skillBackgroundColors, setskillBackgroundColors] = useState([coral, darkshellpurple, goldensun, mojito, skyblue])
-    const [skills, setSkills] = useState(["AngularJS", "Atlas", "Bootstrap", "BCrypt", "CSS3", "Express", "Express Session", "Figma", "Git", "GitHub", "Heroku", "HTML5", "JavaScript", "jQuery", "LESS", "Materialize", "MEAN stack", "MERN stack", "Microsoft Visual Studio Code", "MongoDB", "Mongoose", "Object Oriented Programming", "NERDS stack", "NodeJS", "PostgreSQL", "Postman", "React", "React Native", "RESTful APIs", "Ruby", "Ruby on Rails", "SASS", "Shopify", "Terminal", "Weebly", "Wordpress"])
+    const backgroundColors = [coral, darkshellpurple, goldensun, mojito, skyblue]
+    const introduction = "We turn good concepts into great web apps."
+    const homeSkills = ["AngularJS", "Atlas", "Bootstrap", "BCrypt", "CSS3", "Express", "Express Session", "Figma", "Git", "GitHub", "Heroku", "HTML5", "JavaScript", "jQuery", "LESS", "Materialize", "MEAN stack", "MERN stack", "Microsoft Visual Studio Code", "MongoDB", "Mongoose", "Object Oriented Programming", "NERDS stack", "NodeJS", "PostgreSQL", "Postman", "React", "React Native", "RESTful APIs", "Ruby", "Ruby on Rails", "SASS", "Shopify", "Terminal", "Weebly", "Wordpress"]
 
     function measureSkillHeight() {
         setskillSide(window.innerWidth / 3)
@@ -36,7 +39,7 @@ export function Home() {
 
     return (
         <div className="container">
-            <Hero boldStatement={introduction} />
+            <Hero hero={introduction} />
 
             <div className="project-spotlight" style={{
                 backgroundImage: `url(${concepts.johnQCitizen})`,
@@ -72,12 +75,12 @@ export function Home() {
             </div>
 
             <div className="skillgrid">
-                {skills.map((skill, _key) => {
+                {homeSkills.map((skill, i) => {
                     return (
-                        <div key={_key} className="skillblock" style={{
-                            backgroundColor: `${randomize(skillBackgroundColors)}`,
-                            height: `${skillSide}` + 'px',
-                            width: `${skillSide}` + 'px',
+                        <div key={i} className="skillblock" style={{
+                            backgroundColor: randomize(backgroundColors),
+                            height: skillSide + 'px',
+                            width: skillSide + 'px',
                         }}>
                             <h6>{skill}</h6>
                         </div>

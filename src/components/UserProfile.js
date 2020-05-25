@@ -2,10 +2,12 @@
 // ============================== IMPORTS
 
 import React, { useState, useEffect } from 'react'
-import { humans } from '../Images'
 import { IconContext } from 'react-icons'
 import { IoLogoGithub, IoLogoLinkedin, IoMdMail } from 'react-icons/io'
-import { highlightPunctuation } from '../Functions'
+
+import { highlightPunctuation } from '../supplements/Functions'
+import { humans } from '../supplements/Images'
+
 
 // ============================== USER PROFILE
 // ============================== USER PROFILE
@@ -13,7 +15,7 @@ import { highlightPunctuation } from '../Functions'
 export function UserProfile() {
     const [locationMetrics, setLocationMetrics] = useState({ city: null, state: null })
 
-    function calcLocatioMetrics() {
+    function calcLocationMetrics() {
         const cityTown = document.getElementById("city").offsetWidth
         const stateProvince = document.getElementById("state").offsetWidth
 
@@ -24,7 +26,7 @@ export function UserProfile() {
     }
 
     useEffect(() => {
-        calcLocatioMetrics()
+        calcLocationMetrics()
     }, [])
 
     return (
