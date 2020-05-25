@@ -85,20 +85,20 @@ export function Checkpoint() {
                     {isLogin ? <form id="join-form" onSubmit={createAccount}>
 
                         <div className="input-row">
-                            <label for="email" hidden>Email</label>
+                            <label htmlFor="email" hidden>Email</label>
                             <div className="sticker"><IoMdMail /></div>
                             <input type="email" placeholder="email address" value={email} onChange={onChangeEmail} />
                         </div>
 
                         <div className="input-row">
-                            <label for="password" hidden>Password</label>
+                            <label htmlFor="password" hidden>Password</label>
                             <div className="sticker"><RiLockPasswordLine /></div>
                             <input type="password" placeholder="password" value={password} onChange={onChangePassword} />
                         </div>
 
                         <div className="submit-row">
                             <div className="input-row">
-                                <label for="code" hidden>Invite code</label>
+                                <label htmlFor="code" hidden>Invite code</label>
                                 <div className="sticker"><RiSpyLine /></div>
                                 <input type="text" placeholder="code" />
                             </div>
