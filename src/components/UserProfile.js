@@ -2,7 +2,9 @@
 // ============================== IMPORTS
 
 import React, { useState, useEffect } from 'react'
-import { humans, icons } from '../Images'
+import { humans } from '../Images'
+import { IconContext } from 'react-icons'
+import { IoLogoGithub, IoLogoLinkedin, IoMdMail } from 'react-icons/io'
 import { highlightPunctuation } from '../Functions'
 
 // ============================== USER PROFILE
@@ -23,7 +25,7 @@ export function UserProfile() {
 
     useEffect(() => {
         calcLocatioMetrics()
-    })
+    }, [])
 
     return (
         <div id="user-profile" className="container">
@@ -33,10 +35,12 @@ export function UserProfile() {
                 <h6 className="beachfoam">Software Engineer</h6>
 
                 <div className="contacts">
-                    <img src={icons.contactEmail} className="contact-icon" alt="Send an email." />
-                    <img src={icons.linkedin} className="contact-icon" alt="Send an email." />
-                    <img src={icons.github} className="contact-icon" alt="Send an email." />
-                </div>
+                    <IconContext.Provider value={{ color: "#111925", size: "20px" }}>
+                        <a href="mailto:winslow@lighterfluid.co"><IoMdMail /></a>
+                        <a href="https://www.linkedin.com"><IoLogoLinkedin /></a>
+                        <a href="https://www.github.com"><IoLogoGithub /></a>
+                    </IconContext.Provider>
+                </div>w
             </section>
 
             <section className="bio margined">

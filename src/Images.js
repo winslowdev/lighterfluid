@@ -21,7 +21,6 @@ export const humans = {
 export const icons = {
     externalArrow: require('./images/icons/external-arrow.png'),
     code: require('./images/icons/code.png'),
-    contactEmail: require('./images/icons/email2.png'),
     email: require('./images/icons/email.png'),
     github: require('./images/icons/github.png'),
     linkedin: require('./images/icons/linkedin.png'),
