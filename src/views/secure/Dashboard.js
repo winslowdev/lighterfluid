@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
 
-export class Dashboard extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-        }
-    }
+import { Header, Hero } from '../../universals/Snacks'
 
+export class Dashboard extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="hero">
-                    <h6 className={this.props.theme.importantText}>Here's your dashboard. <br />Try not to get dashbored.</h6>
-                </div>
+                <Header />
+                <Hero
+                    statement={[`Here's your dashboard.`, <br />, `Try not to get dashboard.`]}
+                    theme={this.props.theme} />
             </React.Fragment>
         )
     }

@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
     if (bcrypt.compareSync(req.body.password, foundUser.password)) {
       req.session.currentUser = foundUser;
       res.status(201).json({
-        status:201,
+        status: 201,
         message: 'Session created.'
       })
     } else {
