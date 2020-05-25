@@ -4,7 +4,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Hero } from '../universals/Snacks'
-import { icons } from '../Images'
+import { IconContext } from 'react-icons'
+import { IoMdMail } from 'react-icons/io'
+import { RiLockPasswordLine, RiSpyLine } from 'react-icons/ri'
 
 
 // ============================== CHECKPOINT: LOGIN & SIGNUP
@@ -78,47 +80,50 @@ export function Checkpoint() {
                     <p onClick={() => { toggleFormType() }}>{isInvitation ? "Joining with an invite code?" : "Already have an account?"}</p>
                     <div className="link-underline"></div>
                 </div>
+                <IconContext.Provider value={{ color: "#797d83" }}>
 
-                {isLogin ? <form id="join-form" onSubmit={createAccount}>
+                    {isLogin ? <form id="join-form" onSubmit={createAccount}>
 
-                    <div className="input-row">
-                        <label for="email" hidden>Email</label>
-                        <div className="sticker"><img src={icons.email} alt="email icon" /></div>
-                        <input type="email" placeholder="email address" value={email} onChange={onChangeEmail} />
-                    </div>
-
-                    <div className="input-row">
-                        <label for="password" hidden>Password</label>
-                        <div className="sticker"><img src={icons.password} alt="email icon" /></div>
-                        <input type="password" placeholder="password" value={password} onChange={onChangePassword} />
-                    </div>
-
-                    <div className="submit-row">
                         <div className="input-row">
-                            <label for="code" hidden>Invite code</label>
-                            <div className="sticker"><img src={icons.code} alt="code icon" /></div>
-                            <input type="text" placeholder="code" />
+                            <label for="email" hidden>Email</label>
+                            <div className="sticker"><IoMdMail /></div>
+                            <input type="email" placeholder="email address" value={email} onChange={onChangeEmail} />
                         </div>
 
-                        <input type="submit" className="go-button" value="Go" />
-                    </div>
-                </form>
-
-                    : <form id="login-form" onSubmit={login}>
                         <div className="input-row">
-                            <div className="sticker"><img src={icons.email} alt="email icon" /></div>
-                            <input type="email" placeholder="email address" value={email} onChange={onChangeEmail} />
+                            <label for="password" hidden>Password</label>
+                            <div className="sticker"><RiLockPasswordLine /></div>
+                            <input type="password" placeholder="password" value={password} onChange={onChangePassword} />
                         </div>
 
                         <div className="submit-row">
                             <div className="input-row">
-                                <div className="sticker"><img src={icons.password} alt="email icon" /></div>
-                                <input type="password" placeholder="password" value={password} onChange={onChangePassword} />
+                                <label for="code" hidden>Invite code</label>
+                                <div className="sticker"><RiSpyLine /></div>
+                                <input type="text" placeholder="code" />
                             </div>
 
                             <input type="submit" className="go-button" value="Go" />
                         </div>
-                    </form>}
+                    </form>
+
+                        : <form id="login-form" onSubmit={login}>
+                            <div className="input-row">
+                                <div className="sticker"><IoMdMail /></div>
+                                <input type="email" placeholder="email address" value={email} onChange={onChangeEmail} />
+                            </div>
+
+                            <div className="submit-row">
+                                <div className="input-row">
+                                    <div className="sticker"><RiLockPasswordLine /></div>
+                                    <input type="password" placeholder="password" value={password} onChange={onChangePassword} />
+                                </div>
+
+                                <input type="submit" className="go-button" value="Go" />
+                            </div>
+                        </form>}
+
+                </IconContext.Provider>
             </div>
         </div>
     )
