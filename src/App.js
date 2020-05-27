@@ -22,7 +22,6 @@ export default function App() {
         const footerTextOptions = [
             "the best way to organize a space party is to planet",
             "react, star trek, and frosted mini-wheats are all part of a balanced diet",
-            "may your reality be your own creation",
             "reality got you down? why not try a conspiracy theory"
         ]
 

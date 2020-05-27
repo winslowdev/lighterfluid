@@ -337,30 +337,15 @@ footer {
     text-align: center;
 }
 
-
 /* ============================== HOME — SKILLS */
 /* ============================== HOME — SKILLS */
 
-.skillgrid {
+#expanse {
     align-items: flex-start;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-}
-
-.skillblock {
-    align-items: center;
-    background-color: ghostwhite;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.skillblock :first-child {
-    font-weight: 700;
-    text-align: center;
-    width: 80%;
 }
 
 
@@ -505,7 +490,19 @@ h1, h4 {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 1.9rem;
+}
+
+@media screen and (min-width: 351px) {
+    h1 {
+        font-size: 2.3rem;
+    }
+}
+
+@media screen and (min-width: 412px) {
+    h1 {
+        font-size: 2.5rem;
+    }
 }
 
 h3 {
