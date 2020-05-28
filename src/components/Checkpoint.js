@@ -77,9 +77,9 @@ export function Checkpoint() {
                 hero={isInvitation ? "For members only. Log in with email and password." : "Join the lighter side. By invitation only."} />
 
             <div id="registration" className="margined">
-                <div className="faux-button">
+                <div className="btn-inline">
                     <p onClick={() => { toggleFormType() }}>{isInvitation ? "Joining with an invite code?" : "Already have an account?"}</p>
-                    <div className="link-underline"></div>
+                    <div className="underscore"></div>
                 </div>
                 <IconContext.Provider value={{ color: "#797d83" }}>
 
@@ -104,7 +104,8 @@ export function Checkpoint() {
                                 <input type="text" placeholder="code" />
                             </div>
 
-                            <input type="submit" className="go-button" value="Go" />
+                            <button type="submit" className="btn-regular">Go</button>
+
                         </div>
                     </form>
 
@@ -120,7 +121,7 @@ export function Checkpoint() {
                                     <input type="password" placeholder="password" value={password} onChange={onChangePassword} />
                                 </div>
 
-                                <input type="submit" className="go-button" value="Go" />
+                                <button type="submit" className="btn-regular">Go</button>
                             </div>
                         </form>}
 

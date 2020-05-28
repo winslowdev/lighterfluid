@@ -2,7 +2,6 @@
 // ============================== IMPORTS
 
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { IconContext } from 'react-icons'
 import { IoMdArrowForward } from 'react-icons/io'
 
@@ -14,8 +13,9 @@ import { concepts, humans } from '../supplements/Images'
 // ============================== HOMEPAGE
 // ============================== HOMEPAGE
 
-export function Home() {
+export function Home(props) {
     const introduction = "We turn good concepts into great web apps."
+    const services = ["UI / UX design", "Web design", "Wordpress & Squarespace templates"]
     const [colors, setColors] = useState({
         "blue": "#3a85f4",
         "gold": "#ffa800",
@@ -41,11 +41,11 @@ export function Home() {
                     </div>
                 </div>
 
-                <div id="home-latest-project" className="btn-circle">
+                <button className="btn-round">
                     <IconContext.Provider value={{ color: colors.white, size: "2.25rem" }}>
                         <IoMdArrowForward />
                     </IconContext.Provider>
-                </div>
+                </button>
             </div>
 
             <div className="about-us margined">
@@ -66,14 +66,27 @@ export function Home() {
 
             <div id="expanse"></div>
 
-            <div className="for-hire">
-                <div className="hire-information margined">
-                    <h4>{highlightPunctuation("Let's work together.")}</h4>
+            <div className="info-footer">
+                <div className="info-footer_info margined">
+                    <h2>{highlightPunctuation("Let's work together.")}</h2>
 
                     <p>Whether you wanna rework an existing project or code something from the root up, we can help find the right solution for you.</p>
-                    <Link to="/">
-                        <button className="on-oceandark">Send us an email</button>
-                    </Link>
+
+                    <ul className="info-footer_services">
+                        {services.map((service, _i) => {
+                            return (
+                                <li key={_i}>{service}</li>
+                            )
+                        })}
+                    </ul>
+
+
+                    <a href="mailto:hello@lighterfluid.co">
+                        <div className="btn-inline">
+                            <p id="information-email">Send us an email</p>
+                            <div className="underscore"></div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

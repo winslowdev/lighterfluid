@@ -42,7 +42,7 @@ export function UserProfile() {
                         <a href="https://www.linkedin.com"><IoLogoLinkedin /></a>
                         <a href="https://www.github.com"><IoLogoGithub /></a>
                     </IconContext.Provider>
-                </div>w
+                </div>
             </section>
 
             <section className="bio margined">

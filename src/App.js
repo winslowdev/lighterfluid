@@ -10,6 +10,7 @@ import { Checkpoint } from './components/Checkpoint'
 import { UserProfile } from './components/UserProfile'
 
 import { randomize } from './supplements/Functions'
+import { Dashboard } from './components/Dashboard'
 
 
 // ============================== APPLICATION
@@ -31,7 +32,7 @@ export default function App() {
 
     useEffect(() => {
         randomizeFooterMessage()
-    })
+    }, [])
 
     return (
         <Router>
@@ -52,6 +53,10 @@ export default function App() {
 
                 <Route exact path="/developers/jack">
                     <UserProfile />
+                </Route>
+
+                <Route exact path="/secure/dashboard">
+                    <Dashboard />
                 </Route>
             </Switch>
 

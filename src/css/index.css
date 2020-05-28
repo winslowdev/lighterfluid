@@ -48,15 +48,11 @@
     --coral: #EB5757;
     --goldensun: #ffa800;
     --mojito: #35b883;
+    --ocean: #30415B;
     --oceandark: #111925;
     --skyblue: #3a85f4;
     --darkshellpurple: #460096;
     --white: #eaeaea;
-}
-
-.on-oceandark {
-    background-color: var(--coral);
-    color: var(--white);
 }
 
 .beachfoam {
@@ -101,25 +97,39 @@ body {
 
 button {
     border: none;
-    border-radius: 3px;
     font-size: 1rem;
+}
+
+button, .btn-regular, .btn-inline, .btn-round {
+    cursor: pointer;
+}
+
+.btn-regular {
+    background-color: var(--coral);
+    border-radius: 5px;
+    color: var(--white);
     font-weight: 500;
     padding: 15px 20px;
 }
 
-.link-underline {
-    background-color: var(--coral);
-    border-radius: 10px;
-    height: 4px;
-    margin-top: 5px;
-    width: 100px;    
+.btn-inline {
+    display: inline-block;
+    margin-bottom: 75px;
 }
 
-.faux-button p {
-    display: inline;
-}
+    .btn-inline p {
+        display: inline;
+    }
 
-.btn-circle {
+    .underscore {
+        background-color: var(--coral);
+        border-radius: 10px;
+        height: 3px;
+        margin-top: 6px;   
+    }
+
+
+.btn-round {
     align-items: center;
     background-color: var(--oceandark);
     border: 3px solid var(--coral);
@@ -129,14 +139,14 @@ button {
     height: 50px;
     justify-content: center;
     width: 50px;
-    
 }
 
-#home-latest-project {
+.project-spotlight button {
     margin: 0 5% 0 auto;
     position: relative;
     top: -25px;
 }
+
 
 
 
@@ -206,17 +216,10 @@ input::placeholder {
     width: 90%;
 }
 
-.submit-row input[type="submit"] {
+#join-form button, #login-form button {
     margin-left: 10px;
-}
-
-input[type="submit"] {
-    background-color: var(--coral);
-    border-radius: 5px;
-    margin: 0 auto;
     width: 75px;
 }
-
 
 /* ============================== HEADER */
 /* ============================== HEADER */
@@ -352,31 +355,52 @@ footer {
 /* ============================== HOME — FOR HIRE */
 /* ============================== HOME — FOR HIRE */
 
-.for-hire {
-    background-color: var(--oceandark);
-    margin-top: 0;
-    padding: 60px 0 80px;
+ul {
+    margin: 0;
+    padding: 0;
 }
 
-.for-hire h4 {
+.info-footer {
+    background-color: var(--oceandark);
+    margin-top: 0;
+    padding: 40px 0 80px;
+}
+
+.info-footer h2 {
     color: var(--white);
-    margin: 0 auto;
+    margin: 0 auto 50px;
     text-align: center;
     width: 80%;
 }
 
-.for-hire p {
-    color: var(--white);
-    margin: 70px auto 50px;
+.info-footer p {
+    color: var(--ocean);
+    margin-bottom: 35px;
     text-align: center;
-    width: 92%;
+    width: 100%;
 }
 
-.hire-information {
+.info-footer_info {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+.info-footer_services {
+    margin-bottom: 50px;
+}
+
+.info-footer_services li {
+    color: var(--ocean);
+    list-style: none;
+    margin: 5px auto;
+    text-align: center;
+    width: 75%;
+}
+
+.info-footer .btn-inline p {
+    color: var(--white);
 }
 
 
@@ -387,9 +411,7 @@ footer {
     margin-bottom: 100px;
 }
 
-.faux-button {
-    margin-bottom: 75px;
-}
+
 
 #login-form {
     margin-bottom: 30px;   
@@ -461,17 +483,35 @@ footer {
     height: 170px;
     justify-content: center;
     margin: 0 auto;
+    width: 100%;
 }
 
 .location h4 {
-    display: inline-block;
+    display: inline;
     font-family: 'Integral CF Demibold';
     font-style: oblique;
-    max-width: 300px;
 }
 
 
+/* ============================== DASHBOARD */
+/* ============================== DASHBOARD */
 
+#dashboard .hero {
+    margin-bottom: 85px;
+}
+
+.dashboard_duo {
+    margin-bottom: 40px;
+}
+
+.dashboard_duo h4 {
+    color: var(--coral);
+    margin-bottom: 5px;
+}
+
+.dashboard_duo p {
+    color: var(--beachfoam);
+}
 
 /* ============================== TEXT & FONT */
 /* ============================== TEXT & FONT */
@@ -484,9 +524,13 @@ h1, h3, h4, h5, h6, p {
     margin: 0;
 }
 
-h1, h4 {
+h1, h2, h4 {
     font-family: 'Integral CF Bold';
     letter-spacing: 0;
+}
+
+h5, h6, p, li {
+    font-family: var(--default);
 }
 
 h1 {
@@ -505,8 +549,15 @@ h1 {
     }
 }
 
-h3 {
+h2 {
     color: var(--white);
+    font-size: 2.1875rem;
+    line-height: 1;
+    text-align: center;
+}
+
+h3 {
+    
     -webkit-text-fill-color: #ffffff00;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--white);
@@ -526,9 +577,9 @@ h5 {
     font-weight: 700;
 }
 
-h6, p {
+h6, p, li {
     font-family: var(--default);
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 1.4;
 }
 
