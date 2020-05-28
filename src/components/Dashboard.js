@@ -2,6 +2,7 @@
 // ============================== IMPORTS
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { Hero } from '../supplements/Snacks'
 
@@ -15,20 +16,27 @@ export function Dashboard() {
             <Hero hero="Here's your dashboard. Try not to get dashbored." />
 
             <div className="dashboard_duos margined">
-                <div className="dashboard_duo">
-                    <h4>Your profile</h4>
-                    <p>Update your name, location, etc.</p>
-                </div>
 
-                <div className="dashboard_duo">
-                    <h4>Account settings</h4>
-                    <p>Change your email address or password.</p>
-                </div>
+                <Link to="/secure/profile">
+                    <div className="dashboard_duo">
+                        <h4>Your profile</h4>
+                        <p>Update your name, location, etc.</p>
+                    </div>
+                </Link>
 
-                <div className="dashboard_duo">
-                    <h4>Your profile</h4>
-                    <p>Update your name, location, etc.</p>
-                </div>
+                <Link to="/secure/account">
+                    <div className="dashboard_duo">
+                        <h4>Account settings</h4>
+                        <p>Change your email address or password.</p>
+                    </div>
+                </Link>
+
+                <Link to="/secure/projects">
+                    <div className="dashboard_duo">
+                        <h4>Workspace</h4>
+                        <p>Add or update your projects.</p>
+                    </div>
+                </Link>
             </div>
         </div>
     )

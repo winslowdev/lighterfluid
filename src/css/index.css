@@ -238,8 +238,34 @@ header {
 
     header a {
         color: var(--beachfoam);
+        margin-left: auto;
     }
 
+#navicon {
+    margin: 4px 5.5% 0 auto;
+}
+
+.navicon-top, .navicon-middle, .navicon-bottom {
+    background-color: var(--beachfoam);
+    height: 3px;
+    margin-bottom: 3px;
+    position: relative;
+}
+
+.navicon-top {
+    width: 21px;
+}
+
+.navicon-middle {
+    margin-left: auto;
+    right: -5px;
+    width: 17px;
+}
+
+.navicon-bottom {
+    margin: 0 0 0 auto;
+    width: 17px;
+}
 
 /* ============================== FOOTER */
 /* ============================== FOOTER */
@@ -258,7 +284,7 @@ footer {
     }
 
     footer a {
-        color: var(--oceandark);
+        color: var(--beachfoam);
     }
 
 
@@ -507,6 +533,10 @@ ul {
 .dashboard_duo h4 {
     color: var(--coral);
     margin-bottom: 5px;
+}
+
+.dashboard_duo h4:hover {
+    color: var(--ocean);
 }
 
 .dashboard_duo p {

@@ -40,6 +40,12 @@ export default function App() {
                 <Link to="/">
                     <h4>Lighterfluid</h4>
                 </Link>
+
+                <div id="navicon">
+                    <div className="navicon-top"></div>
+                    <div className="navicon-middle"></div>
+                    <div className="navicon-bottom"></div>
+                </div>
             </header>
 
             <Switch>
@@ -55,7 +61,7 @@ export default function App() {
                     <UserProfile />
                 </Route>
 
-                <Route exact path="/secure/dashboard">
+                <Route exact path="/secure/home">
                     <Dashboard />
                 </Route>
             </Switch>
