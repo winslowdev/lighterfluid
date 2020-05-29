@@ -244,13 +244,21 @@ header {
     z-index: 9999;
 }
 
-    header a {
-        color: var(--beachfoam);
-        margin-left: auto;
-    }
+#header_navigation {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#header_navigation a {
+    color: var(--beachfoam);
+    display: block;
+    margin-left: auto;
+}
 
 #navicon {
-    margin: 4px 5.5% 0 auto;
+    margin-left: auto;
 }
 
 .navicon-top, .navicon-middle, .navicon-bottom {
