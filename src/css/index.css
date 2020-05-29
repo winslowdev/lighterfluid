@@ -552,10 +552,6 @@ ul {
 /* ====== PROFILE MODAL */
 /* ====== PROFILE MODAL */
 
-#profile_modal {
-    margin-bottom: 40px;
-}
-
 .profile_modal-toggles {
     display: flex;
     flex-direction: row;
