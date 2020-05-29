@@ -123,7 +123,6 @@ button, .btn-regular, .btn-inline, .btn-round {
 
 .btn-inline {
     display: inline-block;
-    margin-bottom: 75px;
 }
 
     .btn-inline p {
@@ -155,13 +154,7 @@ button, .btn-regular, .btn-inline, .btn-round {
     position: relative;
 }
 
-.project-spotlight .btn-round-image {
-    top: -25px;
-}
 
-.project_image .btn-round-image {
-    top: 25px;
-}
 
 
 
@@ -302,27 +295,27 @@ footer {
         color: var(--beachfoam);
     }
 
+/* ============================== PROJECT IMAGE */
+/* ============================== PROJECT IMAGE */
 
-/* ============================== HOME — HERO */
-/* ============================== HOME — HERO */
-
-.hero {
-    margin-bottom: 40px;
-}
-
-
-/* ============================== HOME — LATEST PROJECT */
-/* ============================== HOME — LATEST PROJECT */
-
-.project-spotlight {
-    height: 330px;
+.project_image {
     width: 100%;
-    z-index: 100;
 }
 
-.spotlight-cover {
+#home .project_image {
+    height: 330px;
+}
+
+#project .project_image {
+    display: flex;
+    flex-direction: column;
+    height: 275px;
+    justify-content: flex-end;
+    margin-bottom: 65px;
+}
+
+.cover {
     align-items: flex-start;
-    background-color: var(--oceandark);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -332,40 +325,53 @@ footer {
     width: 100%;
 }
 
-    .spotlight-cover h4 {
+.project-square .cover {
+    opacity: 0.85;
+}
+
+    .cover h4 {
         color: var(--white);
         margin-bottom: 5px;
     }
 
-    .spotlight-cover h6 {
+    .cover h6 {
         color: var(--white);
         margin-top: 35px;
     }
 
-    .project-square .spotlight-cover {
-        opacity: 0.85;
-    }
+#home .project_image .btn-round-image {
+    top: -25px;
+}
 
-/* ============================== HOME — ABOUT US */
-/* ============================== HOME — ABOUT US */
+#project .project_image .btn-round-image {
+    top: 25px;
+}
 
-.about-us {
+
+/* ============================== HOME */
+/* ============================== HOME */
+
+.hero {
+    margin-bottom: 40px;
+}
+
+#home_about {
     margin: 60px auto;
 }
 
-.about-us h6 {
+#home_about h6 {
     margin-bottom: 50px;
     text-align: center;
 }
 
-.dynamic-duo {
+.columned-previews {
     align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.link-bundle {
+.preview {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -373,21 +379,18 @@ footer {
     width: 40%;
 }
 
-.link-bundle img {
+.preview img {
     border-radius: 50%;
     height: 75px;
     margin-bottom: 15px;
     width: 75px;
 }
 
-.link-bundle h5 {
+.preview h5 {
     text-align: center;
 }
 
-/* ============================== HOME — SKILLS */
-/* ============================== HOME — SKILLS */
-
-#expanse {
+#antivoid {
     align-items: flex-start;
     display: flex;
     flex-direction: row;
@@ -404,38 +407,38 @@ ul {
     padding: 0;
 }
 
-.info-footer {
+.home_footer {
     background-color: var(--oceandark);
     margin-top: 0;
-    padding: 40px 0 80px;
+    padding: 40px 0 60px;
 }
 
-.info-footer h2 {
+.home_footer h2 {
     color: var(--white);
     margin: 0 auto 50px;
     text-align: center;
     width: 80%;
 }
 
-.info-footer p {
+.home_footer p {
     color: var(--ocean);
     margin-bottom: 35px;
     text-align: center;
     width: 100%;
 }
 
-.info-footer_info {
+.home_footer-info {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.info-footer_services {
+.home_footer-services {
     margin-bottom: 50px;
 }
 
-.info-footer_services li {
+.home_footer-services li {
     color: var(--ocean);
     list-style: none;
     margin: 5px auto;
@@ -443,7 +446,7 @@ ul {
     width: 75%;
 }
 
-.info-footer .btn-inline p {
+.home_footer .btn-inline p {
     color: var(--white);
 }
 
@@ -455,6 +458,9 @@ ul {
     margin-bottom: 100px;
 }
 
+#registration .btn-inline {
+    margin-bottom: 75px;
+}
 
 
 #login-form {
@@ -661,14 +667,7 @@ ul {
     margin-bottom: 25px;
 }
 
-.project_image {
-    display: flex;
-    flex-direction: column;
-    height: 275px;
-    justify-content: flex-end;
-    margin-bottom: 65px;
-    width: 100%;
-}
+
 
 .project_sheet {
     margin-bottom: 30px;
@@ -752,6 +751,7 @@ h4 {
 h5 {
     font-size: 1.5625rem;
     font-weight: 700;
+    line-height: 1;
 }
 
 h6, li, p {

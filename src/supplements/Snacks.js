@@ -62,7 +62,7 @@ export function ProjectSquare(props) {
             backgroundPositionX: '-150px',
             width: squareLength + 'px', height: squareLength + 'px'
         }}>
-            <div className="spotlight-cover" style={{
+            <div className="cover" style={{
                 backgroundColor: props.color }}>
                 <div className="margined">
                     <h6 style={{ color: correctTextColor() }}>{props.title}</h6>

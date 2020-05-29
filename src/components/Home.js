@@ -11,24 +11,25 @@ import { colors } from '../supplements/Variables'
 import { highlightPunctuation } from '../supplements/Functions'
 import { concepts, humans } from '../supplements/Images'
 
+
 // ============================== HOMEPAGE
 // ============================== HOMEPAGE
 
 export function Home(props) {
     const introduction = "We turn good concepts into great web apps."
     const services = ["UI / UX design", "Web design", "Wordpress & Squarespace templates"]
-    
+
 
     return (
-        <div className="container">
+        <div id="home" className="container">
             <Hero hero={introduction} />
 
-            <div className="project-spotlight" style={{
+            <div className="project_image" style={{
                 backgroundImage: `url(${concepts.johnQCitizen})`,
                 backgroundSize: 'cover',
                 backgroundPositionX: '-150px'
             }}>
-                <div className="spotlight-cover">
+                <div className="cover" style={{ backgroundColor: colors.oceandark }}>
                     <div className="margined">
                         <h4>Latest Project</h4>
                         <h3 className="outline_coral">John Q. Citizen portfolio redesign</h3>
@@ -42,38 +43,37 @@ export function Home(props) {
                 </button>
             </div>
 
-            <div className="about-us margined">
+            <div id="home_about" className="margined">
                 <h6>We are two US-based software engineers located in San Francisco and Atlanta.</h6>
 
-                <div className="dynamic-duo">
-                    <div className="link-bundle">
-                        <img src={humans.man1} alt="~" />
-                        <h5>Winslow Mays</h5>
+                <div className="columned-previews">
+                    <div className="preview">
+                        <img src={humans.man1} alt="Ross Davidson" />
+                        <h5>Ross</h5>
                     </div>
 
-                    <div className="link-bundle">
-                        <img src={humans.man2} alt="~" />
-                        <h5>Ross Davidson</h5>
+                    <div className="preview">
+                        <img src={humans.man2} alt="Winslow Mays" />
+                        <h5>Winslow</h5>
                     </div>
                 </div>
             </div>
 
-            <div id="expanse"></div>
+            <div id="antivoid"></div>
 
-            <div className="info-footer">
-                <div className="info-footer_info margined">
+            <div className="home_footer">
+                <div className="home_footer-info margined">
                     <h2>{highlightPunctuation("Let's work together.")}</h2>
 
                     <p>Whether you wanna rework an existing project or code something from the root up, we can help find the right solution for you.</p>
 
-                    <ul className="info-footer_services">
+                    <ul className="home_footer-services">
                         {services.map((service, _i) => {
                             return (
                                 <li key={_i}>{service}</li>
                             )
                         })}
                     </ul>
-
 
                     <a href="mailto:hello@lighterfluid.co">
                         <div className="btn-inline">
