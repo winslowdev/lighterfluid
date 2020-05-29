@@ -38,14 +38,16 @@ export default function App() {
     return (
         <Router>
             <header>
-                <Link to="/">
-                    <h4>Lighterfluid</h4>
-                </Link>
+                <div id="header_navigation" className="margined">
+                    <Link to="/">
+                        <h4>Lighterfluid</h4>
+                    </Link>
 
-                <div id="navicon">
-                    <div className="navicon-top"></div>
-                    <div className="navicon-middle"></div>
-                    <div className="navicon-bottom"></div>
+                    <div id="navicon">
+                        <div className="navicon-top"></div>
+                        <div className="navicon-middle"></div>
+                        <div className="navicon-bottom"></div>
+                    </div>
                 </div>
             </header>
 
