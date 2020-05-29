@@ -7,10 +7,11 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 
 import { Home } from './components/Home'
 import { Checkpoint } from './components/Checkpoint'
-import { UserProfile } from './components/UserProfile'
+import { Profile } from './components/Profile'
 
 import { randomize } from './supplements/Functions'
 import { Dashboard } from './components/Dashboard'
+import { Project } from './components/Project'
 
 
 // ============================== APPLICATION
@@ -58,7 +59,11 @@ export default function App() {
                 </Route>
 
                 <Route exact path="/developers/jack">
-                    <UserProfile />
+                    <Profile />
+                </Route>
+
+                <Route exact path="/projects/xxx">
+                    <Project />
                 </Route>
 
                 <Route exact path="/secure/home">

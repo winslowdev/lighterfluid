@@ -91,6 +91,10 @@ body {
     color: var(--oceandark);
 }
 
+/* * {
+    border: 0.25px solid #191919;
+} */
+
 
 /* ============================== BUTTONS */
 /* ============================== BUTTONS */
@@ -141,12 +145,18 @@ button, .btn-regular, .btn-inline, .btn-round {
     width: 50px;
 }
 
-.project-spotlight button {
+.btn-round-image {
     margin: 0 5% 0 auto;
     position: relative;
+}
+
+.project-spotlight .btn-round-image {
     top: -25px;
 }
 
+.project_image .btn-round-image {
+    top: 25px;
+}
 
 
 
@@ -310,7 +320,7 @@ footer {
     background-color: var(--oceandark);
     display: flex;
     flex-direction: column;
-    height: 330px;
+    height: 100%;
     justify-content: center;
     opacity: 0.97;
     position: relative;
@@ -327,6 +337,9 @@ footer {
         margin-top: 35px;
     }
 
+    .project-square .spotlight-cover {
+        opacity: 0.85;
+    }
 
 /* ============================== HOME — ABOUT US */
 /* ============================== HOME — ABOUT US */
@@ -497,27 +510,132 @@ ul {
         width: auto;
     }
 
-.bio h6 {
+
+
+
+/* ====== PROFILE STATEMENT */
+/* ====== PROFILE STATEMENT */
+
+#profile_statement h6 {
     color: var(--beachfoam);
     text-align: center;
 }
 
-.location {
+/* ====== PROFILE LOCATION */
+/* ====== PROFILE LOCATION */
+
+#profile_locale {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
-    height: 170px;
     justify-content: center;
-    margin: 0 auto;
-    width: 100%;
+    height: 200px;
+    margin: 10px auto;
 }
 
-.location h4 {
+.profile_locale-info {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.profile_locale-info h4 {
     display: inline;
     font-family: 'Integral CF Demibold';
     font-style: oblique;
 }
 
+.profile_locale-info h4:nth-of-type(1) {
+    color: var(--coral);
+}
+
+.profile_locale-info .punctuation {
+    color: var(--oceandark)
+}
+
+/* ====== PROFILE MODAL */
+/* ====== PROFILE MODAL */
+
+#profile_modal {
+    margin-bottom: 40px;
+}
+
+.profile_modal-toggles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto 45px;
+    width: 65%;
+}
+
+.profile_modal-toggles h6 {
+    color: var(--beachfoam);
+    font-weight: 700;
+}
+
+.profile_modal-toggles h6:hover {
+    color: var(--ocean);
+}
+
+#profile_modal-projects, #profile_modal-skills {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+#profile_modal-projects {
+    width: 100%;
+}
+
+.project-square {
+    align-items: center;
+    background-color: var(--mojito);
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.project-square h6 {
+    font-size: 18px;
+    margin: 0 auto;
+    max-width: 95%;
+    text-align: center;
+}
+
+
+/* ====== PROFILE SKILLS */
+/* ====== PROFILE SKILLS */
+
+.skill-bullet {
+    background-color: var(--oceandark);
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    height: 35px;
+    margin-right: 7px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.skill-bullet p {
+    font-size: 0.875rem;
+    margin: auto;
+}
+
+#project_modal-about .interview h6 {
+    margin-bottom: 10px;
+}
+
+#project_modal-about .interview {
+    margin-bottom: 60px;
+}
+
+#project_modal-about .interview:last-of-type {
+    margin-bottom: 20px;
+}
 
 /* ============================== DASHBOARD */
 /* ============================== DASHBOARD */
@@ -543,6 +661,60 @@ ul {
     color: var(--beachfoam);
 }
 
+
+/* ============================== PROJECT SHEET */
+/* ============================== PROJECT SHEET */
+
+#project .hero {
+    margin-bottom: 25px;
+}
+
+.project_image {
+    display: flex;
+    flex-direction: column;
+    height: 275px;
+    justify-content: flex-end;
+    margin-bottom: 65px;
+    width: 100%;
+}
+
+.project_sheet {
+    margin-bottom: 30px;
+}
+
+.columned-interviews {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 45px;
+    width: 100%;
+}
+
+.columned-interviews .interview {
+    width: 45%;
+}
+
+.interview h6 {
+    color: var(--ocean);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.interview p {
+    color: var(--beachfoam);
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.project_sheet > :last-child {
+    margin-top: 45px;
+}
+
+
+
+
+
 /* ============================== TEXT & FONT */
 /* ============================== TEXT & FONT */
 
@@ -561,6 +733,7 @@ h1, h2, h4 {
 
 h5, h6, p, li {
     font-family: var(--default);
+    line-height: 1.4;
 }
 
 h1 {
@@ -607,27 +780,21 @@ h5 {
     font-weight: 700;
 }
 
-h6, p, li {
-    font-family: var(--default);
-    font-size: 1.125rem;
-    line-height: 1.4;
+
+
+.outline_coral {
+    -webkit-text-stroke-color: var(--coral);
+}
+
+
+h6, li, p {
+    font-size: 1.0625rem;
 }
 
 h6 {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 p {
     font-weight: 400;
-}
-
-    @media screen and (min-width: 413px) {
-        h6, p {
-            font-family: var(--default);
-            font-size: 1.125rem;
-        }
-    }
-
-.outline_coral {
-    -webkit-text-stroke-color: var(--coral);
 }

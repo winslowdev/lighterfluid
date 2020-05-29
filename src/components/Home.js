@@ -1,11 +1,12 @@
 // ============================== IMPORTS
 // ============================== IMPORTS
 
-import React, { useState } from 'react'
+import React from 'react'
 import { IconContext } from 'react-icons'
 import { IoMdArrowForward } from 'react-icons/io'
 
 import { Hero } from '../supplements/Snacks'
+import { colors } from '../supplements/Variables'
 
 import { highlightPunctuation } from '../supplements/Functions'
 import { concepts, humans } from '../supplements/Images'
@@ -16,14 +17,7 @@ import { concepts, humans } from '../supplements/Images'
 export function Home(props) {
     const introduction = "We turn good concepts into great web apps."
     const services = ["UI / UX design", "Web design", "Wordpress & Squarespace templates"]
-    const [colors, setColors] = useState({
-        "blue": "#3a85f4",
-        "gold": "#ffa800",
-        "green": "#35b883",
-        "purple": "#460096",
-        "red": "#F5154F",
-        "white": "#eaeaea"
-    })
+    
 
     return (
         <div className="container">
@@ -41,7 +35,7 @@ export function Home(props) {
                     </div>
                 </div>
 
-                <button className="btn-round">
+                <button className="btn-round btn-round-image">
                     <IconContext.Provider value={{ color: colors.white, size: "2.25rem" }}>
                         <IoMdArrowForward />
                     </IconContext.Provider>
