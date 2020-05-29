@@ -7,9 +7,11 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 
 import { Home } from './components/Home'
 import { Checkpoint } from './components/Checkpoint'
-import { UserProfile } from './components/UserProfile'
+import { Profile } from './components/Profile'
 
 import { randomize } from './supplements/Functions'
+import { Dashboard } from './components/Dashboard'
+import { Project } from './components/Project'
 
 
 // ============================== APPLICATION
@@ -22,7 +24,6 @@ export default function App() {
         const footerTextOptions = [
             "the best way to organize a space party is to planet",
             "react, star trek, and frosted mini-wheats are all part of a balanced diet",
-            "may your reality be your own creation",
             "reality got you down? why not try a conspiracy theory"
         ]
 
@@ -32,7 +33,7 @@ export default function App() {
 
     useEffect(() => {
         randomizeFooterMessage()
-    })
+    }, [])
 
     return (
         <Router>
@@ -40,6 +41,12 @@ export default function App() {
                 <Link to="/">
                     <h4>Lighterfluid</h4>
                 </Link>
+
+                <div id="navicon">
+                    <div className="navicon-top"></div>
+                    <div className="navicon-middle"></div>
+                    <div className="navicon-bottom"></div>
+                </div>
             </header>
 
             <Switch>
@@ -52,7 +59,15 @@ export default function App() {
                 </Route>
 
                 <Route exact path="/developers/jack">
-                    <UserProfile />
+                    <Profile />
+                </Route>
+
+                <Route exact path="/projects/xxx">
+                    <Project />
+                </Route>
+
+                <Route exact path="/secure/home">
+                    <Dashboard />
                 </Route>
             </Switch>
 

@@ -1,41 +1,23 @@
 // ============================== IMPORTS
 // ============================== IMPORTS
 
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { IconContext } from 'react-icons'
+import { IoMdArrowForward } from 'react-icons/io'
 
 import { Hero } from '../supplements/Snacks'
+import { colors } from '../supplements/Variables'
 
-import { highlightPunctuation, randomize } from '../supplements/Functions'
+import { highlightPunctuation } from '../supplements/Functions'
 import { concepts, humans } from '../supplements/Images'
 
 // ============================== HOMEPAGE
 // ============================== HOMEPAGE
 
-export function Home() {
-    const [skillSide, setskillSide] = useState(null)
-
-    let coral = "#F5154F"
-    let darkshellpurple = "#460096"
-    let goldensun = "#ffa800"
-    let mojito = "#35b883"
-    let skyblue = "#3a85f4"
-
-    const backgroundColors = [coral, darkshellpurple, goldensun, mojito, skyblue]
+export function Home(props) {
     const introduction = "We turn good concepts into great web apps."
-    const homeSkills = ["AngularJS", "Atlas", "Bootstrap", "BCrypt", "CSS3", "Express", "Express Session", "Figma", "Git", "GitHub", "Heroku", "HTML5", "JavaScript", "jQuery", "LESS", "Materialize", "MEAN stack", "MERN stack", "Microsoft Visual Studio Code", "MongoDB", "Mongoose", "Object Oriented Programming", "NERDS stack", "NodeJS", "PostgreSQL", "Postman", "React", "React Native", "RESTful APIs", "Ruby", "Ruby on Rails", "SASS", "Shopify", "Terminal", "Weebly", "Wordpress"]
-
-    function measureSkillHeight() {
-        setskillSide(window.innerWidth / 3)
-    }
-
-    useEffect(() => {
-        measureSkillHeight()
-
-        window.addEventListener("resize", () => {
-            measureSkillHeight()
-        })
-    })
+    const services = ["UI / UX design", "Web design", "Wordpress & Squarespace templates"]
+    
 
     return (
         <div className="container">
@@ -50,16 +32,18 @@ export function Home() {
                     <div className="margined">
                         <h4>Latest Project</h4>
                         <h3 className="outline_coral">John Q. Citizen portfolio redesign</h3>
-
-                        <Link to="/">
-                            <h6>Check it out.</h6>
-                        </Link>
                     </div>
                 </div>
+
+                <button className="btn-round btn-round-image">
+                    <IconContext.Provider value={{ color: colors.white, size: "2.25rem" }}>
+                        <IoMdArrowForward />
+                    </IconContext.Provider>
+                </button>
             </div>
 
             <div className="about-us margined">
-                <h6>We are two freelance developers who work independently on opposite sides of the US. But occasionally, we make stuff together.</h6>
+                <h6>We are two US-based software engineers located in San Francisco and Atlanta.</h6>
 
                 <div className="dynamic-duo">
                     <div className="link-bundle">
@@ -74,28 +58,29 @@ export function Home() {
                 </div>
             </div>
 
-            <div className="skillgrid">
-                {homeSkills.map((skill, i) => {
-                    return (
-                        <div key={i} className="skillblock" style={{
-                            backgroundColor: randomize(backgroundColors),
-                            height: skillSide + 'px',
-                            width: skillSide + 'px',
-                        }}>
-                            <h6>{skill}</h6>
-                        </div>
-                    )
-                })}
-            </div>
+            <div id="expanse"></div>
 
-            <div className="for-hire">
-                <div className="hire-information margined">
-                    <h4>{highlightPunctuation("Let's work together.")}</h4>
+            <div className="info-footer">
+                <div className="info-footer_info margined">
+                    <h2>{highlightPunctuation("Let's work together.")}</h2>
 
                     <p>Whether you wanna rework an existing project or code something from the root up, we can help find the right solution for you.</p>
-                    <Link to="/">
-                        <button className="on-oceandark">Send us an email</button>
-                    </Link>
+
+                    <ul className="info-footer_services">
+                        {services.map((service, _i) => {
+                            return (
+                                <li key={_i}>{service}</li>
+                            )
+                        })}
+                    </ul>
+
+
+                    <a href="mailto:hello@lighterfluid.co">
+                        <div className="btn-inline">
+                            <p id="information-email">Send us an email</p>
+                            <div className="underscore"></div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

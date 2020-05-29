@@ -48,15 +48,11 @@
     --coral: #EB5757;
     --goldensun: #ffa800;
     --mojito: #35b883;
+    --ocean: #30415B;
     --oceandark: #111925;
     --skyblue: #3a85f4;
     --darkshellpurple: #460096;
     --white: #eaeaea;
-}
-
-.on-oceandark {
-    background-color: var(--coral);
-    color: var(--white);
 }
 
 .beachfoam {
@@ -95,29 +91,73 @@ body {
     color: var(--oceandark);
 }
 
+/* * {
+    border: 0.25px solid #191919;
+} */
+
 
 /* ============================== BUTTONS */
 /* ============================== BUTTONS */
 
 button {
     border: none;
-    border-radius: 3px;
     font-size: 1rem;
+}
+
+button, .btn-regular, .btn-inline, .btn-round {
+    cursor: pointer;
+}
+
+.btn-regular {
+    background-color: var(--coral);
+    border-radius: 5px;
+    color: var(--white);
     font-weight: 500;
     padding: 15px 20px;
 }
 
-.link-underline {
-    background-color: var(--coral);
-    border-radius: 10px;
-    height: 4px;
-    margin-top: 5px;
-    width: 100px;    
+.btn-inline {
+    display: inline-block;
+    margin-bottom: 75px;
 }
 
-.faux-button p {
-    display: inline;
+    .btn-inline p {
+        display: inline;
+    }
+
+    .underscore {
+        background-color: var(--coral);
+        border-radius: 10px;
+        height: 3px;
+        margin-top: 6px;   
+    }
+
+
+.btn-round {
+    align-items: center;
+    background-color: var(--oceandark);
+    border: 3px solid var(--coral);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: center;
+    width: 50px;
 }
+
+.btn-round-image {
+    margin: 0 5% 0 auto;
+    position: relative;
+}
+
+.project-spotlight .btn-round-image {
+    top: -25px;
+}
+
+.project_image .btn-round-image {
+    top: 25px;
+}
+
 
 
 /* ============================== FORMS & INPUT */
@@ -186,17 +226,10 @@ input::placeholder {
     width: 90%;
 }
 
-.submit-row input[type="submit"] {
+#join-form button, #login-form button {
     margin-left: 10px;
-}
-
-input[type="submit"] {
-    background-color: var(--coral);
-    border-radius: 5px;
-    margin: 0 auto;
     width: 75px;
 }
-
 
 /* ============================== HEADER */
 /* ============================== HEADER */
@@ -215,8 +248,34 @@ header {
 
     header a {
         color: var(--beachfoam);
+        margin-left: auto;
     }
 
+#navicon {
+    margin: 4px 5.5% 0 auto;
+}
+
+.navicon-top, .navicon-middle, .navicon-bottom {
+    background-color: var(--beachfoam);
+    height: 3px;
+    margin-bottom: 3px;
+    position: relative;
+}
+
+.navicon-top {
+    width: 21px;
+}
+
+.navicon-middle {
+    margin-left: auto;
+    right: -5px;
+    width: 17px;
+}
+
+.navicon-bottom {
+    margin: 0 0 0 auto;
+    width: 17px;
+}
 
 /* ============================== FOOTER */
 /* ============================== FOOTER */
@@ -235,7 +294,7 @@ footer {
     }
 
     footer a {
-        color: var(--oceandark);
+        color: var(--beachfoam);
     }
 
 
@@ -261,7 +320,7 @@ footer {
     background-color: var(--oceandark);
     display: flex;
     flex-direction: column;
-    height: 330px;
+    height: 100%;
     justify-content: center;
     opacity: 0.97;
     position: relative;
@@ -278,6 +337,9 @@ footer {
         margin-top: 35px;
     }
 
+    .project-square .spotlight-cover {
+        opacity: 0.85;
+    }
 
 /* ============================== HOME — ABOUT US */
 /* ============================== HOME — ABOUT US */
@@ -317,11 +379,10 @@ footer {
     text-align: center;
 }
 
-
 /* ============================== HOME — SKILLS */
 /* ============================== HOME — SKILLS */
 
-.skillgrid {
+#expanse {
     align-items: flex-start;
     display: flex;
     flex-direction: row;
@@ -329,49 +390,56 @@ footer {
     justify-content: flex-start;
 }
 
-.skillblock {
-    align-items: center;
-    background-color: ghostwhite;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.skillblock :first-child {
-    font-weight: 700;
-    text-align: center;
-    width: 80%;
-}
-
 
 /* ============================== HOME — FOR HIRE */
 /* ============================== HOME — FOR HIRE */
 
-.for-hire {
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.info-footer {
     background-color: var(--oceandark);
     margin-top: 0;
-    padding: 60px 0 80px;
+    padding: 40px 0 80px;
 }
 
-.for-hire h4 {
+.info-footer h2 {
     color: var(--white);
-    margin: 0 auto;
+    margin: 0 auto 50px;
     text-align: center;
     width: 80%;
 }
 
-.for-hire p {
-    color: var(--white);
-    margin: 70px auto 50px;
+.info-footer p {
+    color: var(--ocean);
+    margin-bottom: 35px;
     text-align: center;
-    width: 92%;
+    width: 100%;
 }
 
-.hire-information {
+.info-footer_info {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+.info-footer_services {
+    margin-bottom: 50px;
+}
+
+.info-footer_services li {
+    color: var(--ocean);
+    list-style: none;
+    margin: 5px auto;
+    text-align: center;
+    width: 75%;
+}
+
+.info-footer .btn-inline p {
+    color: var(--white);
 }
 
 
@@ -382,9 +450,7 @@ footer {
     margin-bottom: 100px;
 }
 
-.faux-button {
-    margin-bottom: 75px;
-}
+
 
 #login-form {
     margin-bottom: 30px;   
@@ -444,26 +510,207 @@ footer {
         width: auto;
     }
 
-.bio h6 {
+
+
+
+/* ====== PROFILE STATEMENT */
+/* ====== PROFILE STATEMENT */
+
+#profile_statement h6 {
     color: var(--beachfoam);
     text-align: center;
 }
 
-.location {
+/* ====== PROFILE LOCATION */
+/* ====== PROFILE LOCATION */
+
+#profile_locale {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
-    height: 170px;
     justify-content: center;
-    margin: 0 auto;
+    height: 200px;
+    margin: 10px auto;
 }
 
-.location h4 {
-    display: inline-block;
+.profile_locale-info {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.profile_locale-info h4 {
+    display: inline;
     font-family: 'Integral CF Demibold';
     font-style: oblique;
-    max-width: 300px;
 }
+
+.profile_locale-info h4:nth-of-type(1) {
+    color: var(--coral);
+}
+
+.profile_locale-info .punctuation {
+    color: var(--oceandark)
+}
+
+/* ====== PROFILE MODAL */
+/* ====== PROFILE MODAL */
+
+#profile_modal {
+    margin-bottom: 40px;
+}
+
+.profile_modal-toggles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto 45px;
+    width: 65%;
+}
+
+.profile_modal-toggles h6 {
+    color: var(--beachfoam);
+    font-weight: 700;
+}
+
+.profile_modal-toggles h6:hover {
+    color: var(--ocean);
+}
+
+#profile_modal-projects, #profile_modal-skills {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+#profile_modal-projects {
+    width: 100%;
+}
+
+.project-square {
+    align-items: center;
+    background-color: var(--mojito);
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.project-square h6 {
+    font-size: 18px;
+    margin: 0 auto;
+    max-width: 95%;
+    text-align: center;
+}
+
+
+/* ====== PROFILE SKILLS */
+/* ====== PROFILE SKILLS */
+
+.skill-bullet {
+    background-color: var(--oceandark);
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    height: 35px;
+    margin-right: 7px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.skill-bullet p {
+    font-size: 0.875rem;
+    margin: auto;
+}
+
+#project_modal-about .interview h6 {
+    margin-bottom: 10px;
+}
+
+#project_modal-about .interview {
+    margin-bottom: 60px;
+}
+
+#project_modal-about .interview:last-of-type {
+    margin-bottom: 20px;
+}
+
+/* ============================== DASHBOARD */
+/* ============================== DASHBOARD */
+
+#dashboard .hero {
+    margin-bottom: 85px;
+}
+
+.dashboard_duo {
+    margin-bottom: 40px;
+}
+
+.dashboard_duo h4 {
+    color: var(--coral);
+    margin-bottom: 5px;
+}
+
+.dashboard_duo h4:hover {
+    color: var(--ocean);
+}
+
+.dashboard_duo p {
+    color: var(--beachfoam);
+}
+
+
+/* ============================== PROJECT SHEET */
+/* ============================== PROJECT SHEET */
+
+#project .hero {
+    margin-bottom: 25px;
+}
+
+.project_image {
+    display: flex;
+    flex-direction: column;
+    height: 275px;
+    justify-content: flex-end;
+    margin-bottom: 65px;
+    width: 100%;
+}
+
+.project_sheet {
+    margin-bottom: 30px;
+}
+
+.columned-interviews {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 45px;
+    width: 100%;
+}
+
+.columned-interviews .interview {
+    width: 45%;
+}
+
+.interview h6 {
+    color: var(--ocean);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.interview p {
+    color: var(--beachfoam);
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.project_sheet > :last-child {
+    margin-top: 45px;
+}
+
 
 
 
@@ -479,17 +726,41 @@ h1, h3, h4, h5, h6, p {
     margin: 0;
 }
 
-h1, h4 {
+h1, h2, h4 {
     font-family: 'Integral CF Bold';
     letter-spacing: 0;
 }
 
+h5, h6, p, li {
+    font-family: var(--default);
+    line-height: 1.4;
+}
+
 h1 {
-    font-size: 2.5rem;
+    font-size: 1.9rem;
+}
+
+@media screen and (min-width: 351px) {
+    h1 {
+        font-size: 2.3rem;
+    }
+}
+
+@media screen and (min-width: 412px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+h2 {
+    color: var(--white);
+    font-size: 2.1875rem;
+    line-height: 1;
+    text-align: center;
 }
 
 h3 {
-    color: var(--white);
+    
     -webkit-text-fill-color: #ffffff00;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--white);
@@ -509,27 +780,21 @@ h5 {
     font-weight: 700;
 }
 
-h6, p {
-    font-family: var(--default);
-    font-size: 1rem;
-    line-height: 1.4;
+
+
+.outline_coral {
+    -webkit-text-stroke-color: var(--coral);
+}
+
+
+h6, li, p {
+    font-size: 1.0625rem;
 }
 
 h6 {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 p {
     font-weight: 400;
-}
-
-    @media screen and (min-width: 413px) {
-        h6, p {
-            font-family: var(--default);
-            font-size: 1.125rem;
-        }
-    }
-
-.outline_coral {
-    -webkit-text-stroke-color: var(--coral);
 }
