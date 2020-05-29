@@ -10,8 +10,8 @@ import { Hero, Interview } from '../supplements/Snacks'
 import { colors } from '../supplements/Variables'
 
 
-// ============================== DASHBOARD
-// ============================== DASHBOARD
+// ============================== PROJECT
+// ============================== PROJECT
 
 export function Project(props) {
     return (
