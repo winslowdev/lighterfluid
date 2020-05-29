@@ -2,7 +2,6 @@
 // ============================== IMPORTS
 
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { IconContext } from 'react-icons'
 import { IoLogoGithub, IoLogoLinkedin, IoMdMail } from 'react-icons/io'
 
