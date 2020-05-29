@@ -15,24 +15,23 @@ export function Dashboard() {
         <div id="dashboard" className="container">
             <Hero hero="Here's your dashboard. Try not to get dashbored." />
 
-            <div className="dashboard_duos margined">
-
+            <div id="dashboard_links" className="margined">
                 <Link to="/secure/profile">
-                    <div className="dashboard_duo">
+                    <div className="dashboard_links-item">
                         <h4>Your profile</h4>
                         <p>Update your name, location, etc.</p>
                     </div>
                 </Link>
 
                 <Link to="/secure/account">
-                    <div className="dashboard_duo">
+                    <div className="dashboard_links-item">
                         <h4>Account settings</h4>
                         <p>Change your email address or password.</p>
                     </div>
                 </Link>
 
                 <Link to="/secure/projects">
-                    <div className="dashboard_duo">
+                    <div className="dashboard_links-item">
                         <h4>Workspace</h4>
                         <p>Add or update your projects.</p>
                     </div>

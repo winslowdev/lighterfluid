@@ -41,13 +41,13 @@ export function Profile() {
     }
 
     return (
-        <div id="user-profile" className="container">
-            <section className="profile-header margined">
+        <div id="profile" className="container">
+            <section id="profile_header" className="margined">
                 <img src={humans.man2} alt="J. Benjamin Nimble" />
                 <h5 className="coral">J. Benjamin Nimble</h5>
                 <h6 className="beachfoam">Software Engineer</h6>
 
-                <div className="contacts">
+                <div className="profile_header-contacts">
                     <IconContext.Provider value={{ color: "#111925", size: "20px" }}>
                         <a href="mailto:winslow@lighterfluid.co"><IoMdMail /></a>
                         <a href="https://www.linkedin.com"><IoLogoLinkedin /></a>
