@@ -255,6 +255,8 @@ header {
     color: var(--beachfoam);
     display: block;
     margin-left: auto;
+    position: relative;
+    left: 5px;
 }
 
 #navicon {
@@ -790,7 +792,55 @@ a {
     }
 }
 
+@media screen and (min-width: 2000px) {
+    .container {
+        margin-top: 150px;
+    }
 
+    .hero {
+        margin-bottom: 100px;
+    }
+    
+    header {
+        height: 60px;
+    }
+
+    #home .cover h3 {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .cover h4 {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+.cover .margined {
+    position: relative;
+    top: -200px;
+}
+
+    h1 {
+        font-size: 9rem;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 7rem;
+        -webkit-text-fill-color: #ffffff00;
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: var(--white);
+        text-align: center;
+    }
+
+    h4 {
+        font-size: 3rem;
+    }
+
+    #home .project_image {
+        height: 1200px;
+    }
+}
 
 
 

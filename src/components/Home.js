@@ -1,14 +1,14 @@
 // ============================== IMPORTS
 // ============================== IMPORTS
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { IconContext } from 'react-icons'
 import { IoMdArrowForward } from 'react-icons/io'
 
 import { Hero } from '../supplements/Snacks'
 import { colors } from '../supplements/Variables'
 
-import { highlightPunctuation } from '../supplements/Functions'
+import { highlightPunctuation, randomize } from '../supplements/Functions'
 import { concepts, humans } from '../supplements/Images'
 
 
@@ -18,6 +18,28 @@ import { concepts, humans } from '../supplements/Images'
 export function Home(props) {
     const introduction = "We turn good concepts into great web apps."
     const services = ["UI / UX design", "Web design", "Wordpress & Squarespace templates"]
+
+    function renderAntivoidSquares() {
+        const antivoid = document.getElementById("antivoid")
+        const squareQuantity = 60
+        let i;
+
+        for (i = 0; i < squareQuantity; i++) {
+            let div = document.createElement("DIV")
+            let length = window.innerWidth / 6 + 'px'
+
+            div.style.backgroundColor = colors.blue
+            div.style.width = length
+            div.style.height = length
+            antivoid.appendChild(div)
+        }
+    }
+
+    useEffect(() => {
+        renderAntivoidSquares()
+
+        console.log(colors)
+    })
 
 
     return (
