@@ -409,6 +409,7 @@ footer {
 }
 
 
+
 /* ============================== HOME — FOR HIRE */
 /* ============================== HOME — FOR HIRE */
 
@@ -683,6 +684,10 @@ ul {
     margin-bottom: 30px;
 }
 
+.project_sheet > :last-child {
+    margin-top: 45px;
+}
+
 .columned-interviews {
     align-items: flex-start;
     display: flex;
@@ -708,9 +713,7 @@ ul {
     font-weight: 500;
 }
 
-.project_sheet > :last-child {
-    margin-top: 45px;
-}
+
 
 
 

@@ -6,7 +6,7 @@ import { IconContext } from 'react-icons'
 import { IoMdArrowForward } from 'react-icons/io'
 
 import { Hero } from '../supplements/Snacks'
-import { colors } from '../supplements/Variables'
+import { brightColors, colors } from '../supplements/Variables'
 
 import { highlightPunctuation, randomize } from '../supplements/Functions'
 import { concepts, humans } from '../supplements/Images'
@@ -21,25 +21,27 @@ export function Home(props) {
 
     function renderAntivoidSquares() {
         const antivoid = document.getElementById("antivoid")
-        const squareQuantity = 60
         let i;
 
-        for (i = 0; i < squareQuantity; i++) {
+        for (i = 0; i < 60; i++) {
             let div = document.createElement("DIV")
-            let length = window.innerWidth / 6 + 'px'
 
-            div.style.backgroundColor = colors.blue
-            div.style.width = length
-            div.style.height = length
+            div.style.width = window.innerWidth / 6 + 'px'
+            div.style.height = window.innerWidth / 6 + 'px'
+            div.style.backgroundColor = randomize(Object.values(brightColors))
             antivoid.appendChild(div)
+        }
+
+        if (antivoid.offsetTop <= 1250) {
+            document.getElementsByTagName("H4")[0].style.color = colors.white
         }
     }
 
     useEffect(() => {
         renderAntivoidSquares()
 
-        console.log(colors)
-    })
+        window.addEventListener("resize", renderAntivoidSquares())
+    }, [])
 
 
     return (

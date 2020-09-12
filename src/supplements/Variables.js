@@ -8,3 +8,11 @@ export const colors = {
     red: "#F5154F",
     white: "#eaeaea"
 }
+
+export const brightColors = {
+    blue: "#3a85f4",
+    gold: "#ffa800",
+    green: "#35b883",
+    purple: "#460096",
+    red: "#F5154F",
+}
