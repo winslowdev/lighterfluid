@@ -1,2 +1,3 @@
-# Lighterfluid (https://lighterfluid.co)
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Lighterfluid (v0.5)
+
+This project has been archived and is completely unrelated to Lighterfluid 2021
